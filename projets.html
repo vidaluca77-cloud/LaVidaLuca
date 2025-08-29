@@ -4,76 +4,377 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nos Projets - La Vida Luca</title>
+    <meta name="description" content="Découvrez les projets innovants de La Vida Luca : fermes pilotes bio, agriculture 4.0, formations et insertion sociale.">
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
+    <!-- Navigation -->
+    <nav class="navbar">
         <div class="container">
-            <nav class="nav">
-                <div>
-                    <a class="logo" href="index.html" style="font-weight:800;">La Vida Luca</a>
-                </div>
-                <div style="display:flex;gap:8px;flex-wrap:wrap;">
-                    <a href="index.html">Accueil</a>
-                    <a class="active" href="projets.html">Projets</a>
-                    <a href="benevoles.html">Bénévoles</a>
-                    <a href="dons.html">Dons</a>
-                    <a href="contact.html">Contact</a>
-                    <a href="mentions.html">Mentions légales</a>
-                </div>
-            </nav>
+            <div class="nav-brand">
+                <a href="index.html">La Vida Luca</a>
+            </div>
+            <button class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="projets.html" class="active">Nos Projets</a></li>
+                <li><a href="formations.html">Formations</a></li>
+                <li><a href="benevoles.html">Bénévoles</a></li>
+                <li><a href="partenaires.html">Partenaires</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="dons.html" class="btn-donate">Faire un don</a></li>
+            </ul>
         </div>
-    </header>
+    </nav>
 
-    <main style="padding-top: 80px;">
-        <section class="hero" style="padding: 3rem 0; text-align: center;">
-            <div class="container">
-                <h1>Nos Projets</h1>
-                <p>Découvrez nos initiatives pour une agriculture biologique et sociale</p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Nos Projets Innovants</h1>
+            <p>Découvrez nos initiatives pour une agriculture biologique, durable et socialement responsable</p>
+            <div class="cta-buttons">
+                <a href="#projets-phares" class="btn btn-white">Voir nos projets</a>
+                <a href="contact.html" class="btn btn-outline">Nous rejoindre</a>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section style="padding: 4rem 0;">
-            <div class="container">
-                <div class="grid">
-                    <div class="card">
-                        <h3>Ferme Pilote de Souleuvre</h3>
-                        <p>Notre premier site pilote de 5 hectares dédié à l'agriculture biologique et à l'insertion sociale.</p>
-                        <div class="notice">
-                            <strong>Statut:</strong> En développement
+    <!-- Stats Section -->
+    <section style="background: var(--light-color); padding: 4rem 0;">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; text-align: center;">
+                <div>
+                    <div style="font-size: 3rem; color: var(--primary-color); font-weight: bold;">96</div>
+                    <p style="color: var(--text-light);">Fermes visées d'ici 2030</p>
+                </div>
+                <div>
+                    <div style="font-size: 3rem; color: var(--primary-color); font-weight: bold;">5 ha</div>
+                    <p style="color: var(--text-light);">Site pilote à Souleuvre</p>
+                </div>
+                <div>
+                    <div style="font-size: 3rem; color: var(--primary-color); font-weight: bold;">100%</div>
+                    <p style="color: var(--text-light);">Agriculture biologique</p>
+                </div>
+                <div>
+                    <div style="font-size: 3rem; color: var(--primary-color); font-weight: bold;">200+</div>
+                    <p style="color: var(--text-light);">Bénéficiaires par an</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Projects Section -->
+    <section id="projets-phares" style="padding: 4rem 0;">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 2.5rem; color: var(--primary-color); margin-bottom: 3rem;">Nos Projets Phares</h2>
+            
+            <!-- Project 1: Souleuvre Farm -->
+            <div class="project-card" style="margin-bottom: 3rem;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
+                    <div>
+                        <span class="badge status development">En développement</span>
+                        <h3 style="font-size: 2rem; color: var(--primary-color); margin-bottom: 1rem;">🌾 Ferme Pilote de Souleuvre</h3>
+                        <p style="font-size: 1.1rem; margin-bottom: 1.5rem; color: var(--text-light);">
+                            Notre ferme pilote de 5 hectares en Normandie combine agriculture biologique, 
+                            élevage ovin, autonomie énergétique et insertion sociale. Un modèle complet 
+                            d'agriculture durable et innovante.
+                        </p>
+                        
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0;">
+                            <div>
+                                <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">🥕 Maraîchage Bio</h4>
+                                <p style="font-size: 0.9rem; color: var(--text-light);">Légumes de saison, permaculture</p>
+                            </div>
+                            <div>
+                                <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">🐑 Élevage Ovin</h4>
+                                <p style="font-size: 0.9rem; color: var(--text-light);">Race locale, bien-être animal</p>
+                            </div>
+                            <div>
+                                <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">⚡ Autonomie Énergétique</h4>
+                                <p style="font-size: 0.9rem; color: var(--text-light);">Panneaux solaires, méthanisation</p>
+                            </div>
+                            <div>
+                                <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">🎓 Formation MFR</h4>
+                                <p style="font-size: 0.9rem; color: var(--text-light);">Accueil d'apprentis agricoles</p>
+                            </div>
+                        </div>
+                        
+                        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                            <a href="contact.html" class="btn btn-primary">Visiter la ferme</a>
+                            <a href="benevoles.html" class="btn btn-secondary">Participer</a>
                         </div>
                     </div>
                     
-                    <div class="card">
-                        <h3>Réseau de 96 Fermes</h3>
-                        <p>Objectif ambitieux de créer un réseau de fermes pilotes bio d'ici 2030.</p>
-                        <div class="notice">
-                            <strong>Statut:</strong> Planification
-                        </div>
+                    <div style="background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%); height: 300px; border-radius: var(--border-radius-large); display: flex; align-items: center; justify-content: center; color: white; font-size: 4rem;">
+                        🏡
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2: Network of 96 Farms -->
+            <div class="project-card" style="margin-bottom: 3rem;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
+                    <div style="background: linear-gradient(135deg, var(--warning-color) 0%, var(--accent-color) 100%); height: 300px; border-radius: var(--border-radius-large); display: flex; align-items: center; justify-content: center; color: white; font-size: 4rem;">
+                        🌍
                     </div>
                     
-                    <div class="card">
-                        <h3>Formation et Insertion</h3>
-                        <p>Programmes de formation agricole et d'insertion socio-professionnelle.</p>
-                        <div class="notice">
-                            <strong>Statut:</strong> Actif
+                    <div>
+                        <span class="badge" style="background: var(--warning-color);">Planification</span>
+                        <h3 style="font-size: 2rem; color: var(--primary-color); margin-bottom: 1rem;">🚀 Réseau de 96 Fermes</h3>
+                        <p style="font-size: 1.1rem; margin-bottom: 1.5rem; color: var(--text-light);">
+                            Vision ambitieuse : créer un réseau de 96 fermes pilotes d'ici 2030, 
+                            réparties sur tout le territoire français. Chaque ferme sera un modèle 
+                            d'agriculture durable et d'insertion sociale.
+                        </p>
+                        
+                        <div style="background: #fff3e0; padding: 1.5rem; border-radius: var(--border-radius); margin: 1.5rem 0;">
+                            <h4 style="color: var(--accent-color); margin-bottom: 1rem;">🎯 Objectifs 2030</h4>
+                            <ul style="list-style: none; padding: 0;">
+                                <li style="padding: 0.3rem 0;">✅ 96 fermes pilotes opérationnelles</li>
+                                <li style="padding: 0.3rem 0;">✅ 2000 emplois créés dans l'agriculture bio</li>
+                                <li style="padding: 0.3rem 0;">✅ 500 hectares en agriculture biologique</li>
+                                <li style="padding: 0.3rem 0;">✅ 10 000 bénéficiaires formés</li>
+                            </ul>
+                        </div>
+                        
+                        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                            <a href="contact.html" class="btn btn-primary">Rejoindre le réseau</a>
+                            <a href="dons.html" class="btn btn-secondary">Soutenir l'expansion</a>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
 
-    <footer>
-        <div class="container">
-            <div class="links">
-                <a href="mentions.html">Mentions légales</a>
-                <a href="contact.html">Contact</a>
+            <!-- Project 3: Innovation & AI -->
+            <div class="project-card" style="margin-bottom: 3rem;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
+                    <div>
+                        <span class="badge status active">Actif</span>
+                        <h3 style="font-size: 2rem; color: var(--primary-color); margin-bottom: 1rem;">🤖 Agriculture 4.0 & IA</h3>
+                        <p style="font-size: 1.1rem; margin-bottom: 1.5rem; color: var(--text-light);">
+                            Première ferme de Normandie à intégrer l'intelligence artificielle 
+                            dans ses pratiques agricoles. Surveillance automatisée, optimisation 
+                            des cultures et gestion intelligente des ressources.
+                        </p>
+                        
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0;">
+                            <div>
+                                <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">📊 Capteurs IoT</h4>
+                                <p style="font-size: 0.9rem; color: var(--text-light);">Monitoring sol, météo, cultures</p>
+                            </div>
+                            <div>
+                                <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">🔍 Vision par ordinateur</h4>
+                                <p style="font-size: 0.9rem; color: var(--text-light);">Détection maladies, parasites</p>
+                            </div>
+                            <div>
+                                <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">⚡ Optimisation</h4>
+                                <p style="font-size: 0.9rem; color: var(--text-light);">IA prédictive, économie d'eau</p>
+                            </div>
+                            <div>
+                                <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">📱 Interface mobile</h4>
+                                <p style="font-size: 0.9rem; color: var(--text-light);">Gestion temps réel</p>
+                            </div>
+                        </div>
+                        
+                        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                            <a href="contact.html" class="btn btn-primary">Découvrir la tech</a>
+                            <a href="formations.html" class="btn btn-secondary">Se former</a>
+                        </div>
+                    </div>
+                    
+                    <div style="background: linear-gradient(135deg, #9C27B0 0%, #673AB7 100%); height: 300px; border-radius: var(--border-radius-large); display: flex; align-items: center; justify-content: center; color: white; font-size: 4rem;">
+                        🧠
+                    </div>
+                </div>
             </div>
-            <div class="small">© 2025 La Vida Luca — Association</div>
+        </div>
+    </section>
+
+    <!-- Formation & Insertion Section -->
+    <section style="background: var(--light-color); padding: 4rem 0;">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 2.5rem; color: var(--primary-color); margin-bottom: 3rem;">Formation & Insertion Sociale</h2>
+            
+            <div class="projects-grid">
+                <div class="mission-card">
+                    <div class="icon">🎓</div>
+                    <h3>Formations Professionnelles</h3>
+                    <p>Partenariat avec la MFR de Souleuvre pour former les agriculteurs de demain aux pratiques biologiques et durables.</p>
+                    <div class="status active">50 apprentis/an</div>
+                </div>
+                
+                <div class="mission-card">
+                    <div class="icon">🤝</div>
+                    <h3>Insertion Sociale</h3>
+                    <p>Accompagnement de personnes en réinsertion professionnelle à travers le maraîchage et l'élevage.</p>
+                    <div class="status active">30 personnes/an</div>
+                </div>
+                
+                <div class="mission-card">
+                    <div class="icon">👥</div>
+                    <h3>Ateliers Seniors</h3>
+                    <p>Activités thérapeutiques et sociales avec les EHPAD locaux : jardinage, contact avec les animaux.</p>
+                    <div class="status active">120 bénéficiaires</div>
+                </div>
+                
+                <div class="mission-card">
+                    <div class="icon">🏫</div>
+                    <h3>Pédagogie Scolaire</h3>
+                    <p>Accueil de classes pour sensibiliser les jeunes à l'agriculture durable et à l'écologie.</p>
+                    <div class="status development">En développement</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Innovation Projects -->
+    <section style="padding: 4rem 0;">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 2.5rem; color: var(--primary-color); margin-bottom: 3rem;">Projets Innovation</h2>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <span class="badge">Recherche</span>
+                    <h3>🔬 Laboratoire de Semences</h3>
+                    <p>Recherche et développement de variétés locales adaptées au changement climatique et résistantes aux maladies.</p>
+                    <ul style="margin: 1rem 0; padding-left: 1.5rem;">
+                        <li>Conservation de graines anciennes</li>
+                        <li>Sélection participative</li>
+                        <li>Tests de résistance</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-primary">En savoir plus</a>
+                </div>
+                
+                <div class="project-card">
+                    <span class="badge" style="background: #00BCD4;">Énergie</span>
+                    <h3>⚡ Autonomie Énergétique</h3>
+                    <p>Projet pilote d'autonomie énergétique complète combinant solaire, éolien et méthanisation.</p>
+                    <ul style="margin: 1rem 0; padding-left: 1.5rem;">
+                        <li>Installation photovoltaïque 50kW</li>
+                        <li>Éolienne domestique</li>
+                        <li>Méthaniseur pour déchets organiques</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-primary">Découvrir</a>
+                </div>
+                
+                <div class="project-card">
+                    <span class="badge" style="background: #E91E63;">Épernon</span>
+                    <h3>🐝 Site Expérimental Épernon</h3>
+                    <p>Site dédié à l'apiculture innovante et à la permaculture urbaine dans les Yvelines.</p>
+                    <ul style="margin: 1rem 0; padding-left: 1.5rem;">
+                        <li>20 ruches connectées</li>
+                        <li>Jardin permaculturel de 2000m²</li>
+                        <li>Ateliers pédagogiques</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-primary">Visiter</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline -->
+    <section style="background: var(--light-color); padding: 4rem 0;">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 2.5rem; color: var(--primary-color); margin-bottom: 3rem;">Feuille de Route</h2>
+            
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div style="background: white; padding: 2rem; border-radius: var(--border-radius-large); margin-bottom: 2rem; border-left: 4px solid var(--primary-color);">
+                    <h3 style="color: var(--primary-color);">2025 - Consolidation</h3>
+                    <ul>
+                        <li>Finalisation de la ferme pilote de Souleuvre</li>
+                        <li>Lancement des formations MFR</li>
+                        <li>Mise en place du système IA</li>
+                        <li>Première récolte complète</li>
+                    </ul>
+                </div>
+                
+                <div style="background: white; padding: 2rem; border-radius: var(--border-radius-large); margin-bottom: 2rem; border-left: 4px solid var(--warning-color);">
+                    <h3 style="color: var(--warning-color);">2026-2027 - Expansion</h3>
+                    <ul>
+                        <li>Ouverture de 5 nouvelles fermes pilotes</li>
+                        <li>Développement du site d'Épernon</li>
+                        <li>Lancement du programme de franchise sociale</li>
+                        <li>Partenariats avec d'autres régions</li>
+                    </ul>
+                </div>
+                
+                <div style="background: white; padding: 2rem; border-radius: var(--border-radius-large); border-left: 4px solid var(--accent-color);">
+                    <h3 style="color: var(--accent-color);">2028-2030 - Réseau National</h3>
+                    <ul>
+                        <li>96 fermes pilotes opérationnelles</li>
+                        <li>Centre de formation nationale</li>
+                        <li>Export du modèle à l'international</li>
+                        <li>Impact social de 10 000 bénéficiaires</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Rejoignez l'Aventure</h2>
+            <p>Participez à la création d'un modèle agricole d'avenir, durable et solidaire</p>
+            <div class="cta-buttons">
+                <a href="benevoles.html" class="btn btn-white">Devenir bénévole</a>
+                <a href="dons.html" class="btn btn-outline">Soutenir nos projets</a>
+                <a href="contact.html" class="btn btn-outline">Nous contacter</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>La Vida Luca</h4>
+                    <p>Association loi 1901<br>
+                    SIRET : 99041389000015<br>
+                    Président : Lucas Horville</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Nos Projets</h4>
+                    <ul>
+                        <li><a href="#projets-phares">Ferme de Souleuvre</a></li>
+                        <li><a href="#projets-phares">Réseau 96 fermes</a></li>
+                        <li><a href="#projets-phares">Agriculture 4.0</a></li>
+                        <li><a href="#innovation">Innovation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Participer</h4>
+                    <ul>
+                        <li><a href="benevoles.html">Devenir bénévole</a></li>
+                        <li><a href="formations.html">Se former</a></li>
+                        <li><a href="dons.html">Faire un don</a></li>
+                        <li><a href="partenaires.html">Partenariat</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <p>Souleuvre-en-Bocage<br>
+                    14350 Calvados<br>
+                    contact@lavidaluca.fr</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="LinkedIn">💼</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 La Vida Luca - Tous droits réservés | <a href="mentions.html">Mentions légales</a></p>
+            </div>
         </div>
     </footer>
-    
+
     <script src="script.js"></script>
 </body>
 </html>

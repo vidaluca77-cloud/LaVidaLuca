@@ -1,22 +1,611 @@
-:root { --brand:#0a7d4f; --text:#1a1a1a; --bg:#ffffff; --muted:#f4f4f5; }
-*{box-sizing:border-box}
-html,body{margin:0;padding:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;color:var(--text);background:var(--bg);}
-a{color:var(--brand);text-decoration:none}
-a:hover{text-decoration:underline}
-header,footer{background:var(--muted);}
-.container{max-width:1024px;margin:0 auto;padding:16px;}
-.nav{display:flex;gap:16px;align-items:center;justify-content:space-between}
-.nav a{padding:8px 10px;border-radius:8px}
-.nav a.active{background:var(--brand);color:white}
-.hero{padding:48px 0}
-.grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
-.card{border:1px solid #e9eaee;border-radius:16px;padding:16px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.04)}
-.btn{display:inline-block;padding:10px 14px;border-radius:10px;background:var(--brand);color:#fff;font-weight:600}
-footer .links{display:flex;gap:12px;flex-wrap:wrap}
-hr{border:none;border-top:1px solid #eee;margin:24px 0}
-img{max-width:100%;height:auto;border-radius:12px}
-form{display:grid;gap:12px}
-input,textarea,select{padding:10px 12px;border:1px solid #ddd;border-radius:10px;font-size:16px}
-label{font-weight:600}
-.notice{background:#eef8f3;border:1px solid #cdebdc;padding:10px 12px;border-radius:10px}
-.small{font-size:14px;color:#555}
+/* ===========================
+   La Vida Luca - Comprehensive CSS
+   ============================= */
+
+:root {
+    --primary-color: #2E7D32;
+    --secondary-color: #66BB6A;
+    --accent-color: #FF6B35;
+    --warning-color: #FFA726;
+    --text-dark: #1a1a1a;
+    --text-light: #666;
+    --light-color: #f8f9fa;
+    --white: #ffffff;
+    --border-light: #e0e0e0;
+    --shadow-light: 0 3px 10px rgba(0,0,0,0.1);
+    --shadow-medium: 0 5px 20px rgba(0,0,0,0.15);
+    --border-radius: 8px;
+    --border-radius-large: 15px;
+    --transition: all 0.3s ease;
+    
+    /* Legacy variables for compatibility */
+    --brand: #0a7d4f;
+    --text: #1a1a1a;
+    --bg: #ffffff;
+    --muted: #f4f4f5;
+}
+
+/* ===========================
+   Base Styles
+   ============================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background: var(--white);
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+a:hover {
+    opacity: 0.8;
+}
+
+/* ===========================
+   Navigation
+   ============================= */
+
+.navbar {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow-light);
+}
+
+.nav, .navbar .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-brand a, .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+}
+
+.nav-menu a:hover, .nav a:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+.nav-menu a.active, .nav a.active {
+    background: rgba(255,255,255,0.2);
+}
+
+.btn-donate {
+    background: var(--accent-color) !important;
+    padding: 0.7rem 1.5rem !important;
+    border-radius: 25px !important;
+    transition: transform 0.3s;
+}
+
+.btn-donate:hover {
+    transform: scale(1.05);
+    background: var(--accent-color) !important;
+}
+
+/* Mobile menu toggle */
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+.nav-toggle span {
+    width: 25px;
+    height: 3px;
+    background: white;
+    margin: 3px 0;
+    transition: 0.3s;
+}
+
+/* ===========================
+   Layout Components
+   ============================= */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.hero {
+    margin-top: 80px;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    animation: fadeInUp 1s;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ===========================
+   Grid Systems
+   ============================= */
+
+.grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.mission-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+/* ===========================
+   Cards
+   ============================= */
+
+.card {
+    background: white;
+    border: 1px solid var(--border-light);
+    border-radius: var(--border-radius-large);
+    padding: 2rem;
+    box-shadow: var(--shadow-light);
+    transition: var(--transition);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
+}
+
+.project-card {
+    background: white;
+    border-radius: var(--border-radius-large);
+    padding: 2rem;
+    box-shadow: var(--shadow-light);
+    transition: var(--transition);
+    overflow: hidden;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
+}
+
+.project-card h3 {
+    color: var(--primary-color);
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+.project-card p {
+    color: var(--text-light);
+    margin-bottom: 1rem;
+}
+
+.mission-card {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--border-radius-large);
+    box-shadow: var(--shadow-light);
+    text-align: center;
+    transition: var(--transition);
+}
+
+.mission-card:hover {
+    transform: translateY(-5px);
+}
+
+.mission-card .icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.mission-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+/* ===========================
+   Buttons
+   ============================= */
+
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+    cursor: pointer;
+    border: none;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #1B5E20;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-light);
+}
+
+.btn-secondary {
+    background: var(--secondary-color);
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #4CAF50;
+}
+
+.btn-outline {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.btn-outline:hover {
+    background: white;
+    color: var(--primary-color);
+}
+
+.btn-white {
+    background: white;
+    color: var(--primary-color);
+}
+
+.btn-white:hover {
+    background: #f5f5f5;
+}
+
+/* ===========================
+   Badges & Status
+   ============================= */
+
+.badge {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: white;
+    background: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.notice {
+    background: #e8f5e9;
+    border: 1px solid #c8e6c9;
+    color: var(--primary-color);
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    margin: 1rem 0;
+}
+
+.status {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-top: 1rem;
+}
+
+.status.active {
+    background: #c8e6c9;
+    color: #1B5E20;
+}
+
+.status.planning {
+    background: #fff3e0;
+    color: #E65100;
+}
+
+.status.development {
+    background: #e3f2fd;
+    color: #0D47A1;
+}
+
+/* ===========================
+   Footer
+   ============================= */
+
+.footer {
+    background: #1B5E20;
+    color: white;
+    padding: 3rem 0 1rem;
+    margin-top: 4rem;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-col h4 {
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-col a {
+    color: rgba(255,255,255,0.8);
+    transition: var(--transition);
+}
+
+.footer-col a:hover {
+    color: white;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.8);
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-links a {
+    display: inline-block;
+    padding: 0.5rem;
+    background: rgba(255,255,255,0.1);
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+.social-links a:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+/* ===========================
+   Forms
+   ============================= */
+
+.form-section {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--border-radius-large);
+    box-shadow: var(--shadow-light);
+    margin: 2rem 0;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-light);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.1);
+}
+
+/* ===========================
+   CTA Sections
+   ============================= */
+
+.cta {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+    margin: 4rem 0;
+}
+
+.cta h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.cta p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ===========================
+   Animations
+   ============================= */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===========================
+   Responsive Design
+   ============================= */
+
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--primary-color);
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .nav-toggle {
+        display: flex;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .container {
+        padding: 0 1rem;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .mission-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===========================
+   Legacy Support
+   ============================= */
+
+header, footer {
+    background: var(--muted);
+}
+
+.nav a {
+    padding: 8px 10px;
+    border-radius: 8px;
+}
+
+footer .links {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #eee;
+    margin: 24px 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+}
+
+form {
+    display: grid;
+    gap: 12px;
+}
+
+.small {
+    font-size: 14px;
+    color: #555;
+}
