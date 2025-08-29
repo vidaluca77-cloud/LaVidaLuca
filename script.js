@@ -55,7 +55,13 @@ function handleFormSubmit(formId, successMessage) {
         form.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Validation basique
+            // Special handling for donation form
+            if (formId === 'donation-form') {
+                handleDonationSubmit(form);
+                return;
+            }
+            
+            // Validation basique pour autres formulaires
             const requiredFields = form.querySelectorAll('[required]');
             let isValid = true;
             
@@ -86,6 +92,110 @@ function handleFormSubmit(formId, successMessage) {
             }
         });
     }
+}
+
+// Handle donation form submission with Mollie integration
+function handleDonationSubmit(form) {
+    // Validate required fields
+    const requiredFields = form.querySelectorAll('[required]');
+    let isValid = true;
+    
+    requiredFields.forEach(field => {
+        if (!field.value.trim()) {
+            isValid = false;
+            field.style.borderColor = '#ff6b35';
+        } else {
+            field.style.borderColor = '';
+        }
+    });
+    
+    // Validate amount
+    const amountField = form.querySelector('[name="amount"]');
+    const amount = parseFloat(amountField.value);
+    
+    if (!amount || amount < 1) {
+        isValid = false;
+        amountField.style.borderColor = '#ff6b35';
+        alert('Veuillez saisir un montant valide (minimum 1€).');
+        return;
+    }
+    
+    if (!isValid) {
+        alert('Veuillez remplir tous les champs obligatoires.');
+        return;
+    }
+    
+    // Prepare donation data
+    const formData = new FormData(form);
+    const donationData = {
+        amount: amount,
+        firstname: formData.get('firstname'),
+        lastname: formData.get('lastname'),
+        email: formData.get('email'),
+        phone: formData.get('phone') || '',
+        address: formData.get('address') || '',
+        postal: formData.get('postal') || '',
+        city: formData.get('city') || '',
+        donation_type: formData.get('donation-type') || 'ponctuel',
+        message: formData.get('message') || '',
+        fiscal_receipt: form.querySelector('input[type="checkbox"]:checked') ? true : false,
+        anonymous: false,
+        newsletter: false
+    };
+    
+    // Get checkbox values
+    const checkboxes = form.querySelectorAll('input[type="checkbox"]');
+    checkboxes.forEach((checkbox, index) => {
+        if (index === 0) donationData.fiscal_receipt = checkbox.checked;
+        if (index === 1) donationData.anonymous = checkbox.checked;
+        if (index === 2) donationData.newsletter = checkbox.checked;
+    });
+    
+    // Show loading state
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = 'Redirection vers le paiement...';
+    submitBtn.disabled = true;
+    
+    // Send to Mollie payment processor
+    fetch('process_payment.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(donationData)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Erreur réseau: ' + response.status);
+        }
+        return response.json();
+    })
+    .then(data => {
+        if (data.success && data.payment_url) {
+            // Redirect to Mollie payment page
+            window.location.href = data.payment_url;
+        } else {
+            throw new Error(data.error || 'Erreur lors de la création du paiement');
+        }
+    })
+    .catch(error => {
+        console.error('Payment error:', error);
+        let errorMessage = 'Erreur lors de la création du paiement. Veuillez réessayer.';
+        
+        // Provide more specific error messages
+        if (error.message.includes('fetch')) {
+            errorMessage = 'Problème de connexion. Vérifiez votre connexion internet et réessayez.';
+        } else if (error.message.includes('JSON')) {
+            errorMessage = 'Erreur de communication avec le serveur. Veuillez réessayer.';
+        }
+        
+        alert(errorMessage);
+        
+        // Reset button
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+    });
 }
 
 // Initialisation des formulaires
@@ -149,11 +259,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const customAmount = document.getElementById('custom-amount');
     
     amountButtons.forEach(btn => {
-        btn.addEventListener('click', function() {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent form submission
             amountButtons.forEach(b => b.classList.remove('active'));
             this.classList.add('active');
-            if (customAmount) {
-                customAmount.value = this.dataset.amount || '';
+            if (customAmount && this.dataset.amount) {
+                customAmount.value = this.dataset.amount;
             }
         });
     });
@@ -161,6 +272,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (customAmount) {
         customAmount.addEventListener('input', function() {
             amountButtons.forEach(b => b.classList.remove('active'));
+            // Auto-select matching amount button
+            const value = this.value;
+            amountButtons.forEach(btn => {
+                if (btn.dataset.amount === value) {
+                    btn.classList.add('active');
+                }
+            });
         });
     }
 });
