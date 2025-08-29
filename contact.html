@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - La Vida Luca</title>
+    <meta name="description" content="Contactez l'association La Vida Luca. Nous sommes à votre écoute pour toute question sur nos projets agricoles et sociaux.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html">La Vida Luca</a>
+            </div>
+            <button class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="projets.html">Nos Projets</a></li>
+                <li><a href="formations.html">Formations</a></li>
+                <li><a href="benevoles.html">Bénévoles</a></li>
+                <li><a href="partenaires.html">Partenaires</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+                <li><a href="dons.html" class="btn-donate">Faire un don</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="hero" style="padding: 3rem 2rem;">
+        <h1>Contactez-nous</h1>
+        <p>Nous sommes à votre écoute pour répondre à toutes vos questions</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section style="padding: 4rem 0;">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; max-width: 1200px; margin: 0 auto;">
+                
+                <!-- Contact Information -->
+                <div>
+                    <h2 style="font-size: 2rem; margin-bottom: 2rem;">Nos Coordonnées</h2>
+                    
+                    <div style="margin-bottom: 2rem;">
+                        <h3 style="color: var(--primary-color); margin-bottom: 1rem;">📍 Siège Social</h3>
+                        <p>Association La Vida Luca<br>
+                        Souleuvre-en-Bocage<br>
+                        14350 Calvados<br>
+                        France</p>
+                    </div>
+                    
+                    <div style="margin-bottom: 2rem;">
+                        <h3 style="color: var(--primary-color); margin-bottom: 1rem;">📞 Téléphone</h3>
+                        <p><a href="tel:+33600000000" style="color: var(--text-dark); text-decoration: none;">06 00 00 00 00</a><br>
+                        Du lundi au vendredi : 9h - 18h<br>
+                        Samedi : 9h - 12h</p>
+                    </div>
+                    
+                    <div style="margin-bottom: 2rem;">
+                        <h3 style="color: var(--primary-color); margin-bottom: 1rem;">✉️ Email</h3>
+                        <p>
+                            <strong>Général :</strong> <a href="mailto:contact@lavidaluca.fr" style="color: var(--text-dark);">contact@lavidaluca.fr</a><br>
+                            <strong>Formations :</strong> <a href="mailto:formations@lavidaluca.fr" style="color: var(--text-dark);">formations@lavidaluca.fr</a><br>
+                            <strong>Partenariats :</strong> <a href="mailto:partenaires@lavidaluca.fr" style="color: var(--text-dark);">partenaires@lavidaluca.fr</a><br>
+                            <strong>Presse :</strong> <a href="mailto:presse@lavidaluca.fr" style="color: var(--text-dark);">presse@lavidaluca.fr</a>
+                        </p>
+                    </div>
+                    
+                    <div style="margin-bottom: 2rem;">
+                        <h3 style="color: var(--primary-color); margin-bottom: 1rem;">🏢 Informations Légales</h3>
+                        <p>
+                            <strong>Association loi 1901</strong><br>
+                            SIRET : 99041389000015<br>
+                            Président : Lucas Horville<br>
+                            <a href="mentions.html" style="color: var(--primary-color);">Mentions légales complètes</a>
+                        </p>
+                    </div>
+                    
+                    <div>
+                        <h3 style="color: var(--primary-color); margin-bottom: 1rem;">📱 Réseaux Sociaux</h3>
+                        <div style="display: flex; gap: 1rem;">
+                            <a href="#" style="display: inline-block; padding: 0.75rem; background: var(--light-color); border-radius: 8px; text-decoration: none;">
+                                <span style="font-size: 1.5rem;">📘</span> Facebook
+                            </a>
+                            <a href="#" style="display: inline-block; padding: 0.75rem; background: var(--light-color); border-radius: 8px; text-decoration: none;">
+                                <span style="font-size: 1.5rem;">📷</span> Instagram
+                            </a>
+                            <a href="#" style="display: inline-block; padding: 0.75rem; background: var(--light-color); border-radius: 8px; text-decoration: none;">
+                                <span style="font-size: 1.5rem;">💼</span> LinkedIn
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div>
+                    <h2 style="font-size: 2rem; margin-bottom: 2rem;">Envoyez-nous un message</h2>
+                    
+                    <form id="contact-form" class="form-section">
+                        <div class="form-group">
+                            <label for="contact-subject">Objet de votre demande *</label>
+                            <select id="contact-subject" name="subject" required>
+                                <option value="">-- Sélectionnez --</option>
+                                <option value="information">Demande d'information</option>
+                                <option value="formation">Question sur les formations</option>
+                                <option value="benevole">Devenir bénévole</option>
+                                <option value="partenariat">Proposition de partenariat</option>
+                                <option value="visite">Organiser une visite</option>
+                                <option value="presse">Contact presse</option>
+                                <option value="autre">Autre</option>
+                            </select>
+                        </div>
+                        
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                            <div class="form-group">
+                                <label for="contact-firstname">Prénom *</label>
+                                <input type="text" id="contact-firstname" name="firstname" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="contact-lastname">Nom *</label>
+                                <input type="text" id="contact-lastname" name="lastname" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contact-email">Email *</label>
+                            <input type="email" id="contact-email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contact-phone">Téléphone</label>
+                            <input type="tel" id="contact-phone" name="phone">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contact-organization">Organisation / Entreprise</label>
+                            <input type="text" id="contact-organization" name="organization">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contact-message">Votre message *</label>
+                            <textarea id="contact-message" name="message" rows="6" required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox"> 
+                                Je souhaite recevoir la newsletter La Vida Luca
+                            </label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" required> 
+                                J'accepte que mes données soient utilisées pour traiter ma demande *
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">
+                            Envoyer mon message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section style="background: var(--light-color); padding: 4rem 0;">
+        <div class="container">
+            <h2>Nous Trouver</h2>
+            
+            <div style="max-width: 1000px; margin: 0 auto;">
+                <!-- Map placeholder -->
+                <div style="background: #e0e0e0; height: 400px; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 2rem;">
+                    <div style="text-align: center;">
+                        <p style="font-size: 1.5rem; margin-bottom: 1rem;">📍</p>
+                        <p>Carte interactive</p>
+                        <p style="color: var(--text-light);">Souleuvre-en-Bocage, Calvados</p>
+                        <!-- Ici, vous pouvez intégrer Google Maps ou OpenStreetMap -->
+                    </div>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                    <div style="background: white; padding: 1.5rem; border-radius: 8px;">
+                        <h3 style="color: var(--primary-color); margin-bottom: 1rem;">🚗 En voiture</h3>
+                        <p>Depuis Caen : 45 minutes<br>
+                        Depuis Rennes : 1h30<br>
+                        Parking gratuit sur place</p>
+                    </div>
+                    
+                    <div style="background: white; padding: 1.5rem; border-radius: 8px;">
+                        <h3 style="color: var(--primary-color); margin-bottom: 1rem;">🚂 En transport</h3>
+                        <p>Gare la plus proche : Vire (15 km)<br>
+                        Bus ligne 32 jusqu'à Souleuvre<br>
+                        Navette possible sur demande</p>
+                    </div>
+                    
+                    <div style="background: white; padding: 1.5rem; border-radius: 8px;">
+                        <h3 style="color: var(--primary-color); margin-bottom: 1rem;">🕐 Horaires de visite</h3>
+                        <p>Lundi - Vendredi : 9h - 17h<br>
+                        Samedi : 9h - 12h (sur RDV)<br>
+                        Dimanche : Fermé</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Contact -->
+    <section style="padding: 4rem 0;">
+        <div class="container">
+            <h2>Questions Fréquentes</h2>
+            
+            <div style="max-width: 800px; margin: 0 auto;">
+                <details style="background: white; margin-bottom: 1rem; padding: 1.5rem; border-radius: 8px; border: 1px solid #e0e0e0;">
+                    <summary style="font-weight: 600; cursor: pointer;">Puis-je visiter la ferme ?</summary>
+                    <p style="margin-top: 1rem;">Oui ! Nous organisons des visites guidées tous les premiers samedis du mois. Pour les groupes, merci de nous contacter pour organiser une visite sur mesure.</p>
+                </details>
+                
+                <details style="background: white; margin-bottom: 1rem; padding: 1.5rem; border-radius: 8px; border: 1px solid #e0e0e0;">
+                    <summary style="font-weight: 600; cursor: pointer;">Comment puis-je devenir bénévole ?</summary>
+                    <p style="margin-top: 1rem;">Rendez-vous sur notre page <a href="benevoles.html">Bénévoles</a> pour remplir le formulaire d'inscription. Nous vous recontacterons rapidement pour discuter de vos disponibilités et intérêts.</p>
+                </details>
+                
+                <details style="background: white; margin-bottom: 1rem; padding: 1.5rem; border-radius: 8px; border: 1px solid #e0e0e0;">
+                    <summary style="font-weight: 600; cursor: pointer;">Proposez-vous des stages pour étudiants ?</summary>
+                    <p style="margin-top: 1rem;">Oui, nous accueillons régulièrement des stagiaires. Envoyez-nous votre CV et lettre de motivation via le formulaire de contact en sélectionnant "Autre" comme objet.</p>
+                </details>
+                
+                <details style="background: white; margin-bottom: 1rem; padding: 1.5rem; border-radius: 8px; border: 1px solid #e0e0e0;">
+                    <summary style="font-weight: 600; cursor: pointer;">Quel est le délai de réponse ?</summary>
+                    <p style="margin-top: 1rem;">Nous nous efforçons de répondre à toutes les demandes sous 48h ouvrées. Pour les urgences, privilégiez le contact téléphonique.</p>
+                </details>
+                
+                <details style="background: white; margin-bottom: 1rem; padding: 1.5rem; border-radius: 8px; border: 1px solid #e0e0e0;">
+                    <summary style="font-weight: 600; cursor: pointer;">Organisez-vous des événements ?</summary>
+                    <p style="margin-top: 1rem;">Oui ! Journées portes ouvertes, ateliers, conférences... Inscrivez-vous à notre newsletter pour être informé de tous nos événements.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <div class="container">
+            <h2>Restons en contact</h2>
+            <p>Suivez nos actualités et rejoignez notre communauté</p>
+            <div class="cta-buttons">
+                <a href="#contact-form" class="btn btn-white">Nous écrire</a>
+                <a href="tel:+33600000000" class="btn btn-outline">Nous appeler</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>La Vida Luca</h4>
+                    <p>Association loi 1901<br>
+                    SIRET : 99041389000015<br>
+                    Président : Lucas Horville</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Liens rapides</h4>
+                    <ul>
+                        <li><a href="projets.html">Nos projets</a></li>
+                        <li><a href="formations.html">Formations</a></li>
+                        <li><a href="dons.html">Faire un don</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="tel:+33600000000">06 00 00 00 00</a></li>
+                        <li><a href="mailto:contact@lavidaluca.fr">contact@lavidaluca.fr</a></li>
+                        <li><a href="#map">Nous trouver</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Suivez-nous</h4>
+                    <p>Restez informé de nos actualités</p>
+                    <div class="social-links" style="margin-top: 1rem;">
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="LinkedIn">💼</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 La Vida Luca - Tous droits réservés | <a href="mentions.html">Mentions légales</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
