@@ -1,1 +1,14 @@
 index.html.backup
+
+# Mollie integration files
+*.log
+donations.log
+receipts.log
+webhook_errors.log
+
+# Environment and config files
+.env
+config.php
+
+# Test files (remove from production)
+test_mollie.html
