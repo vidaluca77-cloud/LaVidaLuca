@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blog La Vida Luca - Conseils et guides pratiques sur l'agriculture biologique, la permaculture et les pratiques durables">
+    <title>Blog Agriculture Bio - La Vida Luca</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .blog-hero {
+            background: linear-gradient(135deg, #2E7D32 0%, #66BB6A 100%);
+            color: white;
+            padding: 6rem 2rem 4rem;
+            text-align: center;
+            margin-top: 80px;
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .blog-card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-light);
+            transition: var(--transition);
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+        }
+        
+        .blog-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+        
+        .blog-content {
+            padding: 1.5rem;
+        }
+        
+        .blog-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        
+        .blog-category {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.2rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+        
+        .featured-post {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .featured-image {
+            height: 300px;
+            background: linear-gradient(135deg, var(--accent-color), var(--warning-color));
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .featured-post {
+                grid-template-columns: 1fr;
+                grid-column: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="nav-container">
+                <a href="index.html" class="logo">🌱 La Vida Luca</a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="projets.html">Nos Projets</a></li>
+                    <li><a href="formations.html">Formations</a></li>
+                    <li><a href="blog.html" class="active">Blog</a></li>
+                    <li><a href="benevoles.html">Bénévoles</a></li>
+                    <li><a href="partenaires.html">Partenaires</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="dons.html" class="btn-donate">Faire un don</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="blog-hero">
+        <div class="container">
+            <h1>Blog Agriculture Biologique</h1>
+            <p style="font-size: 1.2rem; margin-top: 1rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Découvrez nos conseils pratiques, guides détaillés et retours d'expérience 
+                pour une agriculture durable et respectueuse de l'environnement.
+            </p>
+        </div>
+    </section>
+
+    <!-- Blog Content -->
+    <section style="padding: 4rem 0;">
+        <div class="container">
+            <!-- Featured Article -->
+            <div class="blog-grid">
+                <article class="featured-post blog-card">
+                    <div class="featured-image">🌾</div>
+                    <div style="display: flex; flex-direction: column; justify-content: center;">
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span class="blog-category">Guide Complet</span>
+                                <span>📅 25 août 2025</span>
+                                <span>👤 Équipe La Vida Luca</span>
+                            </div>
+                            <h2 style="color: var(--primary-color); margin-bottom: 1rem;">
+                                Guide Complet de l'Agriculture Biologique
+                            </h2>
+                            <p style="margin-bottom: 1.5rem; line-height: 1.7;">
+                                Découvrez tous les principes fondamentaux de l'agriculture biologique : 
+                                préparation des sols, rotation des cultures, gestion naturelle des ravageurs 
+                                et techniques de conservation. Un guide pratique pour débuter ou approfondir 
+                                vos connaissances.
+                            </p>
+                            <a href="agriculture-bio.html" class="btn btn-primary">Lire le guide complet →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Blog Posts -->
+                <article class="blog-card">
+                    <div class="blog-image">🪱</div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">Sol & Compost</span>
+                            <span>20 août 2025</span>
+                        </div>
+                        <h3 style="color: var(--primary-color); margin-bottom: 1rem;">
+                            Gestion des Sols et Techniques de Compostage
+                        </h3>
+                        <p style="margin-bottom: 1rem; color: var(--text-light);">
+                            Apprenez à créer un sol vivant et fertile grâce aux techniques de compostage 
+                            et d'amendement naturel. Découvrez comment nourrir votre terre durablement.
+                        </p>
+                        <a href="blog-sol-compost.html" class="btn btn-secondary">Lire l'article →</a>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-image">🐛</div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">Protection</span>
+                            <span>15 août 2025</span>
+                        </div>
+                        <h3 style="color: var(--primary-color); margin-bottom: 1rem;">
+                            Lutte Biologique et Protection Naturelle
+                        </h3>
+                        <p style="margin-bottom: 1rem; color: var(--text-light);">
+                            Méthodes naturelles pour protéger vos cultures sans pesticides : 
+                            auxiliaires, plantes compagnes, purins végétaux et barrières physiques.
+                        </p>
+                        <a href="blog-protection-naturelle.html" class="btn btn-secondary">Lire l'article →</a>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-image">📅</div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">Planning</span>
+                            <span>10 août 2025</span>
+                        </div>
+                        <h3 style="color: var(--primary-color); margin-bottom: 1rem;">
+                            Calendrier de l'Agriculteur Bio
+                        </h3>
+                        <p style="margin-bottom: 1rem; color: var(--text-light);">
+                            Planifiez vos cultures mois par mois : semis, plantations, récoltes et 
+                            travaux saisonniers pour optimiser votre production biologique.
+                        </p>
+                        <a href="blog-calendrier-bio.html" class="btn btn-secondary">Lire l'article →</a>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-image">🔄</div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">Permaculture</span>
+                            <span>5 août 2025</span>
+                        </div>
+                        <h3 style="color: var(--primary-color); margin-bottom: 1rem;">
+                            Principes de Design en Permaculture
+                        </h3>
+                        <p style="margin-bottom: 1rem; color: var(--text-light);">
+                            Créez des systèmes agricoles durables et autonomes en appliquant 
+                            les principes de la permaculture : observation, design et éthique.
+                        </p>
+                        <a href="permaculture.html" class="btn btn-secondary">Lire l'article →</a>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-image">🌱</div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">Pratiques</span>
+                            <span>1 août 2025</span>
+                        </div>
+                        <h3 style="color: var(--primary-color); margin-bottom: 1rem;">
+                            Pratiques Agricoles Durables
+                        </h3>
+                        <p style="margin-bottom: 1rem; color: var(--text-light);">
+                            Découvrez les techniques innovantes pour une agriculture respectueuse : 
+                            agroforesterie, cultures associées et gestion de l'eau.
+                        </p>
+                        <a href="pratiques-durables.html" class="btn btn-secondary">Lire l'article →</a>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-image">🎓</div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">Retour d'expérience</span>
+                            <span>28 juillet 2025</span>
+                        </div>
+                        <h3 style="color: var(--primary-color); margin-bottom: 1rem;">
+                            Notre Première Année à Souleuvre
+                        </h3>
+                        <p style="margin-bottom: 1rem; color: var(--text-light);">
+                            Bilan de notre première année d'exploitation : défis rencontrés, 
+                            réussites obtenues et leçons apprises sur notre ferme pilote.
+                        </p>
+                        <a href="blog-retour-experience.html" class="btn btn-secondary">Lire l'article →</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section style="background: var(--light-color); padding: 3rem 0;">
+        <div class="container" style="text-align: center;">
+            <h2>Restez informé de nos actualités</h2>
+            <p style="max-width: 600px; margin: 1rem auto 2rem;">
+                Recevez nos derniers articles sur l'agriculture biologique et nos actualités directement dans votre boîte mail.
+            </p>
+            <div style="max-width: 400px; margin: 0 auto; display: flex; gap: 1rem;">
+                <input type="email" placeholder="Votre adresse email" 
+                       style="flex: 1; padding: 1rem; border: 1px solid #ddd; border-radius: var(--border-radius);">
+                <button class="btn btn-primary">S'abonner</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>La Vida Luca</h4>
+                    <p>Association loi 1901<br>
+                    SIRET : 99041389000015<br>
+                    Président : Lucas Horville</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Blog</h4>
+                    <ul>
+                        <li><a href="agriculture-bio.html">Agriculture biologique</a></li>
+                        <li><a href="permaculture.html">Permaculture</a></li>
+                        <li><a href="pratiques-durables.html">Pratiques durables</a></li>
+                        <li><a href="blog.html">Tous les articles</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Liens rapides</h4>
+                    <ul>
+                        <li><a href="projets.html">Nos projets</a></li>
+                        <li><a href="formations.html">Formations</a></li>
+                        <li><a href="dons.html">Faire un don</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:vidaluca77@gmail.com">vidaluca77@gmail.com</a></li>
+                        <li><a href="contact.html">Nous trouver</a></li>
+                        <li><a href="contact.html#faq">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 La Vida Luca. Tous droits réservés.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/share/16rgTShcag/?mibextid=wwXIfr" target="_blank" aria-label="Facebook">📘</a>
+                    <a href="#" aria-label="Instagram">📷</a>
+                    <a href="#" aria-label="YouTube">📺</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

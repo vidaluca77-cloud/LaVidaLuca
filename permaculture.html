@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Guide complet de la permaculture - Principes de design, techniques et applications pratiques pour créer des systèmes agricoles durables">
+    <title>Guide Complet de la Permaculture - La Vida Luca</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .perma-hero {
+            background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 50%, #CDDC39 100%);
+            color: white;
+            padding: 6rem 2rem 4rem;
+            text-align: center;
+            margin-top: 80px;
+        }
+        
+        .perma-content {
+            max-width: 900px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+        
+        .perma-section {
+            margin: 3rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-light);
+        }
+        
+        .principle-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .principle-card {
+            background: linear-gradient(135deg, var(--light-color) 0%, #f1f8e9 100%);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--primary-color);
+            transition: var(--transition);
+        }
+        
+        .principle-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-medium);
+        }
+        
+        .principle-number {
+            background: var(--primary-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .zone-diagram {
+            background: var(--light-color);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .zone-circle {
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            color: white;
+            font-weight: bold;
+            line-height: 60px;
+            margin: 0.5rem;
+            text-align: center;
+        }
+        
+        .zone-0 { background: #FF5722; }
+        .zone-1 { background: #FF9800; }
+        .zone-2 { background: #FFC107; }
+        .zone-3 { background: #8BC34A; }
+        .zone-4 { background: #4CAF50; }
+        .zone-5 { background: #2E7D32; }
+        
+        .technique-showcase {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+            align-items: center;
+        }
+        
+        .technique-image {
+            height: 250px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .technique-showcase {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .ethic-card {
+            background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            margin: 1rem 0;
+            border-left: 6px solid var(--primary-color);
+        }
+        
+        .timeline-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            margin: 1rem 0;
+            border-left: 4px solid var(--secondary-color);
+            box-shadow: var(--shadow-light);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="nav-container">
+                <a href="index.html" class="logo">🌱 La Vida Luca</a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="projets.html">Nos Projets</a></li>
+                    <li><a href="formations.html">Formations</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="benevoles.html">Bénévoles</a></li>
+                    <li><a href="partenaires.html">Partenaires</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="dons.html" class="btn-donate">Faire un don</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="perma-hero">
+        <div class="container">
+            <h1>🔄 Guide Complet de la Permaculture</h1>
+            <p style="font-size: 1.2rem; margin-top: 1rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+                Découvrez comment créer des systèmes agricoles durables, productifs et respectueux 
+                de la nature grâce aux principes de design en permaculture.
+            </p>
+            <div style="margin-top: 2rem;">
+                <span style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 20px; margin: 0 0.5rem;">
+                    📖 Lecture : 20 min
+                </span>
+                <span style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 20px; margin: 0 0.5rem;">
+                    📅 5 août 2025
+                </span>
+                <span style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 20px; margin: 0 0.5rem;">
+                    🏷️ Permaculture
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content -->
+    <section style="padding: 4rem 0;">
+        <div class="container">
+            <div class="perma-content">
+                <!-- Introduction -->
+                <div class="perma-section">
+                    <h2>🌍 Qu'est-ce que la permaculture ?</h2>
+                    
+                    <p>La permaculture est une approche de design écologique qui vise à créer des systèmes humains durables en s'inspirant du fonctionnement des écosystèmes naturels. Le terme, créé par Bill Mollison et David Holmgren dans les années 1970, vient de "permanent agriculture" et s'est étendu à "permanent culture".</p>
+                    
+                    <blockquote style="background: var(--light-color); padding: 1.5rem; border-left: 4px solid var(--primary-color); margin: 2rem 0; font-style: italic;">
+                        "La permaculture est une philosophie et une approche de l'utilisation de la terre qui adopte les dispositions observées dans les écosystèmes florissants. Elle est une multidiscipline rassemblant l'architecture, la biologie, la foresterie, l'agriculture et l'élevage." - Bill Mollison
+                    </blockquote>
+                    
+                    <h3>Objectifs de la permaculture</h3>
+                    <ul>
+                        <li><strong>Prendre soin de la terre :</strong> Protéger tous les systèmes vivants</li>
+                        <li><strong>Prendre soin des humains :</strong> Permettre l'accès aux ressources nécessaires à la vie</li>
+                        <li><strong>Partager équitablement :</strong> Limiter la consommation et redistribuer les surplus</li>
+                        <li><strong>Créer l'abondance :</strong> Développer des systèmes productifs et résilients</li>
+                    </ul>
+                </div>
+
+                <!-- Éthique -->
+                <div class="perma-section">
+                    <h2>⚖️ Les trois éthiques fondamentales</h2>
+                    
+                    <div class="ethic-card">
+                        <h3>🌍 Prendre soin de la Terre</h3>
+                        <p>Cette éthique reconnaît que la Terre et tous ses systèmes vivants ont une valeur intrinsèque, indépendamment de leur utilité pour les humains. Elle implique de :</p>
+                        <ul>
+                            <li>Protéger et régénérer les écosystèmes</li>
+                            <li>Préserver la biodiversité</li>
+                            <li>Utiliser les ressources de manière durable</li>
+                            <li>Réduire notre empreinte écologique</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="ethic-card">
+                        <h3>👥 Prendre soin des Humains</h3>
+                        <p>Cette éthique vise à assurer que tous les humains aient accès aux ressources et aux opportunités nécessaires pour vivre une vie digne :</p>
+                        <ul>
+                            <li>Sécurité alimentaire et nutritionnelle</li>
+                            <li>Accès au logement et à l'eau</li>
+                            <li>Éducation et soins de santé</li>
+                            <li>Participation communautaire</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="ethic-card">
+                        <h3>🤝 Partage équitable</h3>
+                        <p>Cette éthique encourage la limitation de la consommation et la redistribution des surplus :</p>
+                        <ul>
+                            <li>Utiliser seulement ce dont nous avons besoin</li>
+                            <li>Partager les connaissances et ressources</li>
+                            <li>Réinvestir les surplus dans le système</li>
+                            <li>Créer une économie circulaire</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Principes de design -->
+                <div class="perma-section">
+                    <h2>📐 Les 12 principes de design</h2>
+                    
+                    <p>David Holmgren a formulé 12 principes de design qui guident la création de systèmes permacoles :</p>
+                    
+                    <div class="principle-grid">
+                        <div class="principle-card">
+                            <div class="principle-number">1</div>
+                            <h4>Observer et interagir</h4>
+                            <p>Prendre le temps d'observer attentivement avant d'agir permet de développer des solutions adaptées à chaque situation.</p>
+                        </div>
+                        
+                        <div class="principle-card">
+                            <div class="principle-number">2</div>
+                            <h4>Collecter et stocker l'énergie</h4>
+                            <p>Identifier et capturer les ressources disponibles (eau, soleil, biomasse) quand elles sont abondantes.</p>
+                        </div>
+                        
+                        <div class="principle-card">
+                            <div class="principle-number">3</div>
+                            <h4>Créer une production</h4>
+                            <p>S'assurer que le système produit des rendements utiles à tous les niveaux.</p>
+                        </div>
+                        
+                        <div class="principle-card">
+                            <div class="principle-number">4</div>
+                            <h4>Appliquer l'autorégulation</h4>
+                            <p>Intégrer des mécanismes de rétroaction pour maintenir l'équilibre du système.</p>
+                        </div>
+                        
+                        <div class="principle-card">
+                            <div class="principle-number">5</div>
+                            <h4>Utiliser des ressources renouvelables</h4>
+                            <p>Privilégier les ressources biologiques et les énergies renouvelables.</p>
+                        </div>
+                        
+                        <div class="principle-card">
+                            <div class="principle-number">6</div>
+                            <h4>Ne pas produire de déchets</h4>
+                            <p>Valoriser et réutiliser toutes les ressources disponibles dans le système.</p>
+                        </div>
+                        
+                        <div class="principle-card">
+                            <div class="principle-number">7</div>
+                            <h4>Design des motifs aux détails</h4>
+                            <p>Commencer par observer les patterns naturels avant de développer les détails.</p>
+                        </div>
+                        
+                        <div class="principle-card">
+                            <div class="principle-number">8</div>
+                            <h4>Intégrer plutôt que séparer</h4>
+                            <p>Créer des connexions bénéfiques entre les éléments du système.</p>
+                        </div>
+                        
+                        <div class="principle-card">
+                            <div class="principle-number">9</div>
+                            <h4>Utiliser des solutions lentes et petites</h4>
+                            <p>Les systèmes lents et petits sont plus faciles à maintenir et moins susceptibles de produire des effets négatifs.</p>
+                        </div>
+                        
+                        <div class="principle-card">
+                            <div class="principle-number">10</div>
+                            <h4>Utiliser et valoriser la diversité</h4>
+                            <p>La diversité renforce la résilience et offre plus de possibilités.</p>
+                        </div>
+                        
+                        <div class="principle-card">
+                            <div class="principle-number">11</div>
+                            <h4>Utiliser les interfaces</h4>
+                            <p>Les zones de transition entre différents systèmes sont souvent les plus productives.</p>
+                        </div>
+                        
+                        <div class="principle-card">
+                            <div class="principle-number">12</div>
+                            <h4>Utiliser le changement avec créativité</h4>
+                            <p>Observer attentivement et intervenir au bon moment pour influencer positivement le changement.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Zonage -->
+                <div class="perma-section">
+                    <h2>🎯 Le système de zonage</h2>
+                    
+                    <p>Le zonage en permaculture organise l'espace selon l'intensité d'usage et les besoins en énergie. Plus on s'éloigne du centre (habitation), moins l'intervention humaine est fréquente.</p>
+                    
+                    <div class="zone-diagram">
+                        <h3>Les 6 zones de la permaculture</h3>
+                        <div style="margin: 2rem 0;">
+                            <div class="zone-circle zone-0">0</div>
+                            <div class="zone-circle zone-1">1</div>
+                            <div class="zone-circle zone-2">2</div>
+                            <div class="zone-circle zone-3">3</div>
+                            <div class="zone-circle zone-4">4</div>
+                            <div class="zone-circle zone-5">5</div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <h4>🏠 Zone 0 - La maison</h4>
+                        <p>Centre du système. Habitation, lieu de vie principal. Optimisation énergétique, récupération d'eau, compostage des déchets organiques.</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <h4>🥬 Zone 1 - Jardin intensif</h4>
+                        <p>Visite quotidienne. Potager, aromates, petits fruits, composteur, poulailler. Techniques intensives, irrigation goutte à goutte.</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <h4>🌽 Zone 2 - Cultures principales</h4>
+                        <p>Visite hebdomadaire. Verger, cultures annuelles, céréales, système d'aquaculture. Techniques semi-intensives.</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <h4>🐄 Zone 3 - Élevage et stockage</h4>
+                        <p>Visite mensuelle. Pâturages, cultures fourragères, grands animaux, stockage de matériaux, bassins de rétention.</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <h4>🌳 Zone 4 - Forêt gérée</h4>
+                        <p>Gestion extensive. Foresterie, bois de chauffage, plantes sauvages comestibles, habitat pour la faune.</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <h4>🦋 Zone 5 - Espace sauvage</h4>
+                        <p>Non-intervention. Conservation de la nature, biodiversité, observation, inspiration, régénération naturelle.</p>
+                    </div>
+                </div>
+
+                <!-- Techniques clés -->
+                <div class="perma-section">
+                    <h2>🛠️ Techniques clés de la permaculture</h2>
+                    
+                    <div class="technique-showcase">
+                        <div>
+                            <h3>🌳 Agroforesterie</h3>
+                            <p>Association d'arbres et de cultures agricoles sur une même parcelle. Les arbres apportent ombre, protection du vent, matière organique et biodiversité tout en produisant fruits, noix ou bois.</p>
+                            <ul>
+                                <li>Fixation d'azote par les légumineuses arborées</li>
+                                <li>Amélioration de la structure du sol</li>
+                                <li>Création de microclimats favorables</li>
+                                <li>Diversification des revenus</li>
+                            </ul>
+                        </div>
+                        <div class="technique-image">🌳</div>
+                    </div>
+                    
+                    <div class="technique-showcase">
+                        <div class="technique-image">💧</div>
+                        <div>
+                            <h3>💧 Gestion de l'eau</h3>
+                            <p>Conception de systèmes pour collecter, stocker et utiliser l'eau de manière efficace. Approche holistique incluant infiltration, rétention et purification naturelle.</p>
+                            <ul>
+                                <li>Récupération d'eau de pluie</li>
+                                <li>Swales et bassins de rétention</li>
+                                <li>Phytoépuration</li>
+                                <li>Irrigation gravitaire</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="technique-showcase">
+                        <div>
+                            <h3>🌱 Cultures associées</h3>
+                            <p>Combinaison stratégique de plantes qui se renforcent mutuellement. Basé sur les interactions bénéfiques : compagnonnage, protection, fertilisation croisée.</p>
+                            <ul>
+                                <li>Technique des 3 sœurs (maïs-haricot-courge)</li>
+                                <li>Plantes fixatrices d'azote</li>
+                                <li>Plantes répulsives contre les ravageurs</li>
+                                <li>Optimisation de l'espace et des ressources</li>
+                            </ul>
+                        </div>
+                        <div class="technique-image">🤝</div>
+                    </div>
+                    
+                    <div class="technique-showcase">
+                        <div class="technique-image">🍄</div>
+                        <div>
+                            <h3>🍄 Myciculture</h3>
+                            <p>Intégration de champignons dans le système permacole. Les mycéliums améliorent la santé du sol, décomposent la matière organique et créent des réseaux de communication entre plantes.</p>
+                            <ul>
+                                <li>Inoculation de souches bénéfiques</li>
+                                <li>Culture sur substrats organiques</li>
+                                <li>Amélioration de la rétention d'eau</li>
+                                <li>Production alimentaire complémentaire</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Design process -->
+                <div class="perma-section">
+                    <h2>📋 Processus de design OBREDIMET</h2>
+                    
+                    <p>OBREDIMET est une méthode systématique pour concevoir un système permacole efficace :</p>
+                    
+                    <div class="timeline-item">
+                        <h4>👁️ OBSERVATION</h4>
+                        <p>Phase cruciale de 1 an minimum. Observer les cycles naturels, les flux d'eau, l'ensoleillement, les vents dominants, la faune et la flore existantes. Cartographier les ressources et contraintes.</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <h4>🎯 BORDURES</h4>
+                        <p>Définir les limites physiques et conceptuelles du projet. Identifier les interfaces et zones de transition qui sont souvent les plus productives.</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <h4>📋 RESSOURCES</h4>
+                        <p>Inventorier toutes les ressources disponibles : eau, sol, végétation, matériaux, compétences humaines, financements, outils.</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <h4>📊 ÉVALUATION</h4>
+                        <p>Analyser les données collectées. Identifier les patterns, les problèmes à résoudre et les opportunités à saisir.</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <h4>🎨 DESIGN</h4>
+                        <p>Concevoir le système en appliquant les principes de permaculture. Créer des plans détaillés avec zonage, implantations et calendrier.</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <h4>🛠️ IMPLÉMENTATION</h4>
+                        <p>Mise en œuvre progressive du design. Commencer par les éléments les plus importants et procéder par étapes.</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <h4>🔄 MAINTENANCE</h4>
+                        <p>Entretien et ajustements continus. Observer les résultats, corriger les dysfonctionnements et optimiser le système.</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <h4>🔄 TWEAKING</h4>
+                        <p>Amélioration continue basée sur l'expérience. Adaptation aux changements et intégration de nouvelles opportunités.</p>
+                    </div>
+                </div>
+
+                <!-- Exemples pratiques -->
+                <div class="perma-section">
+                    <h2>🏡 Exemples pratiques de notre ferme</h2>
+                    
+                    <div style="background: #e8f5e9; padding: 1.5rem; border-radius: var(--border-radius); margin: 2rem 0;">
+                        <h4>🚜 Application à La Vida Luca Souleuvre</h4>
+                        <p>Sur notre ferme pilote de 5 hectares, nous appliquons les principes de permaculture :</p>
+                        <ul>
+                            <li><strong>Zone 0-1 :</strong> Bâtiments avec récupération d'eau, potager intensif, serre bioclimatique</li>
+                            <li><strong>Zone 2 :</strong> Verger en agroforesterie, cultures maraîchères, poulailler mobile</li>
+                            <li><strong>Zone 3 :</strong> Pâturages rotatifs pour moutons, bassin de rétention, compostage</li>
+                            <li><strong>Zone 4 :</strong> Haies bocagères enrichies, bois de chauffage, plantes médicinales</li>
+                            <li><strong>Zone 5 :</strong> Bosquets naturels préservés, habitats pour la faune sauvage</li>
+                        </ul>
+                    </div>
+                    
+                    <h3>Résultats obtenus en 2 ans</h3>
+                    <div class="principle-grid">
+                        <div class="principle-card">
+                            <h4>🌱 Biodiversité</h4>
+                            <p>+150% d'espèces végétales observées, retour d'oiseaux disparus, augmentation des pollinisateurs</p>
+                        </div>
+                        <div class="principle-card">
+                            <h4>💧 Autonomie en eau</h4>
+                            <p>80% des besoins couverts par récupération et stockage d'eau de pluie</p>
+                        </div>
+                        <div class="principle-card">
+                            <h4>🥬 Productivité</h4>
+                            <p>Rendements équivalents au maraîchage conventionnel avec 50% d'intrants en moins</p>
+                        </div>
+                        <div class="principle-card">
+                            <h4>💰 Rentabilité</h4>
+                            <p>Diversification des revenus : légumes, fruits, œufs, formations, agritourisme</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Se former -->
+                <div class="perma-section">
+                    <h2>🎓 Apprendre la permaculture</h2>
+                    
+                    <h3>Formations recommandées</h3>
+                    <ul>
+                        <li><strong>CCP (Cours Certifié de Permaculture) :</strong> Formation de base de 72h reconnue internationalement</li>
+                        <li><strong>PDC (Permaculture Design Course) :</strong> Formation complète sur 2 semaines</li>
+                        <li><strong>Stages pratiques :</strong> Immersion sur des fermes en permaculture</li>
+                        <li><strong>Formations spécialisées :</strong> Agroforesterie, gestion de l'eau, design</li>
+                    </ul>
+                    
+                    <h3>Ressources pour débuter</h3>
+                    <ul>
+                        <li><strong>Livres essentiels :</strong> "Permaculture" de Bill Mollison, "L'Essence de la permaculture" de David Holmgren</li>
+                        <li><strong>Associations :</strong> Brin de Paille (réseau français), Université Populaire de Permaculture</li>
+                        <li><strong>Sites web :</strong> PermacultureDesign.fr, Permaculture News</li>
+                        <li><strong>Chaînes YouTube :</strong> Permaculture agroécologie etc., Damien Dekarz</li>
+                    </ul>
+                    
+                    <div style="background: #e8f5e9; padding: 1.5rem; border-radius: var(--border-radius); margin: 2rem 0; text-align: center;">
+                        <h4>🎓 Formation permaculture à La Vida Luca</h4>
+                        <p>Nous proposons des stages d'initiation et de perfectionnement en permaculture sur notre ferme pilote. Formation pratique de 6 jours avec hébergement possible.</p>
+                        <a href="formations.html" class="btn btn-primary" style="margin-top: 1rem; display: inline-block;">Découvrir nos formations →</a>
+                    </div>
+                </div>
+
+                <!-- Navigation -->
+                <div style="margin: 3rem 0; text-align: center; padding: 2rem; background: var(--light-color); border-radius: var(--border-radius);">
+                    <h3>Approfondir vos connaissances</h3>
+                    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem;">
+                        <a href="agriculture-bio.html" class="btn btn-secondary">Agriculture bio →</a>
+                        <a href="pratiques-durables.html" class="btn btn-secondary">Pratiques durables →</a>
+                        <a href="blog-sol-compost.html" class="btn btn-secondary">Sol & compost →</a>
+                        <a href="formations.html" class="btn btn-primary">Nos formations</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>La Vida Luca</h4>
+                    <p>Association loi 1901<br>
+                    SIRET : 99041389000015<br>
+                    Président : Lucas Horville</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Guides détaillés</h4>
+                    <ul>
+                        <li><a href="agriculture-bio.html">Agriculture biologique</a></li>
+                        <li><a href="permaculture.html">Permaculture</a></li>
+                        <li><a href="pratiques-durables.html">Pratiques durables</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Liens rapides</h4>
+                    <ul>
+                        <li><a href="projets.html">Nos projets</a></li>
+                        <li><a href="formations.html">Formations</a></li>
+                        <li><a href="dons.html">Faire un don</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:vidaluca77@gmail.com">vidaluca77@gmail.com</a></li>
+                        <li><a href="contact.html">Nous trouver</a></li>
+                        <li><a href="contact.html#faq">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 La Vida Luca. Tous droits réservés.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/share/16rgTShcag/?mibextid=wwXIfr" target="_blank" aria-label="Facebook">📘</a>
+                    <a href="#" aria-label="Instagram">📷</a>
+                    <a href="#" aria-label="YouTube">📺</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

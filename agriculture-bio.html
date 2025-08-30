@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Guide complet de l'agriculture biologique - Principes, techniques et pratiques pour une agriculture durable et respectueuse de l'environnement">
+    <title>Guide Complet de l'Agriculture Biologique - La Vida Luca</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .guide-hero {
+            background: linear-gradient(135deg, #2E7D32 0%, #66BB6A 100%);
+            color: white;
+            padding: 6rem 2rem 4rem;
+            text-align: center;
+            margin-top: 80px;
+        }
+        
+        .guide-content {
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+        
+        .guide-section {
+            margin: 3rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-light);
+        }
+        
+        .guide-toc {
+            background: var(--light-color);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            margin: 2rem 0;
+        }
+        
+        .guide-toc ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .guide-toc li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .guide-toc a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .highlight-box {
+            background: #e8f5e9;
+            border-left: 4px solid var(--primary-color);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+        
+        .warning-box {
+            background: #fff3e0;
+            border-left: 4px solid var(--warning-color);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+        
+        .technique-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .technique-card {
+            background: var(--light-color);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+        }
+        
+        .technique-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="nav-container">
+                <a href="index.html" class="logo">🌱 La Vida Luca</a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="projets.html">Nos Projets</a></li>
+                    <li><a href="formations.html">Formations</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="benevoles.html">Bénévoles</a></li>
+                    <li><a href="partenaires.html">Partenaires</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="dons.html" class="btn-donate">Faire un don</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="guide-hero">
+        <div class="container">
+            <h1>Guide Complet de l'Agriculture Biologique</h1>
+            <p style="font-size: 1.2rem; margin-top: 1rem; max-width: 700px; margin-left: auto; margin-right: auto;">
+                Tout ce que vous devez savoir pour commencer ou perfectionner vos pratiques 
+                en agriculture biologique : principes, techniques et retours d'expérience.
+            </p>
+            <div style="margin-top: 2rem;">
+                <span style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 20px; margin: 0 0.5rem;">
+                    📖 Lecture : 15 min
+                </span>
+                <span style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 20px; margin: 0 0.5rem;">
+                    📅 Mis à jour : 25 août 2025
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content -->
+    <section style="padding: 4rem 0;">
+        <div class="container">
+            <div class="guide-content">
+                <!-- Table of Contents -->
+                <div class="guide-toc">
+                    <h2 style="color: var(--primary-color); margin-bottom: 1.5rem;">📋 Sommaire</h2>
+                    <ul>
+                        <li><a href="#introduction">1. Introduction à l'agriculture biologique</a></li>
+                        <li><a href="#principes">2. Principes fondamentaux</a></li>
+                        <li><a href="#certification">3. Certification et réglementation</a></li>
+                        <li><a href="#preparation-sols">4. Préparation et gestion des sols</a></li>
+                        <li><a href="#semences">5. Choix des semences et plants</a></li>
+                        <li><a href="#rotation">6. Rotation des cultures</a></li>
+                        <li><a href="#protection">7. Protection naturelle des cultures</a></li>
+                        <li><a href="#recolte">8. Récolte et conservation</a></li>
+                        <li><a href="#economie">9. Aspects économiques</a></li>
+                        <li><a href="#ressources">10. Ressources et formations</a></li>
+                    </ul>
+                </div>
+
+                <!-- Introduction -->
+                <div id="introduction" class="guide-section">
+                    <h2>🌱 1. Introduction à l'agriculture biologique</h2>
+                    
+                    <p>L'agriculture biologique est un mode de production agricole qui respecte les équilibres naturels et exclut l'usage de produits chimiques de synthèse. Elle vise à produire des aliments sains tout en préservant l'environnement et la biodiversité.</p>
+                    
+                    <div class="highlight-box">
+                        <h4>💡 Le saviez-vous ?</h4>
+                        <p>La France compte plus de 50 000 exploitations agricoles certifiées biologiques, représentant plus de 2,5 millions d'hectares, soit 8,5% de la surface agricole utile nationale.</p>
+                    </div>
+                    
+                    <h3>Pourquoi choisir l'agriculture biologique ?</h3>
+                    <ul>
+                        <li><strong>Respect de l'environnement :</strong> Préservation de la biodiversité et des ressources naturelles</li>
+                        <li><strong>Qualité des produits :</strong> Aliments plus riches en nutriments et sans résidus chimiques</li>
+                        <li><strong>Santé du consommateur :</strong> Réduction de l'exposition aux pesticides</li>
+                        <li><strong>Bien-être animal :</strong> Conditions d'élevage respectueuses</li>
+                        <li><strong>Durabilité économique :</strong> Valorisation des produits et autonomie de l'exploitation</li>
+                    </ul>
+                </div>
+
+                <!-- Principes -->
+                <div id="principes" class="guide-section">
+                    <h2>⚖️ 2. Principes fondamentaux</h2>
+                    
+                    <p>L'agriculture biologique repose sur quatre principes éthiques définis par l'IFOAM (Fédération Internationale des Mouvements d'Agriculture Biologique) :</p>
+                    
+                    <div class="technique-grid">
+                        <div class="technique-card">
+                            <h4>🌍 Principe de Santé</h4>
+                            <p>L'agriculture biologique doit soutenir et améliorer la santé du sol, des plantes, des animaux, des hommes et de la planète.</p>
+                        </div>
+                        <div class="technique-card">
+                            <h4>🔄 Principe d'Écologie</h4>
+                            <p>L'agriculture biologique doit être basée sur les systèmes et cycles écologiques vivants.</p>
+                        </div>
+                        <div class="technique-card">
+                            <h4>⚡ Principe d'Équité</h4>
+                            <p>L'agriculture biologique doit construire des relations qui assurent l'équité par rapport à l'environnement commun.</p>
+                        </div>
+                        <div class="technique-card">
+                            <h4>🛡️ Principe de Précaution</h4>
+                            <p>L'agriculture biologique doit être conduite de manière prudente et responsable pour protéger la santé.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certification -->
+                <div id="certification" class="guide-section">
+                    <h2>📜 3. Certification et réglementation</h2>
+                    
+                    <p>En Europe, l'agriculture biologique est encadrée par un règlement strict qui définit les pratiques autorisées et interdites.</p>
+                    
+                    <h3>Le logo AB (Agriculture Biologique)</h3>
+                    <p>Le logo AB garantit que le produit contient au moins 95% d'ingrédients issus de l'agriculture biologique et respecte la réglementation en vigueur.</p>
+                    
+                    <div class="warning-box">
+                        <h4>⚠️ Période de conversion</h4>
+                        <p>Une exploitation conventionnelle doit observer une période de conversion de 2 à 3 ans selon les cultures avant d'obtenir la certification biologique. Durant cette période, les pratiques biologiques doivent être respectées mais les produits ne peuvent pas être vendus avec le label bio.</p>
+                    </div>
+                    
+                    <h3>Organismes certificateurs en France</h3>
+                    <ul>
+                        <li>Ecocert</li>
+                        <li>Bureau Veritas (Qualité France)</li>
+                        <li>SGS ICS</li>
+                        <li>Certipaq Bio</li>
+                        <li>Agrocert</li>
+                    </ul>
+                </div>
+
+                <!-- Préparation sols -->
+                <div id="preparation-sols" class="guide-section">
+                    <h2>🌍 4. Préparation et gestion des sols</h2>
+                    
+                    <p>Le sol est la base de l'agriculture biologique. Sa santé détermine la qualité des cultures et leur résistance aux maladies.</p>
+                    
+                    <h3>Analyse du sol</h3>
+                    <p>Avant toute intervention, il est essentiel de connaître votre sol :</p>
+                    <ul>
+                        <li><strong>pH :</strong> Acidité ou alcalinité du sol</li>
+                        <li><strong>Matière organique :</strong> Taux d'humus</li>
+                        <li><strong>Éléments nutritifs :</strong> Azote, phosphore, potassium</li>
+                        <li><strong>Structure :</strong> Texture et porosité</li>
+                        <li><strong>Activité biologique :</strong> Présence de micro-organismes</li>
+                    </ul>
+                    
+                    <h3>Amendements organiques autorisés</h3>
+                    <div class="technique-grid">
+                        <div class="technique-card">
+                            <h4>🐄 Fumier composté</h4>
+                            <p>Apport de matière organique et d'éléments nutritifs. Doit être composté au moins 3 mois.</p>
+                        </div>
+                        <div class="technique-card">
+                            <h4>🍂 Compost végétal</h4>
+                            <p>Recyclage des déchets verts. Améliore la structure et la vie du sol.</p>
+                        </div>
+                        <div class="technique-card">
+                            <h4>🌾 Engrais verts</h4>
+                            <p>Cultures dédiées à l'amélioration du sol : légumineuses, crucifères.</p>
+                        </div>
+                        <div class="technique-card">
+                            <h4>🦴 Amendements minéraux</h4>
+                            <p>Chaux, phosphate naturel, basalte pour corriger les carences.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="highlight-box">
+                        <h4>💡 Conseil pratique</h4>
+                        <p>Un sol biologique doit contenir au minimum 3% de matière organique. L'objectif est d'atteindre 4-5% pour une fertilité optimale.</p>
+                    </div>
+                </div>
+
+                <!-- Semences -->
+                <div id="semences" class="guide-section">
+                    <h2>🌱 5. Choix des semences et plants</h2>
+                    
+                    <p>En agriculture biologique, l'utilisation de semences et plants biologiques est obligatoire, sauf dérogation.</p>
+                    
+                    <h3>Types de semences recommandées</h3>
+                    <ul>
+                        <li><strong>Semences biologiques :</strong> Issues de plantes cultivées selon le mode bio</li>
+                        <li><strong>Variétés anciennes :</strong> Souvent plus résistantes et adaptées au terroir</li>
+                        <li><strong>Semences paysannes :</strong> Reproductibles et adaptées localement</li>
+                        <li><strong>Variétés résistantes :</strong> Naturellement résistantes aux maladies</li>
+                    </ul>
+                    
+                    <div class="warning-box">
+                        <h4>⚠️ Semences interdites</h4>
+                        <p>Les semences OGM (Organismes Génétiquement Modifiés) sont strictement interdites en agriculture biologique.</p>
+                    </div>
+                    
+                    <h3>Fournisseurs de semences bio</h3>
+                    <ul>
+                        <li>Germinance</li>
+                        <li>Kokopelli</li>
+                        <li>Graines del País</li>
+                        <li>La ferme de Sainte Marthe</li>
+                        <li>Biaugerme</li>
+                    </ul>
+                </div>
+
+                <!-- Rotation -->
+                <div id="rotation" class="guide-section">
+                    <h2>🔄 6. Rotation des cultures</h2>
+                    
+                    <p>La rotation des cultures est fondamentale en agriculture biologique pour maintenir la fertilité du sol et prévenir les maladies.</p>
+                    
+                    <h3>Principe de base</h3>
+                    <p>Alternez les familles de plantes ayant des besoins nutritionnels différents :</p>
+                    
+                    <div class="technique-grid">
+                        <div class="technique-card">
+                            <h4>🥬 Légumes feuilles</h4>
+                            <p>Épinards, laitues, choux<br><strong>Besoins :</strong> Azote élevé</p>
+                        </div>
+                        <div class="technique-card">
+                            <h4>🍅 Légumes fruits</h4>
+                            <p>Tomates, courgettes, aubergines<br><strong>Besoins :</strong> Phosphore, potassium</p>
+                        </div>
+                        <div class="technique-card">
+                            <h4>🥕 Légumes racines</h4>
+                            <p>Carottes, radis, betteraves<br><strong>Besoins :</strong> Potassium</p>
+                        </div>
+                        <div class="technique-card">
+                            <h4>🌱 Légumineuses</h4>
+                            <p>Haricots, pois, fèves<br><strong>Apport :</strong> Fixation d'azote</p>
+                        </div>
+                    </div>
+                    
+                    <h3>Exemple de rotation sur 4 ans</h3>
+                    <ol>
+                        <li><strong>Année 1 :</strong> Légumineuses (haricots, pois) + engrais vert</li>
+                        <li><strong>Année 2 :</strong> Légumes feuilles (choux, épinards)</li>
+                        <li><strong>Année 3 :</strong> Légumes fruits (tomates, courgettes)</li>
+                        <li><strong>Année 4 :</strong> Légumes racines (carottes, navets)</li>
+                    </ol>
+                </div>
+
+                <!-- Protection -->
+                <div id="protection" class="guide-section">
+                    <h2>🛡️ 7. Protection naturelle des cultures</h2>
+                    
+                    <p>L'agriculture biologique privilégie la prévention et les méthodes naturelles pour protéger les cultures.</p>
+                    
+                    <h3>Stratégie de protection intégrée</h3>
+                    
+                    <h4>1. Prévention</h4>
+                    <ul>
+                        <li>Choix de variétés résistantes</li>
+                        <li>Rotation des cultures</li>
+                        <li>Biodiversité fonctionnelle</li>
+                        <li>Gestion de l'eau et de l'humidité</li>
+                    </ul>
+                    
+                    <h4>2. Observation et surveillance</h4>
+                    <ul>
+                        <li>Monitoring quotidien des cultures</li>
+                        <li>Identification précoce des problèmes</li>
+                        <li>Piégeage des ravageurs</li>
+                        <li>Suivi météorologique</li>
+                    </ul>
+                    
+                    <h4>3. Intervention biologique</h4>
+                    <div class="technique-grid">
+                        <div class="technique-card">
+                            <h4>🐞 Auxiliaires</h4>
+                            <p>Coccinelles, syrphes, carabes pour lutter contre les pucerons et autres ravageurs</p>
+                        </div>
+                        <div class="technique-card">
+                            <h4>🌿 Purins végétaux</h4>
+                            <p>Ortie, prêle, consoude pour stimuler les défenses naturelles</p>
+                        </div>
+                        <div class="technique-card">
+                            <h4>🪨 Barrières physiques</h4>
+                            <p>Voiles, filets, pièges à phéromones, mulching</p>
+                        </div>
+                        <div class="technique-card">
+                            <h4>🌱 Plantes compagnes</h4>
+                            <p>Associations bénéfiques : basilic-tomate, œillet d'Inde-légumes</p>
+                        </div>
+                    </div>
+                    
+                    <div class="highlight-box">
+                        <h4>💡 Recette de purin d'ortie</h4>
+                        <p><strong>Ingrédients :</strong> 1 kg d'orties fraîches + 10L d'eau de pluie<br>
+                        <strong>Préparation :</strong> Macérer 15 jours en remuant quotidiennement<br>
+                        <strong>Usage :</strong> Diluer à 5% pour pulvérisation foliaire, 10% pour arrosage au sol</p>
+                    </div>
+                </div>
+
+                <!-- Récolte -->
+                <div id="recolte" class="guide-section">
+                    <h2>🧺 8. Récolte et conservation</h2>
+                    
+                    <p>La qualité des produits biologiques dépend aussi des techniques de récolte et de conservation.</p>
+                    
+                    <h3>Optimiser la récolte</h3>
+                    <ul>
+                        <li><strong>Timing :</strong> Récolter au bon stade de maturité</li>
+                        <li><strong>Horaires :</strong> Éviter les heures chaudes</li>
+                        <li><strong>Conditions :</strong> Temps sec pour la plupart des légumes</li>
+                        <li><strong>Manipulation :</strong> Réduire les chocs et blessures</li>
+                    </ul>
+                    
+                    <h3>Méthodes de conservation naturelles</h3>
+                    <div class="technique-grid">
+                        <div class="technique-card">
+                            <h4>❄️ Conservation au froid</h4>
+                            <p>Réfrigération pour les légumes feuilles, fruits fragiles</p>
+                        </div>
+                        <div class="technique-card">
+                            <h4>🏺 Conservation en cave</h4>
+                            <p>Légumes racines en silo, pommes de terre en clayette</p>
+                        </div>
+                        <div class="technique-card">
+                            <h4>🌬️ Séchage naturel</h4>
+                            <p>Aromates, légumineuses, courges</p>
+                        </div>
+                        <div class="technique-card">
+                            <h4>🥫 Transformation</h4>
+                            <p>Conserves, lacto-fermentation, congélation</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Économie -->
+                <div id="economie" class="guide-section">
+                    <h2>💰 9. Aspects économiques</h2>
+                    
+                    <p>L'agriculture biologique nécessite un modèle économique adapté, avec des coûts et des revenus différents de l'agriculture conventionnelle.</p>
+                    
+                    <h3>Investissements spécifiques</h3>
+                    <ul>
+                        <li><strong>Certification :</strong> 400-1500€/an selon la taille</li>
+                        <li><strong>Semences bio :</strong> Surcoût de 20-50%</li>
+                        <li><strong>Amendements organiques :</strong> Compost, fumier</li>
+                        <li><strong>Matériel spécialisé :</strong> Bineuses, herses étrilles</li>
+                        <li><strong>Formation :</strong> Apprentissage des techniques</li>
+                    </ul>
+                    
+                    <h3>Sources de revenus</h3>
+                    <ul>
+                        <li><strong>Prix de vente majorés :</strong> +20 à +50% vs conventionnel</li>
+                        <li><strong>Circuits courts :</strong> Vente directe, AMAP, marchés</li>
+                        <li><strong>Aides publiques :</strong> Aides à la conversion (400-900€/ha/an)</li>
+                        <li><strong>Aides au maintien :</strong> 200-600€/ha/an</li>
+                        <li><strong>Diversification :</strong> Agritourisme, formations</li>
+                    </ul>
+                    
+                    <div class="highlight-box">
+                        <h4>💡 Retour sur investissement</h4>
+                        <p>La rentabilité du bio s'améliore généralement après 3-5 ans, le temps de maîtriser les techniques et de fidéliser une clientèle.</p>
+                    </div>
+                </div>
+
+                <!-- Ressources -->
+                <div id="ressources" class="guide-section">
+                    <h2>📚 10. Ressources et formations</h2>
+                    
+                    <h3>Organismes de formation</h3>
+                    <ul>
+                        <li><strong>La Vida Luca :</strong> Formations pratiques en Normandie</li>
+                        <li><strong>CFPPA :</strong> Centres de formation publics agricoles</li>
+                        <li><strong>Terre & Humanisme :</strong> Agroécologie et permaculture</li>
+                        <li><strong>ITAB :</strong> Institut Technique de l'Agriculture Biologique</li>
+                    </ul>
+                    
+                    <h3>Documentation technique</h3>
+                    <ul>
+                        <li><strong>Guide ITAB :</strong> Techniques culturales</li>
+                        <li><strong>Fiches GRAB :</strong> Groupe de Recherche en Agriculture Biologique</li>
+                        <li><strong>Revue ALTER AGRI :</strong> Magazine technique bio</li>
+                        <li><strong>Site web Agence Bio :</strong> Données et statistiques officielles</li>
+                    </ul>
+                    
+                    <h3>Réseaux professionnels</h3>
+                    <ul>
+                        <li><strong>FNAB :</strong> Fédération Nationale d'Agriculture Biologique</li>
+                        <li><strong>GAB :</strong> Groupements d'Agriculteurs Biologiques régionaux</li>
+                        <li><strong>Bio Cohérence :</strong> Association de producteurs bio</li>
+                    </ul>
+                    
+                    <div class="highlight-box">
+                        <h4>🎓 Nos formations à La Vida Luca</h4>
+                        <p>Découvrez nos formations pratiques sur notre ferme pilote en Normandie. Programme complet de 3 jours à 2 semaines selon vos objectifs.</p>
+                        <a href="formations.html" class="btn btn-primary" style="margin-top: 1rem; display: inline-block;">Voir nos formations →</a>
+                    </div>
+                </div>
+
+                <!-- Navigation -->
+                <div style="margin: 3rem 0; text-align: center; padding: 2rem; background: var(--light-color); border-radius: var(--border-radius);">
+                    <h3>Continuer votre apprentissage</h3>
+                    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem;">
+                        <a href="blog-sol-compost.html" class="btn btn-secondary">Gestion des sols →</a>
+                        <a href="blog-protection-naturelle.html" class="btn btn-secondary">Protection naturelle →</a>
+                        <a href="permaculture.html" class="btn btn-secondary">Permaculture →</a>
+                        <a href="formations.html" class="btn btn-primary">Nos formations</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>La Vida Luca</h4>
+                    <p>Association loi 1901<br>
+                    SIRET : 99041389000015<br>
+                    Président : Lucas Horville</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Guides pratiques</h4>
+                    <ul>
+                        <li><a href="agriculture-bio.html">Agriculture biologique</a></li>
+                        <li><a href="permaculture.html">Permaculture</a></li>
+                        <li><a href="pratiques-durables.html">Pratiques durables</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Liens rapides</h4>
+                    <ul>
+                        <li><a href="projets.html">Nos projets</a></li>
+                        <li><a href="formations.html">Formations</a></li>
+                        <li><a href="dons.html">Faire un don</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:vidaluca77@gmail.com">vidaluca77@gmail.com</a></li>
+                        <li><a href="contact.html">Nous trouver</a></li>
+                        <li><a href="contact.html#faq">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 La Vida Luca. Tous droits réservés.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/share/16rgTShcag/?mibextid=wwXIfr" target="_blank" aria-label="Facebook">📘</a>
+                    <a href="#" aria-label="Instagram">📷</a>
+                    <a href="#" aria-label="YouTube">📺</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
