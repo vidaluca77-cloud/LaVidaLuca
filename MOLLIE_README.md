@@ -27,12 +27,27 @@ Ce projet intègre les paiements Mollie pour les dons de l'association La Vida L
 - `script.js` - Logique JavaScript pour l'intégration
 
 ### Backend
-- `process_payment.php` - Création des paiements Mollie
+- `process_payment.php` - Création des paiements Mollie (legacy)
+- `donation_handler.php` - **NOUVEAU** - Gestionnaire unifié Zapier + Mollie
 - `webhook.php` - Traitement des notifications de statut
 - `config.template.php` - Template de configuration
+- `config.php` - Configuration active (avec support Zapier)
 
 ### Test
-- `test_mollie.html` - Page de test pour vérifier l'intégration
+- `test_mollie.html` - Page de test pour vérifier l'intégration Mollie
+- `test_zapier_integration.html` - **NOUVEAU** - Test de l'intégration Zapier
+
+## ⚡ NOUVELLE INTÉGRATION ZAPIER
+
+Ce projet supporte maintenant **Zapier** comme méthode principale d'intégration, avec Mollie en fallback.
+
+**Avantages de Zapier :**
+- Automatisation complète des workflows de dons
+- Intégration avec 5000+ applications (Google Sheets, CRM, Email, etc.)
+- Notifications automatiques
+- Pas de développement supplémentaire requis
+
+**Voir le fichier `ZAPIER_README.md` pour la configuration complète.**
 
 ## Fonctionnalités
 
