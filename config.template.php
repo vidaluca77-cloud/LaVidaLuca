@@ -19,6 +19,13 @@ return [
         'cancel_url' => 'https://your-domain.com/dons.html',
     ],
     
+    // Zapier integration configuration
+    'zapier' => [
+        'enabled' => true, // Set to true to use Zapier for form submissions
+        'webhook_url' => '', // Your Zapier webhook URL for donation forms
+        'fallback_to_mollie' => true, // Use Mollie integration as fallback if Zapier fails
+    ],
+    
     // Organization details
     'organization' => [
         'name' => 'La Vida Luca',

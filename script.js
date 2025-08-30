@@ -114,11 +114,20 @@ function handleDonationSubmit(form) {
     
     // Validate amount
     const amountField = form.querySelector('[name="amount"]');
-    const amount = parseFloat(amountField.value);
+    let amount = parseFloat(amountField ? amountField.value : 0);
+    
+    // If no amount in hidden field, try custom amount field
+    if (!amount) {
+        const customAmountField = document.getElementById('custom-amount');
+        amount = parseFloat(customAmountField ? customAmountField.value : 0);
+    }
     
     if (!amount || amount < 1) {
         isValid = false;
-        amountField.style.borderColor = '#ff6b35';
+        const displayField = document.getElementById('custom-amount') || amountField;
+        if (displayField) {
+            displayField.style.borderColor = '#ff6b35';
+        }
         alert('Veuillez saisir un montant valide (minimum 1€).');
         return;
     }
@@ -141,18 +150,10 @@ function handleDonationSubmit(form) {
         city: formData.get('city') || '',
         donation_type: formData.get('donation-type') || 'ponctuel',
         message: formData.get('message') || '',
-        fiscal_receipt: form.querySelector('input[type="checkbox"]:checked') ? true : false,
-        anonymous: false,
-        newsletter: false
+        fiscal_receipt: formData.get('fiscal_receipt') === 'on',
+        anonymous: formData.get('anonymous') === 'on',
+        newsletter: formData.get('newsletter') === 'on'
     };
-    
-    // Get checkbox values
-    const checkboxes = form.querySelectorAll('input[type="checkbox"]');
-    checkboxes.forEach((checkbox, index) => {
-        if (index === 0) donationData.fiscal_receipt = checkbox.checked;
-        if (index === 1) donationData.anonymous = checkbox.checked;
-        if (index === 2) donationData.newsletter = checkbox.checked;
-    });
     
     // Show loading state
     const submitBtn = form.querySelector('button[type="submit"]');
@@ -160,8 +161,8 @@ function handleDonationSubmit(form) {
     submitBtn.textContent = 'Redirection vers le paiement...';
     submitBtn.disabled = true;
     
-    // Send to Mollie payment processor
-    fetch('process_payment.php', {
+    // Send to donation handler (supports both Zapier and Mollie)
+    fetch('donation_handler.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -175,9 +176,22 @@ function handleDonationSubmit(form) {
         return response.json();
     })
     .then(data => {
-        if (data.success && data.payment_url) {
-            // Redirect to Mollie payment page
-            window.location.href = data.payment_url;
+        if (data.success) {
+            if (data.method === 'zapier') {
+                // Zapier handled the submission
+                if (data.redirect_url) {
+                    window.location.href = data.redirect_url;
+                } else {
+                    // Show success message for Zapier submission
+                    alert('Merci pour votre don ! Votre demande a été transmise avec succès.');
+                    window.location.href = 'donation-success.html';
+                }
+            } else if (data.method === 'mollie' && data.payment_url) {
+                // Redirect to Mollie payment page
+                window.location.href = data.payment_url;
+            } else {
+                throw new Error('Réponse inattendue du serveur');
+            }
         } else {
             throw new Error(data.error || 'Erreur lors de la création du paiement');
         }
@@ -260,6 +274,7 @@ function updateCountdown(elementId, targetDate) {
 document.addEventListener('DOMContentLoaded', () => {
     const amountButtons = document.querySelectorAll('.amount-btn');
     const customAmount = document.getElementById('custom-amount');
+    const donationAmount = document.getElementById('donation-amount');
     
     amountButtons.forEach(btn => {
         btn.addEventListener('click', function(e) {
@@ -268,6 +283,10 @@ document.addEventListener('DOMContentLoaded', () => {
             this.classList.add('active');
             if (customAmount && this.dataset.amount) {
                 customAmount.value = this.dataset.amount;
+                // Update hidden field for form submission
+                if (donationAmount) {
+                    donationAmount.value = this.dataset.amount;
+                }
             }
         });
     });
@@ -282,6 +301,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     btn.classList.add('active');
                 }
             });
+            // Update hidden field for form submission
+            if (donationAmount) {
+                donationAmount.value = value;
+            }
         });
     }
 });

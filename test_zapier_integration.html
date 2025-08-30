@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Donation Integration - La Vida Luca</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input, select, textarea { width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; }
+        button { background: #FF6B35; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { background: #E55A2B; }
+        .status { margin-top: 20px; padding: 10px; border-radius: 4px; }
+        .success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .error { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+    </style>
+</head>
+<body>
+    <h1>Test de l'intégration Zapier/Mollie</h1>
+    <p>Cette page permet de tester la nouvelle intégration qui supporte à la fois Zapier et Mollie.</p>
+    
+    <form id="test-donation-form">
+        <div class="form-group">
+            <label for="amount">Montant (€)</label>
+            <input type="number" id="amount" name="amount" value="20" min="1" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="firstname">Prénom</label>
+            <input type="text" id="firstname" name="firstname" value="Test" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="lastname">Nom</label>
+            <input type="text" id="lastname" name="lastname" value="Donateur" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" value="test@example.com" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="phone">Téléphone</label>
+            <input type="tel" id="phone" name="phone" value="0612345678">
+        </div>
+        
+        <div class="form-group">
+            <label for="donation-type">Type de don</label>
+            <select id="donation-type" name="donation-type">
+                <option value="ponctuel">Don ponctuel</option>
+                <option value="mensuel">Don mensuel</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="3">Message de test pour vérifier l'intégration</textarea>
+        </div>
+        
+        <div class="form-group">
+            <label>
+                <input type="checkbox" name="fiscal_receipt" checked> Reçu fiscal
+            </label>
+        </div>
+        
+        <div class="form-group">
+            <label>
+                <input type="checkbox" name="newsletter"> Newsletter
+            </label>
+        </div>
+        
+        <button type="submit">Tester la soumission</button>
+    </form>
+    
+    <div id="status"></div>
+    
+    <script>
+        document.getElementById('test-donation-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const donationData = {
+                amount: parseFloat(formData.get('amount')),
+                firstname: formData.get('firstname'),
+                lastname: formData.get('lastname'),
+                email: formData.get('email'),
+                phone: formData.get('phone') || '',
+                donation_type: formData.get('donation-type'),
+                message: formData.get('message') || '',
+                fiscal_receipt: formData.get('fiscal_receipt') === 'on',
+                anonymous: false,
+                newsletter: formData.get('newsletter') === 'on'
+            };
+            
+            const statusDiv = document.getElementById('status');
+            statusDiv.innerHTML = '<p>Envoi en cours...</p>';
+            
+            fetch('donation_handler.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(donationData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    statusDiv.innerHTML = `
+                        <div class="status success">
+                            <h3>✅ Succès !</h3>
+                            <p><strong>Méthode utilisée:</strong> ${data.method}</p>
+                            ${data.payment_url ? `<p><strong>URL de paiement:</strong> <a href="${data.payment_url}" target="_blank">${data.payment_url}</a></p>` : ''}
+                            ${data.redirect_url ? `<p><strong>URL de redirection:</strong> <a href="${data.redirect_url}" target="_blank">${data.redirect_url}</a></p>` : ''}
+                            ${data.payment_id ? `<p><strong>ID de paiement:</strong> ${data.payment_id}</p>` : ''}
+                            <p><strong>Message:</strong> ${data.message || 'Donation soumise avec succès'}</p>
+                        </div>
+                    `;
+                } else {
+                    statusDiv.innerHTML = `
+                        <div class="status error">
+                            <h3>❌ Erreur</h3>
+                            <p>${data.error}</p>
+                        </div>
+                    `;
+                }
+            })
+            .catch(error => {
+                statusDiv.innerHTML = `
+                    <div class="status error">
+                        <h3>❌ Erreur de connexion</h3>
+                        <p>${error.message}</p>
+                    </div>
+                `;
+            });
+        });
+    </script>
+</body>
+</html>
