@@ -171,6 +171,9 @@
             
             <form id="donation-form" name="donation" class="form-section" style="max-width: 800px; margin: 0 auto;" data-netlify="true">
                 <input type="hidden" name="form-name" value="donation">
+                <!-- Hidden field to store amount from buttons -->
+                <input type="hidden" name="amount" id="donation-amount" value="">
+                
                 <h3>Type de don</h3>
                 
                 <div class="form-group">
@@ -209,6 +212,11 @@
                     <input type="text" id="don-address" name="address">
                 </div>
                 
+                <div class="form-group">
+                    <label for="don-phone">Téléphone (optionnel)</label>
+                    <input type="tel" id="don-phone" name="phone" placeholder="06 12 34 56 78">
+                </div>
+                
                 <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 1rem;">
                     <div class="form-group">
                         <label for="don-postal">Code postal</label>
@@ -225,21 +233,21 @@
                 
                 <div class="form-group">
                     <label>
-                        <input type="checkbox" checked> 
+                        <input type="checkbox" name="fiscal_receipt" checked> 
                         Je souhaite recevoir un reçu fiscal (déduction de 66% du montant)
                     </label>
                 </div>
                 
                 <div class="form-group">
                     <label>
-                        <input type="checkbox"> 
+                        <input type="checkbox" name="anonymous"> 
                         Je souhaite rester anonyme
                     </label>
                 </div>
                 
                 <div class="form-group">
                     <label>
-                        <input type="checkbox"> 
+                        <input type="checkbox" name="newsletter"> 
                         Je souhaite recevoir la newsletter mensuelle
                     </label>
                 </div>

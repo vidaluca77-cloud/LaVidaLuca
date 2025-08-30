@@ -12,3 +12,4 @@ config.php
 
 # Test files (remove from production)
 test_mollie.html
+test_zapier_integration.html
