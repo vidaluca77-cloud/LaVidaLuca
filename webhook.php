@@ -9,10 +9,18 @@ error_reporting(E_ALL);
 ini_set('log_errors', 1);
 ini_set('error_log', 'webhook_errors.log');
 
-// Configuration
-$config = [
-    'mollie_api_key' => getenv('MOLLIE_API_KEY') ?: 'test_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM', // Test key
-];
+// Load configuration
+$config = [];
+if (file_exists('config.php')) {
+    $config = require 'config.php';
+} else {
+    // Fallback configuration
+    $config = [
+        'mollie' => [
+            'api_key' => getenv('MOLLIE_API_KEY') ?: 'test_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM',
+        ],
+    ];
+}
 
 // Handle POST request only
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -30,7 +38,7 @@ if (empty($paymentId)) {
 
 try {
     // Retrieve payment status from Mollie
-    $payment = getMolliePayment($paymentId, $config['mollie_api_key']);
+    $payment = getMolliePayment($paymentId, $config['mollie']['api_key']);
     
     if (!$payment) {
         throw new Exception('Payment not found');
