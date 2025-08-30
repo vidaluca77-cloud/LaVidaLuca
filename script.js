@@ -54,9 +54,9 @@ function handleFormSubmit(formId, successMessage) {
     if (form) {
         form.addEventListener('submit', function(e) {
             // Special handling for donation form with Mollie integration
-            if (formId === 'donation-form') {
+            if (formId === 'donor-info-form') {
                 e.preventDefault();
-                handleDonationSubmit(form);
+                handleDonorInfoSubmit(form);
                 return;
             }
             
@@ -104,8 +104,8 @@ function handleFormSubmit(formId, successMessage) {
     }
 }
 
-// Handle donation form submission with Mollie integration
-function handleDonationSubmit(form) {
+// Handle donor information form submission
+function handleDonorInfoSubmit(form) {
     // Validate required fields
     const requiredFields = form.querySelectorAll('[required]');
     let isValid = true;
@@ -121,19 +121,12 @@ function handleDonationSubmit(form) {
     
     // Validate amount
     const amountField = form.querySelector('[name="amount"]');
-    let amount = parseFloat(amountField ? amountField.value : 0);
-    
-    // If no amount in hidden field, try custom amount field
-    if (!amount) {
-        const customAmountField = document.getElementById('custom-amount');
-        amount = parseFloat(customAmountField ? customAmountField.value : 0);
-    }
+    const amount = parseFloat(amountField ? amountField.value : 0);
     
     if (!amount || amount < 1) {
         isValid = false;
-        const displayField = document.getElementById('custom-amount') || amountField;
-        if (displayField) {
-            displayField.style.borderColor = '#ff6b35';
+        if (amountField) {
+            amountField.style.borderColor = '#ff6b35';
         }
         alert('Veuillez saisir un montant valide (minimum 1€).');
         return;
@@ -144,37 +137,34 @@ function handleDonationSubmit(form) {
         return;
     }
     
-    // Prepare donation data
+    // Prepare donor data
     const formData = new FormData(form);
-    const donationData = {
-        amount: amount,
+    const donorData = {
         firstname: formData.get('firstname'),
         lastname: formData.get('lastname'),
         email: formData.get('email'),
         phone: formData.get('phone') || '',
-        address: formData.get('address') || '',
-        postal: formData.get('postal') || '',
-        city: formData.get('city') || '',
-        donation_type: formData.get('donation-type') || 'ponctuel',
-        message: formData.get('message') || '',
-        fiscal_receipt: formData.get('fiscal_receipt') === 'on',
-        anonymous: formData.get('anonymous') === 'on',
-        newsletter: formData.get('newsletter') === 'on'
+        address: formData.get('address'),
+        postal: formData.get('postal'),
+        city: formData.get('city'),
+        amount: amount,
+        newsletter: formData.get('newsletter') === 'on',
+        message: formData.get('message') || ''
     };
     
     // Show loading state
     const submitBtn = form.querySelector('button[type="submit"]');
     const originalText = submitBtn.textContent;
-    submitBtn.textContent = 'Redirection vers le paiement...';
+    submitBtn.textContent = 'Envoi en cours...';
     submitBtn.disabled = true;
     
-    // Send to donation handler (supports both Zapier and Mollie)
-    fetch('donation_handler.php', {
+    // Send to donor info handler
+    fetch('donor_info_handler.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify(donationData)
+        body: JSON.stringify(donorData)
     })
     .then(response => {
         if (!response.ok) {
@@ -184,30 +174,16 @@ function handleDonationSubmit(form) {
     })
     .then(data => {
         if (data.success) {
-            if (data.method === 'zapier') {
-                // Zapier handled the submission
-                if (data.redirect_url) {
-                    window.location.href = data.redirect_url;
-                } else {
-                    // Show success message for Zapier submission
-                    alert('Merci pour votre don ! Votre demande a été transmise avec succès.');
-                    window.location.href = 'donation-success.html';
-                }
-            } else if (data.method === 'mollie' && data.payment_url) {
-                // Redirect to Mollie payment page
-                window.location.href = data.payment_url;
-            } else {
-                throw new Error('Réponse inattendue du serveur');
-            }
+            alert('Votre demande de reçu fiscal a été enregistrée ! Vous recevrez votre reçu par email dans les 30 jours.');
+            form.reset();
         } else {
-            throw new Error(data.error || 'Erreur lors de la création du paiement');
+            throw new Error(data.error || 'Erreur lors de l\'enregistrement de votre demande');
         }
     })
     .catch(error => {
-        console.error('Payment error:', error);
-        let errorMessage = 'Erreur lors de la création du paiement. Veuillez réessayer.';
+        console.error('Donor info error:', error);
+        let errorMessage = 'Erreur lors de l\'enregistrement de votre demande. Veuillez réessayer.';
         
-        // Provide more specific error messages
         if (error.message.includes('fetch')) {
             errorMessage = 'Problème de connexion. Vérifiez votre connexion internet et réessayez.';
         } else if (error.message.includes('JSON')) {
@@ -215,7 +191,8 @@ function handleDonationSubmit(form) {
         }
         
         alert(errorMessage);
-        
+    })
+    .finally(() => {
         // Reset button
         submitBtn.textContent = originalText;
         submitBtn.disabled = false;
@@ -311,7 +288,7 @@ function handleTrainingSubmit(form) {
 // Initialisation des formulaires
 handleFormSubmit('volunteer-form', 'Merci pour votre inscription ! Nous vous contacterons bientôt.');
 handleFormSubmit('training-form', 'Votre inscription à la formation a été enregistrée !');
-handleFormSubmit('donation-form', 'Merci pour votre don ! Vous allez être redirigé vers la page de paiement.');
+handleFormSubmit('donor-info-form', 'Votre demande de reçu fiscal a été enregistrée !');
 handleFormSubmit('contact-form', 'Votre message a été envoyé. Nous vous répondrons dans les 48h.');
 handleFormSubmit('partner-form', 'Votre demande de partenariat a été reçue. Nous vous contacterons prochainement.');
 
@@ -363,44 +340,7 @@ function updateCountdown(elementId, targetDate) {
     }, 60000);
 }
 
-// Donation Amount Selection
-document.addEventListener('DOMContentLoaded', () => {
-    const amountButtons = document.querySelectorAll('.amount-btn');
-    const customAmount = document.getElementById('custom-amount');
-    const donationAmount = document.getElementById('donation-amount');
-    
-    amountButtons.forEach(btn => {
-        btn.addEventListener('click', function(e) {
-            e.preventDefault(); // Prevent form submission
-            amountButtons.forEach(b => b.classList.remove('active'));
-            this.classList.add('active');
-            if (customAmount && this.dataset.amount) {
-                customAmount.value = this.dataset.amount;
-                // Update hidden field for form submission
-                if (donationAmount) {
-                    donationAmount.value = this.dataset.amount;
-                }
-            }
-        });
-    });
-    
-    if (customAmount) {
-        customAmount.addEventListener('input', function() {
-            amountButtons.forEach(b => b.classList.remove('active'));
-            // Auto-select matching amount button
-            const value = this.value;
-            amountButtons.forEach(btn => {
-                if (btn.dataset.amount === value) {
-                    btn.classList.add('active');
-                }
-            });
-            // Update hidden field for form submission
-            if (donationAmount) {
-                donationAmount.value = value;
-            }
-        });
-    }
-});
+// Previous donation amount selection code removed - now using direct payment links
 
 // Newsletter Subscription
 const newsletterForm = document.getElementById('newsletter-form');

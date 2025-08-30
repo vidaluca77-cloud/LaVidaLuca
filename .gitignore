@@ -5,6 +5,7 @@ index.html.backup
 donations.log
 receipts.log
 webhook_errors.log
+donor_receipts.log
 
 # Environment and config files
 .env
