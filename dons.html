@@ -284,9 +284,8 @@
                 
                 <div class="project-card">
                     <h3>🏛️ Don par virement</h3>
-                    <p><strong>IBAN :</strong> FR76 XXXX XXXX XXXX XXXX</p>
-                    <p><strong>BIC :</strong> XXXXFRPP</p>
-                    <button class="btn btn-secondary" id="copy-iban">Copier l'IBAN</button>
+                    <p>Pour effectuer un don par virement bancaire, contactez-nous et nous vous communiquerons nos coordonnées bancaires.</p>
+                    <a href="contact.html" class="btn btn-primary">Demander les coordonnées</a>
                 </div>
                 
                 <div class="project-card">
@@ -311,8 +310,8 @@
                     <h3>📣 Partage</h3>
                     <p>Parlez de nous autour de vous et sur les réseaux sociaux.</p>
                     <div style="display: flex; gap: 0.5rem; margin-top: 1rem;">
-                        <button class="btn btn-secondary">Facebook</button>
-                        <button class="btn btn-secondary">LinkedIn</button>
+                        <a href="https://www.facebook.com/share/16rgTShcag/?mibextid=wwXIfr" target="_blank" class="btn btn-secondary">Facebook</a>
+                        <a href="https://www.linkedin.com/in/lucas-horville-50a500380/" target="_blank" class="btn btn-secondary">LinkedIn</a>
                     </div>
                 </div>
             </div>
@@ -407,28 +406,18 @@
                     14350 Calvados<br>
                     vidaluca77@gmail.com</p>
                     <div class="social-links">
-                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="https://www.facebook.com/share/16rgTShcag/?mibextid=wwXIfr" target="_blank" aria-label="Facebook">📘</a>
                         <a href="#" aria-label="Instagram">📷</a>
-                        <a href="#" aria-label="LinkedIn">💼</a>
+                        <a href="https://www.linkedin.com/in/lucas-horville-50a500380/" target="_blank" aria-label="LinkedIn">💼</a>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 La Vida Luca - Tous droits réservés | Association reconnue d'intérêt général</p>
+                <p>&copy; 2025 La Vida Luca - Tous droits réservés | Association d'intérêt général</p>
             </div>
         </div>
     </footer>
 
     <script src="script.js"></script>
-    <script>
-        // Copy IBAN functionality
-        document.getElementById('copy-iban')?.addEventListener('click', function() {
-            navigator.clipboard.writeText('FR76 XXXX XXXX XXXX XXXX');
-            this.textContent = 'IBAN copié !';
-            setTimeout(() => {
-                this.textContent = 'Copier l\'IBAN';
-            }, 2000);
-        });
-    </script>
 </body>
 </html>
