@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Guide pratique sur la gestion des sols en agriculture biologique et les techniques de compostage pour un sol vivant et fertile">
+    <title>Gestion des Sols et Techniques de Compostage - La Vida Luca</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .article-hero {
+            background: linear-gradient(135deg, #8BC34A 0%, #4CAF50 100%);
+            color: white;
+            padding: 6rem 2rem 4rem;
+            text-align: center;
+            margin-top: 80px;
+        }
+        
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+        
+        .article-section {
+            margin: 3rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-light);
+        }
+        
+        .step-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .step-card {
+            background: var(--light-color);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            border: 2px solid transparent;
+            transition: var(--transition);
+        }
+        
+        .step-card:hover {
+            border-color: var(--primary-color);
+        }
+        
+        .step-number {
+            background: var(--primary-color);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin: 0 auto 1rem;
+        }
+        
+        .tip-box {
+            background: #e8f5e9;
+            border-left: 4px solid var(--primary-color);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+        
+        .warning-box {
+            background: #fff3e0;
+            border-left: 4px solid var(--warning-color);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+        
+        .ingredient-list {
+            background: var(--light-color);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            margin: 1rem 0;
+        }
+        
+        .ingredient-list ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .ingredient-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .ingredient-list li:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="nav-container">
+                <a href="index.html" class="logo">🌱 La Vida Luca</a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="projets.html">Nos Projets</a></li>
+                    <li><a href="formations.html">Formations</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="benevoles.html">Bénévoles</a></li>
+                    <li><a href="partenaires.html">Partenaires</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="dons.html" class="btn-donate">Faire un don</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="article-hero">
+        <div class="container">
+            <h1>🪱 Gestion des Sols et Techniques de Compostage</h1>
+            <p style="font-size: 1.2rem; margin-top: 1rem; max-width: 700px; margin-left: auto; margin-right: auto;">
+                Apprenez à créer et maintenir un sol vivant et fertile grâce aux techniques 
+                naturelles de compostage et d'amendement. La base d'une agriculture biologique réussie.
+            </p>
+            <div style="margin-top: 2rem;">
+                <span style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 20px; margin: 0 0.5rem;">
+                    📖 Lecture : 8 min
+                </span>
+                <span style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 20px; margin: 0 0.5rem;">
+                    📅 20 août 2025
+                </span>
+                <span style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 20px; margin: 0 0.5rem;">
+                    🏷️ Sol & Compost
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content -->
+    <section style="padding: 4rem 0;">
+        <div class="container">
+            <div class="article-content">
+                <!-- Introduction -->
+                <div class="article-section">
+                    <h2>🌍 Comprendre son sol</h2>
+                    
+                    <p>Le sol n'est pas qu'un simple support pour les plantes : c'est un écosystème complexe et vivant. En agriculture biologique, la santé du sol est la clé de voûte de tout le système productif. Un sol sain produit des plantes saines, plus résistantes aux maladies et aux ravageurs.</p>
+                    
+                    <h3>Les composants d'un sol vivant</h3>
+                    <ul>
+                        <li><strong>45% de matière minérale :</strong> Sables, limons, argiles issus de l'altération des roches</li>
+                        <li><strong>25% d'eau :</strong> Élément vital pour les plantes et la microfaune</li>
+                        <li><strong>25% d'air :</strong> Oxygène nécessaire aux racines et micro-organismes</li>
+                        <li><strong>5% de matière organique :</strong> Humus, résidus végétaux, microfaune</li>
+                    </ul>
+                    
+                    <div class="tip-box">
+                        <h4>💡 Test simple de la texture</h4>
+                        <p>Prenez une poignée de terre humide et formez un boudin. Si il se casse facilement, votre sol est sableux. S'il forme un anneau, il est argileux. La texture idéale est intermédiaire : un sol limoneux qui se tient sans être compact.</p>
+                    </div>
+                </div>
+
+                <!-- Analyse du sol -->
+                <div class="article-section">
+                    <h2>🔬 Analyse et diagnostic du sol</h2>
+                    
+                    <h3>Tests à réaliser</h3>
+                    <div class="step-grid">
+                        <div class="step-card">
+                            <div class="step-number">1</div>
+                            <h4>Test du pH</h4>
+                            <p>Mesure l'acidité du sol. Idéal entre 6,5 et 7 pour la plupart des légumes.</p>
+                        </div>
+                        <div class="step-card">
+                            <div class="step-number">2</div>
+                            <h4>Taux de matière organique</h4>
+                            <p>Doit représenter 3-5% du sol. Indicateur de fertilité biologique.</p>
+                        </div>
+                        <div class="step-card">
+                            <div class="step-number">3</div>
+                            <h4>Structure du sol</h4>
+                            <p>Évalue la porosité et la capacité de rétention d'eau.</p>
+                        </div>
+                        <div class="step-card">
+                            <div class="step-number">4</div>
+                            <h4>Vie microbienne</h4>
+                            <p>Observation des vers de terre, champignons et autres organismes.</p>
+                        </div>
+                    </div>
+                    
+                    <h3>Signes d'un sol en bonne santé</h3>
+                    <ul>
+                        <li>✅ Présence nombreuse de vers de terre</li>
+                        <li>✅ Sol grumeleux et aéré</li>
+                        <li>✅ Couleur foncée</li>
+                        <li>✅ Odeur de terre de forêt</li>
+                        <li>✅ Bonne capacité d'infiltration de l'eau</li>
+                        <li>✅ Racines qui pénètrent facilement</li>
+                    </ul>
+                </div>
+
+                <!-- Compostage -->
+                <div class="article-section">
+                    <h2>🍂 Le compostage : transformer les déchets en or noir</h2>
+                    
+                    <p>Le compostage est un processus naturel de décomposition qui transforme les déchets organiques en amendement riche et équilibré. C'est l'une des techniques les plus importantes en agriculture biologique.</p>
+                    
+                    <h3>Principes du compostage</h3>
+                    <p>Le compostage réussit grâce à l'équilibre de quatre éléments :</p>
+                    
+                    <div class="step-grid">
+                        <div class="step-card">
+                            <div style="font-size: 2rem; margin-bottom: 1rem;">🟤</div>
+                            <h4>Matières brunes</h4>
+                            <p>Riches en carbone : feuilles mortes, paille, papier, carton</p>
+                        </div>
+                        <div class="step-card">
+                            <div style="font-size: 2rem; margin-bottom: 1rem;">🟢</div>
+                            <h4>Matières vertes</h4>
+                            <p>Riches en azote : épluchures, tontes, fumier frais</p>
+                        </div>
+                        <div class="step-card">
+                            <div style="font-size: 2rem; margin-bottom: 1rem;">💧</div>
+                            <h4>Humidité</h4>
+                            <p>50-60% d'humidité. Le tas doit être humide comme une éponge essorée</p>
+                        </div>
+                        <div class="step-card">
+                            <div style="font-size: 2rem; margin-bottom: 1rem;">🌪️</div>
+                            <h4>Aération</h4>
+                            <p>Retournement régulier pour apporter l'oxygène nécessaire</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recette de compost -->
+                <div class="article-section">
+                    <h2>📝 Recette du compost parfait</h2>
+                    
+                    <h3>Ingrédients autorisés</h3>
+                    <div class="ingredient-list">
+                        <h4>✅ Matières vertes (azote)</h4>
+                        <ul>
+                            <li>Épluchures de légumes <span>Excellente base</span></li>
+                            <li>Tontes de gazon <span>Avec modération</span></li>
+                            <li>Fumier de poule <span>Très riche</span></li>
+                            <li>Marc de café <span>+ filtres en papier</span></li>
+                            <li>Algues marines <span>Reminéralisantes</span></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="ingredient-list">
+                        <h4>✅ Matières brunes (carbone)</h4>
+                        <ul>
+                            <li>Feuilles mortes <span>Base idéale</span></li>
+                            <li>Paille et foin <span>Structure aérée</span></li>
+                            <li>Copeaux de bois <span>Décomposition lente</span></li>
+                            <li>Carton non traité <span>En petits morceaux</span></li>
+                            <li>Coquilles d'œuf <span>Apport calcique</span></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="warning-box">
+                        <h4>⚠️ À éviter absolument</h4>
+                        <ul>
+                            <li>❌ Viandes et poissons (odeurs, nuisibles)</li>
+                            <li>❌ Produits laitiers (putréfaction)</li>
+                            <li>❌ Huiles et graisses (ralentit le processus)</li>
+                            <li>❌ Plantes malades (propagation)</li>
+                            <li>❌ Mauvaises herbes montées en graines</li>
+                            <li>❌ Excréments d'animaux carnivores</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Technique de compostage -->
+                <div class="article-section">
+                    <h2>🛠️ Technique pas à pas</h2>
+                    
+                    <h3>Construction du tas de compost</h3>
+                    
+                    <div class="step-grid">
+                        <div class="step-card">
+                            <div class="step-number">1</div>
+                            <h4>Emplacement</h4>
+                            <p>Choisir un endroit ombragé, abrité du vent, avec accès facile à l'eau</p>
+                        </div>
+                        <div class="step-card">
+                            <div class="step-number">2</div>
+                            <h4>Base drainante</h4>
+                            <p>Disposer des branches ou de la paille pour assurer le drainage</p>
+                        </div>
+                        <div class="step-card">
+                            <div class="step-number">3</div>
+                            <h4>Alternance des couches</h4>
+                            <p>20cm de matières brunes, puis 10cm de matières vertes</p>
+                        </div>
+                        <div class="step-card">
+                            <div class="step-number">4</div>
+                            <h4>Arrosage léger</h4>
+                            <p>Humidifier chaque couche sans détremper</p>
+                        </div>
+                    </div>
+                    
+                    <h3>Proportion idéale</h3>
+                    <p>Pour un compost équilibré, respectez la proportion <strong>3:1</strong> (3 volumes de matières brunes pour 1 volume de matières vertes).</p>
+                    
+                    <h3>Calendrier de retournement</h3>
+                    <ul>
+                        <li><strong>1er retournement :</strong> Après 3-4 semaines (phase de montée en température)</li>
+                        <li><strong>2ème retournement :</strong> 6-8 semaines (mélange et aération)</li>
+                        <li><strong>3ème retournement :</strong> 10-12 semaines (homogénéisation)</li>
+                        <li><strong>Maturation :</strong> 4-6 mois au total selon la saison</li>
+                    </ul>
+                    
+                    <div class="tip-box">
+                        <h4>💡 Astuce température</h4>
+                        <p>Un bon compost monte en température (50-70°C) les premières semaines. Vous pouvez enfoncer un bâton au centre : s'il ressort chaud, c'est parfait ! Cette montée en température élimine les pathogènes et graines d'adventices.</p>
+                    </div>
+                </div>
+
+                <!-- Types de compost -->
+                <div class="article-section">
+                    <h2>🏺 Différents types de compostage</h2>
+                    
+                    <div class="step-grid">
+                        <div class="step-card">
+                            <h4>🏠 Compostage domestique</h4>
+                            <p>Composteur de jardin 300-600L pour une famille. Idéal débutants.</p>
+                        </div>
+                        <div class="step-card">
+                            <h4>🚜 Compostage en andains</h4>
+                            <p>Grands tas en longueur pour exploitation. Retournement mécanique.</p>
+                        </div>
+                        <div class="step-card">
+                            <h4>🌊 Compostage liquide</h4>
+                            <p>Purins et extraits fermentés. Action rapide sur les plantes.</p>
+                        </div>
+                        <div class="step-card">
+                            <h4>🪱 Lombricompostage</h4>
+                            <p>Avec vers de terre. Compost très fin et riche. Possible en intérieur.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Utilisation -->
+                <div class="article-section">
+                    <h2>🌱 Utilisation du compost</h2>
+                    
+                    <h3>Reconnaître un compost mûr</h3>
+                    <ul>
+                        <li>✅ Couleur brun foncé homogène</li>
+                        <li>✅ Odeur de terre de forêt</li>
+                        <li>✅ Structure grumeleuse qui s'émiette</li>
+                        <li>✅ Plus d'éléments reconnaissables</li>
+                        <li>✅ Température identique à l'air ambiant</li>
+                    </ul>
+                    
+                    <h3>Dosages recommandés</h3>
+                    <div class="ingredient-list">
+                        <ul>
+                            <li>Potager intensif <span>3-5 kg/m²/an</span></li>
+                            <li>Jardin d'ornement <span>2-3 kg/m²/an</span></li>
+                            <li>Pelouse <span>1-2 kg/m²/an</span></li>
+                            <li>Arbres fruitiers <span>10-20 kg/arbre/an</span></li>
+                            <li>Paillis nutritif <span>2-3 cm d'épaisseur</span></li>
+                        </ul>
+                    </div>
+                    
+                    <h3>Périodes d'application</h3>
+                    <ul>
+                        <li><strong>Automne :</strong> Épandage avant bêchage d'hiver</li>
+                        <li><strong>Printemps :</strong> Incorporation avant plantation</li>
+                        <li><strong>Été :</strong> Paillis nutritif autour des plantes</li>
+                    </ul>
+                </div>
+
+                <!-- Amendements complémentaires -->
+                <div class="article-section">
+                    <h2>🌿 Amendements complémentaires</h2>
+                    
+                    <p>Le compost peut être enrichi avec d'autres amendements naturels pour corriger des carences spécifiques :</p>
+                    
+                    <div class="step-grid">
+                        <div class="step-card">
+                            <h4>🦴 Poudre d'os</h4>
+                            <p>Riche en phosphore. Idéal pour la floraison et fructification.</p>
+                        </div>
+                        <div class="step-card">
+                            <h4>🔥 Cendres de bois</h4>
+                            <p>Potasse naturelle. Avec modération (sol acide uniquement).</p>
+                        </div>
+                        <div class="step-card">
+                            <h4>🌊 Algues calcaires</h4>
+                            <p>Lithothamne, maërl. Reminéralisation et correction du pH.</p>
+                        </div>
+                        <div class="step-card">
+                            <h4>🏔️ Poudre de roche</h4>
+                            <p>Basalte, granite. Libération lente d'oligoéléments.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Conseils pratiques -->
+                <div class="article-section">
+                    <h2>🎯 Conseils pratiques de notre ferme</h2>
+                    
+                    <div class="tip-box">
+                        <h4>🚜 Retour d'expérience à Souleuvre</h4>
+                        <p>Sur notre ferme pilote, nous produisons 15 tonnes de compost par an avec nos déchets verts et le fumier de nos moutons. Nous avons constaté une amélioration spectaculaire de la structure de nos sols argileux en seulement 2 ans. Nos rendements ont augmenté de 25% et nos plantes sont beaucoup plus résistantes à la sécheresse.</p>
+                    </div>
+                    
+                    <h3>Erreurs à éviter</h3>
+                    <ul>
+                        <li>❌ Tas trop sec ou trop humide</li>
+                        <li>❌ Manque d'aération (odeurs anaérobies)</li>
+                        <li>❌ Déséquilibre carbone/azote</li>
+                        <li>❌ Éléments trop gros (décomposition lente)</li>
+                        <li>❌ Application de compost immature</li>
+                    </ul>
+                    
+                    <h3>Outils utiles</h3>
+                    <ul>
+                        <li>🔧 Fourche à compost pour retourner</li>
+                        <li>🌡️ Thermomètre à compost</li>
+                        <li>✂️ Broyeur pour réduire les déchets</li>
+                        <li>🪣 Seau étanche pour les déchets de cuisine</li>
+                        <li>🧤 Gants de protection</li>
+                    </ul>
+                </div>
+
+                <!-- Navigation -->
+                <div style="margin: 3rem 0; text-align: center; padding: 2rem; background: var(--light-color); border-radius: var(--border-radius);">
+                    <h3>Articles liés</h3>
+                    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem;">
+                        <a href="agriculture-bio.html" class="btn btn-secondary">Guide agriculture bio →</a>
+                        <a href="blog-protection-naturelle.html" class="btn btn-secondary">Protection naturelle →</a>
+                        <a href="blog-calendrier-bio.html" class="btn btn-secondary">Calendrier bio →</a>
+                        <a href="formations.html" class="btn btn-primary">Nos formations</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>La Vida Luca</h4>
+                    <p>Association loi 1901<br>
+                    SIRET : 99041389000015<br>
+                    Président : Lucas Horville</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Blog</h4>
+                    <ul>
+                        <li><a href="agriculture-bio.html">Agriculture biologique</a></li>
+                        <li><a href="blog-sol-compost.html">Sol et compostage</a></li>
+                        <li><a href="blog-protection-naturelle.html">Protection naturelle</a></li>
+                        <li><a href="blog.html">Tous les articles</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Liens rapides</h4>
+                    <ul>
+                        <li><a href="projets.html">Nos projets</a></li>
+                        <li><a href="formations.html">Formations</a></li>
+                        <li><a href="dons.html">Faire un don</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:vidaluca77@gmail.com">vidaluca77@gmail.com</a></li>
+                        <li><a href="contact.html">Nous trouver</a></li>
+                        <li><a href="contact.html#faq">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 La Vida Luca. Tous droits réservés.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/share/16rgTShcag/?mibextid=wwXIfr" target="_blank" aria-label="Facebook">📘</a>
+                    <a href="#" aria-label="Instagram">📷</a>
+                    <a href="#" aria-label="YouTube">📺</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

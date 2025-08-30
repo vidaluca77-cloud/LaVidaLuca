@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Guide complet sur la lutte biologique et protection naturelle des cultures - Méthodes écologiques pour protéger vos plantes sans pesticides">
+    <title>Lutte Biologique et Protection Naturelle - La Vida Luca</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .protection-hero {
+            background: linear-gradient(135deg, #689F38 0%, #8BC34A 50%, #CDDC39 100%);
+            color: white;
+            padding: 6rem 2rem 4rem;
+            text-align: center;
+            margin-top: 80px;
+        }
+        
+        .method-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .method-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-light);
+            border-left: 4px solid var(--primary-color);
+            transition: var(--transition);
+        }
+        
+        .method-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-medium);
+        }
+        
+        .auxiliary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .auxiliary-card {
+            background: var(--light-color);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            border: 2px solid transparent;
+            transition: var(--transition);
+        }
+        
+        .auxiliary-card:hover {
+            border-color: var(--primary-color);
+        }
+        
+        .recipe-box {
+            background: #f3e5f5;
+            border-left: 4px solid #9c27b0;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+        
+        .calendar-month {
+            background: white;
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            margin: 0.5rem 0;
+            border-left: 4px solid var(--secondary-color);
+            box-shadow: var(--shadow-light);
+        }
+        
+        .pest-solution {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 1rem;
+            margin: 1rem 0;
+            padding: 1rem;
+            background: var(--light-color);
+            border-radius: var(--border-radius);
+        }
+        
+        .pest-name {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        @media (max-width: 768px) {
+            .pest-solution {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="nav-container">
+                <a href="index.html" class="logo">🌱 La Vida Luca</a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="projets.html">Nos Projets</a></li>
+                    <li><a href="formations.html">Formations</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="benevoles.html">Bénévoles</a></li>
+                    <li><a href="partenaires.html">Partenaires</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="dons.html" class="btn-donate">Faire un don</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="protection-hero">
+        <div class="container">
+            <h1>🐛 Lutte Biologique et Protection Naturelle</h1>
+            <p style="font-size: 1.2rem; margin-top: 1rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+                Découvrez comment protéger efficacement vos cultures sans pesticides grâce aux 
+                auxiliaires, plantes compagnes, purins végétaux et méthodes de lutte biologique intégrée.
+            </p>
+            <div style="margin-top: 2rem;">
+                <span style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 20px; margin: 0 0.5rem;">
+                    📖 Lecture : 10 min
+                </span>
+                <span style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 20px; margin: 0 0.5rem;">
+                    📅 15 août 2025
+                </span>
+                <span style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 20px; margin: 0 0.5rem;">
+                    🏷️ Protection naturelle
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content -->
+    <section style="padding: 4rem 0;">
+        <div class="container">
+            <div class="article-content" style="max-width: 900px; margin: 0 auto; line-height: 1.8;">
+                <!-- Introduction -->
+                <div class="practice-section" style="margin: 3rem 0; padding: 2rem; background: white; border-radius: var(--border-radius); box-shadow: var(--shadow-light);">
+                    <h2>🛡️ Stratégie de protection intégrée</h2>
+                    
+                    <p>La protection naturelle des cultures repose sur une approche préventive et écologique. Plutôt que de subir et traiter, l'objectif est de créer un écosystème équilibré où les ravageurs sont naturellement régulés par leurs prédateurs et où les plantes sont suffisamment robustes pour résister aux agressions.</p>
+                    
+                    <h3>Les 4 piliers de la protection naturelle</h3>
+                    <div class="method-grid">
+                        <div class="method-card">
+                            <h4>🔍 1. Prévention</h4>
+                            <p>Anticiper les problèmes par de bonnes pratiques culturales : rotations, variétés résistantes, sol sain.</p>
+                        </div>
+                        <div class="method-card">
+                            <h4>👁️ 2. Observation</h4>
+                            <p>Surveillance quotidienne pour détecter précocement les problèmes et intervenir au bon moment.</p>
+                        </div>
+                        <div class="method-card">
+                            <h4>🤝 3. Auxiliaires</h4>
+                            <p>Favoriser la faune utile : prédateurs, parasites et pollinisateurs pour un équilibre naturel.</p>
+                        </div>
+                        <div class="method-card">
+                            <h4>🌿 4. Intervention douce</h4>
+                            <p>Quand nécessaire, utiliser des méthodes respectueuses : purins, huiles essentielles, pièges.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Auxiliaires -->
+                <div class="practice-section" style="margin: 3rem 0; padding: 2rem; background: white; border-radius: var(--border-radius); box-shadow: var(--shadow-light);">
+                    <h2>🐞 Les auxiliaires : nos alliés naturels</h2>
+                    
+                    <p>Les auxiliaires sont des organismes vivants qui régulent naturellement les populations de ravageurs. Les attirer et les maintenir dans nos cultures est la base de la lutte biologique.</p>
+                    
+                    <h3>Prédateurs généralistes</h3>
+                    <div class="auxiliary-grid">
+                        <div class="auxiliary-card">
+                            <div style="font-size: 3rem; margin-bottom: 1rem;">🐞</div>
+                            <h4>Coccinelles</h4>
+                            <p><strong>Cible :</strong> Pucerons, cochenilles<br>
+                            <strong>Efficacité :</strong> 150 pucerons/jour<br>
+                            <strong>Attirer :</strong> Fenouil, aneth, achillée</p>
+                        </div>
+                        <div class="auxiliary-card">
+                            <div style="font-size: 3rem; margin-bottom: 1rem;">🕷️</div>
+                            <h4>Araignées</h4>
+                            <p><strong>Cible :</strong> Tous petits insectes<br>
+                            <strong>Efficacité :</strong> Régulation continue<br>
+                            <strong>Favoriser :</strong> Zones refuges, paillis</p>
+                        </div>
+                        <div class="auxiliary-card">
+                            <div style="font-size: 3rem; margin-bottom: 1rem;">🦗</div>
+                            <h4>Carabes</h4>
+                            <p><strong>Cible :</strong> Limaces, chenilles au sol<br>
+                            <strong>Efficacité :</strong> Prédation nocturne<br>
+                            <strong>Abri :</strong> Planches, pierres, tas de bois</p>
+                        </div>
+                        <div class="auxiliary-card">
+                            <div style="font-size: 3rem; margin-bottom: 1rem;">🌊</div>
+                            <h4>Syrphes</h4>
+                            <p><strong>Cible :</strong> Pucerons (larves)<br>
+                            <strong>Efficacité :</strong> 700 pucerons/larve<br>
+                            <strong>Attirer :</strong> Fleurs simples, ombellifères</p>
+                        </div>
+                    </div>
+                    
+                    <h3>Parasites spécialisés</h3>
+                    <p>Les parasitoïdes pondent leurs œufs dans ou sur les ravageurs, causant leur mort. Très efficaces mais spécialisés sur une espèce cible.</p>
+                    
+                    <div class="auxiliary-grid">
+                        <div class="auxiliary-card">
+                            <div style="font-size: 3rem; margin-bottom: 1rem;">🦟</div>
+                            <h4>Aphidius</h4>
+                            <p><strong>Cible :</strong> Pucerons<br>
+                            <strong>Signe :</strong> Pucerons momifiés dorés<br>
+                            <strong>Usage :</strong> Lâchers préventifs en serre</p>
+                        </div>
+                        <div class="auxiliary-card">
+                            <div style="font-size: 3rem; margin-bottom: 1rem;">🐝</div>
+                            <h4>Trichogrammes</h4>
+                            <p><strong>Cible :</strong> Œufs de lépidoptères<br>
+                            <strong>Efficacité :</strong> 95% d'œufs parasités<br>
+                            <strong>Usage :</strong> Diffuseurs en cultures</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Plantes compagnes -->
+                <div class="practice-section" style="margin: 3rem 0; padding: 2rem; background: white; border-radius: var(--border-radius); box-shadow: var(--shadow-light);">
+                    <h2>🌻 Plantes compagnes répulsives</h2>
+                    
+                    <p>Certaines plantes émettent des substances qui repoussent les ravageurs ou perturbent leur cycle de reproduction. C'est la base du compagnonnage végétal protecteur.</p>
+                    
+                    <h3>Plantes répulsives universelles</h3>
+                    <div class="method-grid">
+                        <div class="method-card">
+                            <h4>🌼 Œillet d'Inde</h4>
+                            <p><strong>Action :</strong> Nématicide, répulsif pucerons<br>
+                            <strong>Association :</strong> Tomates, courgettes<br>
+                            <strong>Plantation :</strong> 1 plant/m² de culture</p>
+                        </div>
+                        <div class="method-card">
+                            <h4>🌿 Basilic</h4>
+                            <p><strong>Action :</strong> Anti-mouches, anti-thrips<br>
+                            <strong>Association :</strong> Tomates, poivrons<br>
+                            <strong>Bonus :</strong> Améliore le goût des tomates</p>
+                        </div>
+                        <div class="method-card">
+                            <h4>🧄 Ail</h4>
+                            <p><strong>Action :</strong> Antifongique, anti-acariens<br>
+                            <strong>Association :</strong> Rosiers, fraisiers<br>
+                            <strong>Usage :</strong> Décoction pour pulvérisations</p>
+                        </div>
+                        <div class="method-card">
+                            <h4>🌾 Tanaisie</h4>
+                            <p><strong>Action :</strong> Anti-fourmis, anti-pucerons<br>
+                            <strong>Usage :</strong> Bordures, purin concentré<br>
+                            <strong>Attention :</strong> Toxique, utiliser avec précaution</p>
+                        </div>
+                    </div>
+                    
+                    <div class="tip-box" style="background: #e8f5e9; border-left: 4px solid var(--primary-color); padding: 1.5rem; margin: 2rem 0; border-radius: 0 var(--border-radius) var(--border-radius) 0;">
+                        <h4>💡 Conseil d'implantation</h4>
+                        <p>Les plantes compagnes sont plus efficaces en bordure qu'éparpillées. Créez des "haies" répulsives autour de vos cultures sensibles. L'effet est maximisé quand les plantes arrivent à maturité aromatique.</p>
+                    </div>
+                </div>
+
+                <!-- Purins végétaux -->
+                <div class="practice-section" style="margin: 3rem 0; padding: 2rem; background: white; border-radius: var(--border-radius); box-shadow: var(--shadow-light);">
+                    <h2>🧪 Purins et extraits végétaux</h2>
+                    
+                    <p>Les purins végétaux sont des préparations naturelles obtenues par fermentation de plantes dans l'eau. Ils stimulent les défenses des plantes et ont des propriétés répulsives ou insecticides.</p>
+                    
+                    <h3>Recettes de purins efficaces</h3>
+                    
+                    <div class="recipe-box">
+                        <h4>🌿 Purin d'ortie - Le polyvalent</h4>
+                        <p><strong>Préparation :</strong></p>
+                        <ul>
+                            <li>1 kg d'orties fraîches (avant floraison)</li>
+                            <li>10 L d'eau de pluie</li>
+                            <li>Macération 15 jours en remuant quotidiennement</li>
+                            <li>Filtration et stockage à l'ombre</li>
+                        </ul>
+                        <p><strong>Usage :</strong></p>
+                        <ul>
+                            <li>Fertilisant : dilution 10% en arrosage</li>
+                            <li>Répulsif pucerons : dilution 5% en pulvérisation</li>
+                            <li>Stimulant : dilution 20% toutes les 2 semaines</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="recipe-box">
+                        <h4>🌾 Purin de prêle - L'antifongique</h4>
+                        <p><strong>Préparation :</strong></p>
+                        <ul>
+                            <li>150g de prêle sèche ou 1kg fraîche</li>
+                            <li>10L d'eau, macération 24h puis décoction 20min</li>
+                            <li>Refroidissement et filtration</li>
+                        </ul>
+                        <p><strong>Usage :</strong></p>
+                        <ul>
+                            <li>Prévention mildiou, oïdium : dilution 20%</li>
+                            <li>Traitement curatif : dilution 10% tous les 3 jours</li>
+                            <li>Renforcement cellulaire : apport de silice</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="recipe-box">
+                        <h4>🍃 Purin de consoude - Le nourrissant</h4>
+                        <p><strong>Préparation :</strong></p>
+                        <ul>
+                            <li>2 kg de feuilles de consoude</li>
+                            <li>20L d'eau, fermentation 3 semaines</li>
+                            <li>Odeur très forte à maturité</li>
+                        </ul>
+                        <p><strong>Usage :</strong></p>
+                        <ul>
+                            <li>Fertilisant potassique : dilution 10%</li>
+                            <li>Stimulant floraison/fructification</li>
+                            <li>Excellent pour tomates, courges</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Méthodes physiques -->
+                <div class="practice-section" style="margin: 3rem 0; padding: 2rem; background: white; border-radius: var(--border-radius); box-shadow: var(--shadow-light);">
+                    <h2>🛡️ Méthodes de protection physique</h2>
+                    
+                    <p>Les barrières physiques constituent souvent la première ligne de défense, particulièrement efficaces en prévention.</p>
+                    
+                    <div class="method-grid">
+                        <div class="method-card">
+                            <h4>🕸️ Voiles et filets</h4>
+                            <p><strong>Voile P17 :</strong> Protection gelées légères, insectes volants<br>
+                            <strong>Filet anti-insectes :</strong> Mouche du chou, altises<br>
+                            <strong>Filet anti-oiseaux :</strong> Protection fruits et semis</p>
+                        </div>
+                        <div class="method-card">
+                            <h4>🐌 Barrières anti-limaces</h4>
+                            <p><strong>Cendres :</strong> Cercle autour plants sensibles<br>
+                            <strong>Marc de café :</strong> Répulsif naturel<br>
+                            <strong>Coquilles d'œuf :</strong> Broyées, effet abrasif</p>
+                        </div>
+                        <div class="method-card">
+                            <h4>💧 Pièges à phéromones</h4>
+                            <p><strong>Carpocapse :</strong> Pommiers, poiriers<br>
+                            <strong>Processionnaire :</strong> Pins et chênes<br>
+                            <strong>Monitoring :</strong> Détection précoce populations</p>
+                        </div>
+                        <div class="method-card">
+                            <h4>🍺 Pièges attractifs</h4>
+                            <p><strong>Piège à bière :</strong> Limaces et escargots<br>
+                            <strong>Planches :</strong> Abri carabes le jour<br>
+                            <strong>Pots retournés :</strong> Piège perce-oreilles</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Solutions par ravageur -->
+                <div class="practice-section" style="margin: 3rem 0; padding: 2rem; background: white; border-radius: var(--border-radius); box-shadow: var(--shadow-light);">
+                    <h2>🎯 Solutions ciblées par ravageur</h2>
+                    
+                    <p>Guide pratique des traitements spécifiques pour les principaux ravageurs du potager.</p>
+                    
+                    <div class="pest-solution">
+                        <div class="pest-name">🐛 Pucerons</div>
+                        <div>
+                            <strong>Prévention :</strong> Éviter excès d'azote, favoriser coccinelles<br>
+                            <strong>Traitement :</strong> Savon noir 2%, purin d'ortie 5%, lâcher de coccinelles<br>
+                            <strong>Auxiliaires :</strong> Coccinelles, syrphes, mésanges
+                        </div>
+                    </div>
+                    
+                    <div class="pest-solution">
+                        <div class="pest-name">🐌 Limaces</div>
+                        <div>
+                            <strong>Prévention :</strong> Drainage, suppression refuges humides<br>
+                            <strong>Traitement :</strong> Pièges à bière, cendres, ramassage nocturne<br>
+                            <strong>Auxiliaires :</strong> Hérissons, carabes, canards coureurs indiens
+                        </div>
+                    </div>
+                    
+                    <div class="pest-solution">
+                        <div class="pest-name">🦗 Altises</div>
+                        <div>
+                            <strong>Prévention :</strong> Voile P17, arrosage feuillage par temps chaud<br>
+                            <strong>Traitement :</strong> Pulvérisation savon noir + huile de neem<br>
+                            <strong>Répulsif :</strong> Tanaisie, absinthe en bordure
+                        </div>
+                    </div>
+                    
+                    <div class="pest-solution">
+                        <div class="pest-name">🦋 Piéride du chou</div>
+                        <div>
+                            <strong>Prévention :</strong> Filet anti-insectes, rotation cultures<br>
+                            <strong>Traitement :</strong> Bacillus thuringiensis, ramassage manuel<br>
+                            <strong>Répulsif :</strong> Thym, sarriette, œillet d'Inde
+                        </div>
+                    </div>
+                    
+                    <div class="pest-solution">
+                        <div class="pest-name">🕷️ Acariens</div>
+                        <div>
+                            <strong>Prévention :</strong> Humidité suffisante, éviter stress hydrique<br>
+                            <strong>Traitement :</strong> Prédateurs Phytoseiulus, soufre mouillable<br>
+                            <strong>Conditions :</strong> Chaleur et sécheresse favorisent développement
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Maladies fongiques -->
+                <div class="practice-section" style="margin: 3rem 0; padding: 2rem; background: white; border-radius: var(--border-radius); box-shadow: var(--shadow-light);">
+                    <h2>🍄 Lutte contre les maladies fongiques</h2>
+                    
+                    <p>Les maladies cryptogamiques sont favorisées par l'humidité et les stress. La prévention reste la meilleure stratégie.</p>
+                    
+                    <h3>Traitements préventifs</h3>
+                    <div class="method-grid">
+                        <div class="method-card">
+                            <h4>💧 Bicarbonate de soude</h4>
+                            <p><strong>Dosage :</strong> 5g/L + mouillant<br>
+                            <strong>Action :</strong> Oïdium, mildiou léger<br>
+                            <strong>Fréquence :</strong> Tous les 15 jours en préventif</p>
+                        </div>
+                        <div class="method-card">
+                            <h4>🧄 Décoction d'ail</h4>
+                            <p><strong>Préparation :</strong> 100g ail/L, bouillir 20min<br>
+                            <strong>Action :</strong> Antifongique général<br>
+                            <strong>Usage :</strong> Dilution 10% en pulvérisation</p>
+                        </div>
+                        <div class="method-card">
+                            <h4>🌾 Purin de prêle</h4>
+                            <p><strong>Action :</strong> Renforce parois cellulaires<br>
+                            <strong>Efficacité :</strong> Mildiou, rouille<br>
+                            <strong>Application :</strong> Dès apparition premiers symptômes</p>
+                        </div>
+                        <div class="method-card">
+                            <h4>☕ Infusion de camomille</h4>
+                            <p><strong>Préparation :</strong> 50g/L, infusion 15min<br>
+                            <strong>Action :</strong> Fonte des semis<br>
+                            <strong>Usage :</strong> Arrosage terre et feuillage</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Calendrier d'intervention -->
+                <div class="practice-section" style="margin: 3rem 0; padding: 2rem; background: white; border-radius: var(--border-radius); box-shadow: var(--shadow-light);">
+                    <h2>📅 Calendrier d'intervention</h2>
+                    
+                    <p>Planning des traitements préventifs selon les saisons pour une protection optimale.</p>
+                    
+                    <div class="calendar-month">
+                        <h4>🌱 Mars-Avril : Préparation</h4>
+                        <ul>
+                            <li>Installation des nichoirs et hôtels à insectes</li>
+                            <li>Semis des plantes compagnes (œillets d'Inde, basilic)</li>
+                            <li>Première pulvérisation purin d'ortie (stimulant)</li>
+                            <li>Pose des voiles sur cultures sensibles</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="calendar-month">
+                        <h4>🌸 Mai-Juin : Surveillance active</h4>
+                        <ul>
+                            <li>Monitoring quotidien apparition ravageurs</li>
+                            <li>Installation pièges à phéromones</li>
+                            <li>Traitements préventifs purin de prêle</li>
+                            <li>Lâchers d'auxiliaires si nécessaire</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="calendar-month">
+                        <h4>☀️ Juillet-Août : Protection renforcée</h4>
+                        <ul>
+                            <li>Traitements curatifs si attaques détectées</li>
+                            <li>Arrosage régulier contre stress hydrique</li>
+                            <li>Récolte et séchage plantes pour purins</li>
+                            <li>Surveillance maladies fongiques</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="calendar-month">
+                        <h4>🍂 Septembre-Octobre : Bilan et préparation</h4>
+                        <ul>
+                            <li>Évaluation efficacité des traitements</li>
+                            <li>Préparation refuges hivernaux auxiliaires</li>
+                            <li>Stockage purins pour l'année suivante</li>
+                            <li>Planification améliorations saison prochaine</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Retour d'expérience -->
+                <div class="practice-section" style="margin: 3rem 0; padding: 2rem; background: white; border-radius: var(--border-radius); box-shadow: var(--shadow-light);">
+                    <h2>📊 Retour d'expérience : notre ferme</h2>
+                    
+                    <div style="background: #e8f5e9; padding: 1.5rem; border-radius: var(--border-radius); margin: 2rem 0;">
+                        <h4>🎯 Résultats 2 ans de lutte biologique</h4>
+                        <p>Depuis l'abandon des pesticides sur notre ferme de Souleuvre, nous avons observé :</p>
+                        <ul>
+                            <li><strong>Biodiversité :</strong> +200% d'espèces d'insectes recensées</li>
+                            <li><strong>Auxiliaires :</strong> Populations de coccinelles x5 en 2 ans</li>
+                            <li><strong>Maladies :</strong> 70% de réduction du mildiou grâce au purin de prêle</li>
+                            <li><strong>Rendements :</strong> Stables avec -90% de traitements</li>
+                            <li><strong>Coût :</strong> -60% sur budget phytosanitaire</li>
+                        </ul>
+                    </div>
+                    
+                    <h3>Erreurs à éviter</h3>
+                    <ul>
+                        <li>❌ Intervention trop tardive (dégâts déjà visibles)</li>
+                        <li>❌ Surdosage des purins (phytotoxicité)</li>
+                        <li>❌ Traitement par temps chaud et ensoleillé</li>
+                        <li>❌ Destruction systématique de tous les insectes</li>
+                        <li>❌ Impatience : l'équilibre biologique prend 2-3 ans</li>
+                    </ul>
+                    
+                    <h3>Conseils pour débuter</h3>
+                    <ol>
+                        <li>Commencer par 1-2 purins (ortie + prêle)</li>
+                        <li>Installer des refuges à auxiliaires</li>
+                        <li>Observer 15 min/jour son jardin</li>
+                        <li>Noter les observations dans un carnet</li>
+                        <li>Être patient : la nature a besoin de temps</li>
+                    </ol>
+                </div>
+
+                <!-- Navigation -->
+                <div style="margin: 3rem 0; text-align: center; padding: 2rem; background: var(--light-color); border-radius: var(--border-radius);">
+                    <h3>Articles complémentaires</h3>
+                    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem;">
+                        <a href="agriculture-bio.html" class="btn btn-secondary">Guide agriculture bio →</a>
+                        <a href="blog-sol-compost.html" class="btn btn-secondary">Sol & compost →</a>
+                        <a href="blog-calendrier-bio.html" class="btn btn-secondary">Calendrier bio →</a>
+                        <a href="formations.html" class="btn btn-primary">Nos formations</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>La Vida Luca</h4>
+                    <p>Association loi 1901<br>
+                    SIRET : 99041389000015<br>
+                    Président : Lucas Horville</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Blog protection</h4>
+                    <ul>
+                        <li><a href="blog-protection-naturelle.html">Protection naturelle</a></li>
+                        <li><a href="blog-sol-compost.html">Sol et compostage</a></li>
+                        <li><a href="agriculture-bio.html">Agriculture bio</a></li>
+                        <li><a href="blog.html">Tous les articles</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Liens rapides</h4>
+                    <ul>
+                        <li><a href="projets.html">Nos projets</a></li>
+                        <li><a href="formations.html">Formations</a></li>
+                        <li><a href="dons.html">Faire un don</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:vidaluca77@gmail.com">vidaluca77@gmail.com</a></li>
+                        <li><a href="contact.html">Nous trouver</a></li>
+                        <li><a href="contact.html#faq">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 La Vida Luca. Tous droits réservés.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/share/16rgTShcag/?mibextid=wwXIfr" target="_blank" aria-label="Facebook">📘</a>
+                    <a href="#" aria-label="Instagram">📷</a>
+                    <a href="#" aria-label="YouTube">📺</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
