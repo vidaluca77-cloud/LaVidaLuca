@@ -245,7 +245,8 @@
                     Remplissez ce formulaire pour vous inscrire à nos formations
                 </p>
                 
-                <form class="form-section" style="background: white; padding: 2rem; border-radius: 8px;">
+                <form id="training-form" name="training" class="form-section" style="background: white; padding: 2rem; border-radius: 8px;" data-netlify="true">
+                    <input type="hidden" name="form-name" value="training">
                     <div class="form-group">
                         <label for="formation-choice">Formation souhaitée *</label>
                         <select id="formation-choice" name="formation" required>

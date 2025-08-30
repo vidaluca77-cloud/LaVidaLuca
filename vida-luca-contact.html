@@ -97,7 +97,8 @@
                 <div>
                     <h2 style="font-size: 2rem; margin-bottom: 2rem;">Envoyez-nous un message</h2>
                     
-                    <form id="contact-form" class="form-section">
+                    <form id="contact-form" name="contact" class="form-section" data-netlify="true">
+                        <input type="hidden" name="form-name" value="contact">
                         <div class="form-group">
                             <label for="contact-subject">Objet de votre demande *</label>
                             <select id="contact-subject" name="subject" required>
