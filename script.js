@@ -53,15 +53,14 @@ function handleFormSubmit(formId, successMessage) {
     const form = document.getElementById(formId);
     if (form) {
         form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Special handling for donation form
+            // Special handling for donation form with Mollie integration
             if (formId === 'donation-form') {
+                e.preventDefault();
                 handleDonationSubmit(form);
                 return;
             }
             
-            // Validation basique pour autres formulaires
+            // For Netlify forms, we do basic validation but allow natural submission
             const requiredFields = form.querySelectorAll('[required]');
             let isValid = true;
             
@@ -74,21 +73,25 @@ function handleFormSubmit(formId, successMessage) {
                 }
             });
             
-            if (isValid) {
-                // Simulation d'envoi
-                const submitBtn = form.querySelector('button[type="submit"]');
+            if (!isValid) {
+                e.preventDefault();
+                alert('Veuillez remplir tous les champs obligatoires.');
+                return;
+            }
+            
+            // If validation passes, let Netlify handle the form submission
+            // Show loading state
+            const submitBtn = form.querySelector('button[type="submit"]');
+            if (submitBtn) {
                 const originalText = submitBtn.textContent;
                 submitBtn.textContent = 'Envoi en cours...';
                 submitBtn.disabled = true;
                 
+                // Re-enable button after a delay in case submission fails
                 setTimeout(() => {
-                    alert(successMessage || 'Formulaire envoyé avec succès !');
-                    form.reset();
                     submitBtn.textContent = originalText;
                     submitBtn.disabled = false;
-                }, 1500);
-            } else {
-                alert('Veuillez remplir tous les champs obligatoires.');
+                }, 5000);
             }
         });
     }
