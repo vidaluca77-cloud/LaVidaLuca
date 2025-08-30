@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription Confirmée - La Vida Luca</title>
+    <meta name="description" content="Merci pour votre inscription ! Votre formation est confirmée.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html">La Vida Luca</a>
+            </div>
+            <button class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="projets.html">Nos Projets</a></li>
+                <li><a href="formations.html">Formations</a></li>
+                <li><a href="benevoles.html">Bénévoles</a></li>
+                <li><a href="partenaires.html">Partenaires</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="dons.html" class="btn-donate">Faire un don</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Success Hero -->
+    <section class="hero" style="background: linear-gradient(135deg, #2E7D32 0%, #66BB6A 100%); text-align: center; padding: 6rem 0;">
+        <div class="container">
+            <div style="font-size: 4rem; margin-bottom: 1rem;">✅</div>
+            <h1 style="color: white; margin-bottom: 1rem;">Inscription confirmée !</h1>
+            <p style="color: white; font-size: 1.2rem; max-width: 600px; margin: 0 auto;">
+                Merci pour votre inscription ! Votre paiement a été traité avec succès.
+            </p>
+        </div>
+    </section>
+
+    <!-- Confirmation Details -->
+    <section style="padding: 4rem 0;">
+        <div class="container">
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <h2>Que se passe-t-il maintenant ?</h2>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin: 3rem 0;">
+                    <div class="project-card" style="text-align: center;">
+                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">📧</div>
+                        <h3>Confirmation par email</h3>
+                        <p>Vous recevrez un email de confirmation dans les prochaines minutes avec tous les détails de votre formation.</p>
+                    </div>
+                    
+                    <div class="project-card" style="text-align: center;">
+                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">📅</div>
+                        <h3>Convocation</h3>
+                        <p>Les détails pratiques (lieu, horaires, matériel) vous seront envoyés 1 semaine avant la formation.</p>
+                    </div>
+                    
+                    <div class="project-card" style="text-align: center;">
+                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">🎓</div>
+                        <h3>Formation de qualité</h3>
+                        <p>Nos formateurs experts vous accompagneront pour acquérir de nouvelles compétences pratiques.</p>
+                    </div>
+                </div>
+                
+                <div style="background: #e8f5e9; padding: 2rem; border-radius: 15px; margin: 3rem 0;">
+                    <h3 style="color: #2E7D32; margin-bottom: 1rem;">🌱 Préparez-vous pour votre formation</h3>
+                    <p style="font-size: 1.1rem;">
+                        Nous vous recommandons de prévoir des vêtements adaptés au travail en extérieur 
+                        et un carnet de notes pour profiter pleinement de cette expérience d'apprentissage.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What to Expect -->
+    <section style="background: #f8f9fa; padding: 4rem 0;">
+        <div class="container">
+            <div style="max-width: 800px; margin: 0 auto;">
+                <h2 style="text-align: center;">À quoi vous attendre</h2>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 3rem 0;">
+                    <div>
+                        <h3>🏡 Cadre authentique</h3>
+                        <p>Nos formations se déroulent dans notre ferme pilote à Souleuvre-en-Bocage, dans un environnement réel de production agricole.</p>
+                    </div>
+                    
+                    <div>
+                        <h3>👥 Groupe restreint</h3>
+                        <p>Maximum 12 participants par session pour garantir un accompagnement personnalisé et des échanges de qualité.</p>
+                    </div>
+                    
+                    <div>
+                        <h3>🍽️ Restauration</h3>
+                        <p>Déjeuners préparés avec les produits de la ferme, dans le respect de nos valeurs bio et locales.</p>
+                    </div>
+                    
+                    <div>
+                        <h3>📜 Certification</h3>
+                        <p>Attestation de formation remise en fin de session, reconnue dans le secteur agricole.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section style="padding: 4rem 0;">
+        <div class="container">
+            <div style="max-width: 600px; margin: 0 auto; text-align: center;">
+                <h2>Une question sur votre formation ?</h2>
+                <p style="margin: 2rem 0;">
+                    Notre équipe pédagogique est disponible pour répondre à toutes vos questions
+                </p>
+                
+                <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin: 2rem 0;">
+                    <a href="formations.html" class="btn btn-primary">Voir toutes nos formations</a>
+                    <a href="contact.html" class="btn btn-secondary">Nous contacter</a>
+                    <a href="index.html" class="btn btn-secondary">Retour à l'accueil</a>
+                </div>
+                
+                <div style="margin: 3rem 0;">
+                    <h3>Suivez-nous</h3>
+                    <div style="display: flex; gap: 1rem; justify-content: center; margin: 1rem 0;">
+                        <a href="#" class="btn btn-secondary" style="padding: 0.5rem 1rem;">📘 Facebook</a>
+                        <a href="#" class="btn btn-secondary" style="padding: 0.5rem 1rem;">📷 Instagram</a>
+                        <a href="#" class="btn btn-secondary" style="padding: 0.5rem 1rem;">💼 LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>La Vida Luca</h4>
+                    <p>Association loi 1901<br>
+                    SIRET : 99041389000015<br>
+                    Centre de formation</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <p>Souleuvre-en-Bocage<br>
+                    14350 Calvados<br>
+                    vidaluca77@gmail.com</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Formations</h4>
+                    <ul>
+                        <li><a href="formations.html">Nos programmes</a></li>
+                        <li><a href="formations.html#calendar">Calendrier</a></li>
+                        <li><a href="contact.html">Questions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Liens utiles</h4>
+                    <ul>
+                        <li><a href="mentions.html">Mentions légales</a></li>
+                        <li><a href="dons.html">Faire un don</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 La Vida Luca - Tous droits réservés | Centre de formation agréé</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

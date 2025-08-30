@@ -15,6 +15,7 @@ return [
     'urls' => [
         'base_url' => 'https://your-domain.com', // Your website domain
         'return_url' => 'https://your-domain.com/donation-success.html',
+        'training_return_url' => 'https://your-domain.com/training-success.html',
         'webhook_url' => 'https://your-domain.com/webhook.php',
         'cancel_url' => 'https://your-domain.com/dons.html',
     ],

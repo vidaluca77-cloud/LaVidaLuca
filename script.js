@@ -60,6 +60,13 @@ function handleFormSubmit(formId, successMessage) {
                 return;
             }
             
+            // Special handling for training form with payment integration
+            if (formId === 'training-form') {
+                e.preventDefault();
+                handleTrainingSubmit(form);
+                return;
+            }
+            
             // For Netlify forms, we do basic validation but allow natural submission
             const requiredFields = form.querySelectorAll('[required]');
             let isValid = true;
@@ -199,6 +206,92 @@ function handleDonationSubmit(form) {
     .catch(error => {
         console.error('Payment error:', error);
         let errorMessage = 'Erreur lors de la création du paiement. Veuillez réessayer.';
+        
+        // Provide more specific error messages
+        if (error.message.includes('fetch')) {
+            errorMessage = 'Problème de connexion. Vérifiez votre connexion internet et réessayez.';
+        } else if (error.message.includes('JSON')) {
+            errorMessage = 'Erreur de communication avec le serveur. Veuillez réessayer.';
+        }
+        
+        alert(errorMessage);
+        
+        // Reset button
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+    });
+}
+
+// Handle training form submission with payment integration
+function handleTrainingSubmit(form) {
+    // Validate required fields
+    const requiredFields = form.querySelectorAll('[required]');
+    let isValid = true;
+    
+    requiredFields.forEach(field => {
+        if (!field.value.trim()) {
+            isValid = false;
+            field.style.borderColor = '#ff6b35';
+        } else {
+            field.style.borderColor = '';
+        }
+    });
+    
+    if (!isValid) {
+        alert('Veuillez remplir tous les champs obligatoires.');
+        return;
+    }
+    
+    // Prepare training data
+    const formData = new FormData(form);
+    const trainingData = {
+        formation: formData.get('formation'),
+        name: formData.get('name'),
+        firstname: formData.get('firstname'),
+        email: formData.get('email'),
+        experience: formData.get('experience') || '',
+        motivation: formData.get('motivation') || ''
+    };
+    
+    // Show loading state
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = 'Traitement en cours...';
+    submitBtn.disabled = true;
+    
+    // Send to training handler
+    fetch('training_handler.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(trainingData)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Erreur réseau: ' + response.status);
+        }
+        return response.json();
+    })
+    .then(data => {
+        if (data.success) {
+            if (data.method === 'free_registration') {
+                // Free training (insertion) - show success message
+                alert('Votre inscription a été enregistrée ! Vous recevrez bientôt un email de confirmation.');
+                window.location.href = 'training-success.html';
+            } else if (data.method === 'mollie' && data.payment_url) {
+                // Redirect to Mollie payment page
+                window.location.href = data.payment_url;
+            } else {
+                throw new Error('Réponse inattendue du serveur');
+            }
+        } else {
+            throw new Error(data.error || 'Erreur lors du traitement de l\'inscription');
+        }
+    })
+    .catch(error => {
+        console.error('Training registration error:', error);
+        let errorMessage = 'Erreur lors du traitement de votre inscription. Veuillez réessayer.';
         
         // Provide more specific error messages
         if (error.message.includes('fetch')) {
