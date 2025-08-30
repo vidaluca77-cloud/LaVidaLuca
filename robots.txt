@@ -1,0 +1,26 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.lavidaluca.fr/sitemap.xml
+
+# Specific crawling instructions
+Allow: /index.html
+Allow: /projets.html
+Allow: /formations.html
+Allow: /benevoles.html
+Allow: /contact.html
+Allow: /dons.html
+Allow: /partenaires.html
+Allow: /mentions.html
+
+# Disallow admin and processing files
+Disallow: /*.php
+Disallow: /config*
+Disallow: /webhook*
+Disallow: /*_handler*
+Disallow: /test_*
+Disallow: /.env*
+
+# Crawl-delay (respectful to servers)
+Crawl-delay: 1
