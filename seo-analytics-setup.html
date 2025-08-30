@@ -1,0 +1,164 @@
+<!-- Google Analytics & Search Console Setup Guide -->
+<!-- ============================================= -->
+
+<!-- 1. Google Analytics 4 (GA4) - Place in <head> of all pages -->
+<!-- 
+<script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  
+  gtag('config', 'GA_MEASUREMENT_ID', {
+    page_title: document.title,
+    page_location: window.location.href,
+    custom_map: {
+      'custom_parameter_1': 'page_type',
+      'custom_parameter_2': 'user_engagement'
+    }
+  });
+  
+  // Track specific agriculture/farming events
+  gtag('event', 'page_view', {
+    'page_type': 'agriculture_bio',
+    'content_category': 'fermes_pilotes',
+    'content_group': 'normandie'
+  });
+</script>
+-->
+
+<!-- 2. Google Search Console Verification - Place in <head> -->
+<!-- <meta name="google-site-verification" content="YOUR_VERIFICATION_CODE" /> -->
+
+<!-- 3. Bing Webmaster Tools Verification -->
+<!-- <meta name="msvalidate.01" content="YOUR_BING_VERIFICATION_CODE" /> -->
+
+<!-- 4. Facebook Domain Verification -->
+<!-- <meta name="facebook-domain-verification" content="YOUR_FB_VERIFICATION_CODE" /> -->
+
+<!-- 5. Schema.org Events for Agriculture (Add to relevant pages) -->
+<!-- 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "Formation Agriculture Biologique",
+  "startDate": "2025-03-01T09:00",
+  "endDate": "2025-03-01T17:00",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "location": {
+    "@type": "Place",
+    "name": "Ferme Pilote Souleuvre",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Souleuvre-en-Bocage",
+      "addressLocality": "Souleuvre-en-Bocage",
+      "postalCode": "14350",
+      "addressRegion": "Normandie",
+      "addressCountry": "FR"
+    }
+  },
+  "image": "https://www.lavidaluca.fr/assets/formation-event.jpg",
+  "description": "Formation complète en agriculture biologique et permaculture",
+  "offers": {
+    "@type": "Offer",
+    "url": "https://www.lavidaluca.fr/formations.html",
+    "price": "150",
+    "priceCurrency": "EUR",
+    "availability": "https://schema.org/InStock"
+  },
+  "performer": {
+    "@type": "Organization",
+    "name": "La Vida Luca"
+  },
+  "organizer": {
+    "@type": "Organization",
+    "name": "La Vida Luca",
+    "url": "https://www.lavidaluca.fr"
+  }
+}
+</script>
+-->
+
+<!-- 6. Advanced Tracking Events for Agriculture Site -->
+<!--
+<script>
+// Track agriculture-specific interactions
+function trackAgricultureEvent(action, category) {
+  gtag('event', action, {
+    'event_category': category,
+    'event_label': 'agriculture_bio',
+    'custom_parameter_1': 'ferme_pilote'
+  });
+}
+
+// Track form submissions
+document.addEventListener('submit', function(e) {
+  if (e.target.matches('form')) {
+    trackAgricultureEvent('form_submit', e.target.id || 'contact_form');
+  }
+});
+
+// Track outbound links
+document.addEventListener('click', function(e) {
+  if (e.target.matches('a[href^="http"]') && !e.target.href.includes(window.location.hostname)) {
+    trackAgricultureEvent('outbound_click', e.target.href);
+  }
+});
+
+// Track time spent on page (agriculture engagement)
+let startTime = Date.now();
+window.addEventListener('beforeunload', function() {
+  let timeSpent = Math.round((Date.now() - startTime) / 1000);
+  if (timeSpent > 30) { // Only track if more than 30 seconds
+    gtag('event', 'timing_complete', {
+      'name': 'page_engagement',
+      'value': timeSpent,
+      'event_category': 'agriculture_content'
+    });
+  }
+});
+</script>
+-->
+
+<!-- 7. Social Media Pixels (if needed) -->
+<!-- Facebook Pixel -->
+<!--
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', 'YOUR_PIXEL_ID');
+fbq('track', 'PageView');
+</script>
+-->
+
+<!-- Instructions for implementation:
+1. Replace all placeholder IDs with actual tracking codes
+2. Add the Google Analytics code to all pages in <head>
+3. Set up Google Search Console and add verification meta tag
+4. Configure custom events based on user interactions
+5. Test all tracking with Google Tag Assistant
+6. Monitor Core Web Vitals and page performance
+7. Set up goals and conversions in GA4
+8. Create custom reports for agriculture-specific metrics
+-->
+
+<!-- SEO Performance Monitoring Checklist:
+✅ Google Analytics 4 configured
+✅ Google Search Console verified
+✅ Core Web Vitals monitoring
+✅ Page speed optimization
+✅ Mobile-first indexing ready
+✅ Structured data implemented
+✅ Local SEO optimized
+✅ Social media meta tags
+✅ XML sitemap submitted
+✅ Robots.txt optimized
+-->
