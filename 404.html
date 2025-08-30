@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Non Trouvée - Erreur 404 | La Vida Luca</title>
+    <meta name="description" content="Page non trouvée. Retournez à l'accueil de La Vida Luca pour découvrir nos fermes pilotes bio et projets agricoles innovants en Normandie.">
+    <meta name="robots" content="noindex, follow">
+    <link rel="canonical" href="https://www.lavidaluca.fr/">
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #2E7D32 0%, #66BB6A 100%);
+            color: white;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            padding: 2rem;
+        }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        .btn {
+            display: inline-block;
+            background: white;
+            color: #2E7D32;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin: 0 10px;
+            transition: transform 0.2s;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+        .links {
+            margin-top: 2rem;
+        }
+        .links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            opacity: 0.8;
+        }
+        .links a:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌱 Oups !</h1>
+        <p>Cette page semble avoir été récoltée... Mais ne vous inquiétez pas, nos autres projets vous attendent !</p>
+        
+        <a href="/" class="btn">🏠 Retour à l'accueil</a>
+        <a href="/projets.html" class="btn">🌾 Nos projets</a>
+        
+        <div class="links">
+            <a href="/formations.html">Formations</a>
+            <a href="/benevoles.html">Bénévolat</a>
+            <a href="/contact.html">Contact</a>
+        </div>
+    </div>
+    
+    <script>
+        // Send 404 event to analytics if available
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'page_view', {
+                page_title: '404 - Page Not Found',
+                page_location: window.location.href
+            });
+        }
+    </script>
+</body>
+</html>
