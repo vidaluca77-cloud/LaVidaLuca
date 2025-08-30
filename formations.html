@@ -249,15 +249,22 @@
                     <input type="hidden" name="form-name" value="training">
                     <div class="form-group">
                         <label for="formation-choice">Formation souhaitée *</label>
-                        <select id="formation-choice" name="formation" required>
+                        <select id="formation-choice" name="formation" required onchange="updateTrainingPrice()">
                             <option value="">-- Sélectionnez une formation --</option>
-                            <option value="initiation-bio">Initiation à l'Agriculture Bio</option>
-                            <option value="elevage">Élevage et Bien-être Animal</option>
-                            <option value="precision">Agriculture de Précision</option>
-                            <option value="permaculture">Permaculture Avancée</option>
-                            <option value="gestion">Gestion d'Exploitation</option>
-                            <option value="insertion">Formation Insertion</option>
+                            <option value="initiation-bio" data-price="450">Initiation à l'Agriculture Bio - 450€</option>
+                            <option value="elevage" data-price="600">Élevage et Bien-être Animal - 600€</option>
+                            <option value="precision" data-price="850">Agriculture de Précision - 850€</option>
+                            <option value="permaculture" data-price="750">Permaculture Avancée - 750€</option>
+                            <option value="gestion" data-price="650">Gestion d'Exploitation - 650€</option>
+                            <option value="insertion" data-price="0">Formation Insertion - Prise en charge possible</option>
                         </select>
+                    </div>
+                    
+                    <!-- Price Display -->
+                    <div id="price-display" style="display: none; background: #e8f5e9; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                        <h4 style="color: #2E7D32; margin-bottom: 0.5rem;">💰 Prix de la formation</h4>
+                        <p id="price-text" style="font-size: 1.2rem; font-weight: bold; color: #2E7D32; margin: 0;"></p>
+                        <p id="payment-info" style="font-size: 0.9rem; color: #666; margin: 0.5rem 0 0 0;"></p>
                     </div>
                     
                     <div class="form-row">
@@ -300,8 +307,15 @@
                         </label>
                     </div>
                     
+                    <div style="background: #fff3cd; padding: 1rem; border-radius: 8px; margin: 2rem 0;">
+                        <p style="margin: 0;">
+                            <strong>🔒 Paiement sécurisé</strong><br>
+                            <span id="payment-method-info">Vous allez être redirigé vers notre plateforme de paiement sécurisée Mollie.</span>
+                        </p>
+                    </div>
+                    
                     <button type="submit" class="btn btn-primary" style="width: 100%;">
-                        Envoyer ma demande d'inscription
+                        <span id="submit-button-text">S'inscrire et payer</span>
                     </button>
                 </form>
             </div>
@@ -367,5 +381,39 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // Training price management
+        function updateTrainingPrice() {
+            const formationSelect = document.getElementById('formation-choice');
+            const priceDisplay = document.getElementById('price-display');
+            const priceText = document.getElementById('price-text');
+            const paymentInfo = document.getElementById('payment-info');
+            const paymentMethodInfo = document.getElementById('payment-method-info');
+            const submitButtonText = document.getElementById('submit-button-text');
+            
+            const selectedOption = formationSelect.options[formationSelect.selectedIndex];
+            
+            if (selectedOption.value) {
+                const price = selectedOption.dataset.price;
+                priceDisplay.style.display = 'block';
+                
+                if (price === '0') {
+                    priceText.textContent = 'Formation gratuite';
+                    paymentInfo.textContent = 'Cette formation peut être prise en charge. Aucun paiement requis.';
+                    paymentMethodInfo.textContent = 'Votre inscription sera validée directement.';
+                    submitButtonText.textContent = 'S\'inscrire gratuitement';
+                } else {
+                    priceText.textContent = price + '€';
+                    paymentInfo.textContent = 'Paiement sécurisé requis pour valider votre inscription.';
+                    paymentMethodInfo.textContent = 'Vous allez être redirigé vers notre plateforme de paiement sécurisée Mollie.';
+                    submitButtonText.textContent = 'S\'inscrire et payer ' + price + '€';
+                }
+            } else {
+                priceDisplay.style.display = 'none';
+                paymentMethodInfo.textContent = 'Vous allez être redirigé vers notre plateforme de paiement sécurisée Mollie.';
+                submitButtonText.textContent = 'S\'inscrire et payer';
+            }
+        }
+    </script>
 </body>
 </html>

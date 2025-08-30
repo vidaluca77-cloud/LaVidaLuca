@@ -9,10 +9,18 @@ error_reporting(E_ALL);
 ini_set('log_errors', 1);
 ini_set('error_log', 'webhook_errors.log');
 
-// Configuration
-$config = [
-    'mollie_api_key' => getenv('MOLLIE_API_KEY') ?: 'test_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM', // Test key
-];
+// Load configuration
+$config = [];
+if (file_exists('config.php')) {
+    $config = require 'config.php';
+} else {
+    // Fallback configuration
+    $config = [
+        'mollie' => [
+            'api_key' => getenv('MOLLIE_API_KEY') ?: 'test_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM',
+        ],
+    ];
+}
 
 // Handle POST request only
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -30,21 +38,35 @@ if (empty($paymentId)) {
 
 try {
     // Retrieve payment status from Mollie
-    $payment = getMolliePayment($paymentId, $config['mollie_api_key']);
+    $payment = getMolliePayment($paymentId, $config['mollie']['api_key']);
     
     if (!$payment) {
         throw new Exception('Payment not found');
     }
     
-    // Process payment based on status
+    // Process payment based on status and type
     switch ($payment['status']) {
         case 'paid':
-            processPaidDonation($payment);
+            $metadata = $payment['metadata'] ?? [];
+            $paymentType = $metadata['type'] ?? 'donation';
+            
+            if ($paymentType === 'training') {
+                processPaidTraining($payment);
+            } else {
+                processPaidDonation($payment);
+            }
             break;
         case 'failed':
         case 'canceled':
         case 'expired':
-            processFailedDonation($payment);
+            $metadata = $payment['metadata'] ?? [];
+            $paymentType = $metadata['type'] ?? 'donation';
+            
+            if ($paymentType === 'training') {
+                processFailedTraining($payment);
+            } else {
+                processFailedDonation($payment);
+            }
             break;
         case 'pending':
         case 'open':
@@ -198,5 +220,78 @@ function generateFiscalReceipt($metadata, $payment) {
         json_encode($receiptData) . "\n",
         FILE_APPEND | LOCK_EX
     );
+}
+
+/**
+ * Process successful training payment
+ */
+function processPaidTraining($payment) {
+    $metadata = $payment['metadata'] ?? [];
+    
+    // Log successful training registration
+    $logData = [
+        'timestamp' => date('Y-m-d H:i:s'),
+        'payment_id' => $payment['id'],
+        'type' => 'training',
+        'formation' => $metadata['formation'] ?? '',
+        'formation_name' => $metadata['formation_name'] ?? '',
+        'amount' => $payment['amount']['value'],
+        'currency' => $payment['amount']['currency'],
+        'participant_email' => $metadata['participant_email'] ?? '',
+        'participant_name' => $metadata['participant_name'] ?? '',
+        'experience' => $metadata['experience'] ?? '',
+        'motivation' => $metadata['motivation'] ?? '',
+        'status' => 'completed'
+    ];
+    
+    // Save to training registrations log file
+    file_put_contents(
+        'training_registrations.log',
+        json_encode($logData) . "\n",
+        FILE_APPEND | LOCK_EX
+    );
+    
+    // Send confirmation email (implementation depends on your email system)
+    if (!empty($metadata['participant_email'])) {
+        sendTrainingConfirmation($metadata, $payment['amount']);
+    }
+}
+
+/**
+ * Process failed training payment
+ */
+function processFailedTraining($payment) {
+    $metadata = $payment['metadata'] ?? [];
+    
+    // Log failed training registration
+    $logData = [
+        'timestamp' => date('Y-m-d H:i:s'),
+        'payment_id' => $payment['id'],
+        'type' => 'training_failed',
+        'formation' => $metadata['formation'] ?? '',
+        'participant_email' => $metadata['participant_email'] ?? '',
+        'participant_name' => $metadata['participant_name'] ?? '',
+        'amount' => $payment['amount']['value'],
+        'status' => 'failed',
+        'reason' => $payment['status']
+    ];
+    
+    // Save to failed registrations log
+    file_put_contents(
+        'training_failed.log',
+        json_encode($logData) . "\n",
+        FILE_APPEND | LOCK_EX
+    );
+}
+
+/**
+ * Send training confirmation email (placeholder)
+ */
+function sendTrainingConfirmation($metadata, $amount) {
+    // Placeholder for email sending functionality
+    // This would integrate with your email system
+    error_log('Training confirmation should be sent to: ' . $metadata['participant_email']);
+    error_log('Formation: ' . $metadata['formation_name']);
+    error_log('Amount paid: ' . $amount['value'] . ' ' . $amount['currency']);
 }
 ?>
