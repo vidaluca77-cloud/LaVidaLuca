@@ -167,12 +167,16 @@ function handleDonorInfoSubmit(form) {
         body: JSON.stringify(donorData)
     })
     .then(response => {
+        console.log('Response status:', response.status);
         if (!response.ok) {
-            throw new Error('Erreur réseau: ' + response.status);
+            return response.text().then(text => {
+                throw new Error(`Erreur réseau ${response.status}: ${text}`);
+            });
         }
         return response.json();
     })
     .then(data => {
+        console.log('Response data:', data);
         if (data.success) {
             alert('Votre demande de reçu fiscal a été enregistrée ! Vous recevrez votre reçu par email dans les 30 jours.');
             form.reset();
@@ -188,6 +192,8 @@ function handleDonorInfoSubmit(form) {
             errorMessage = 'Problème de connexion. Vérifiez votre connexion internet et réessayez.';
         } else if (error.message.includes('JSON')) {
             errorMessage = 'Erreur de communication avec le serveur. Veuillez réessayer.';
+        } else if (error.message.includes('réseau')) {
+            errorMessage = `Erreur du serveur: ${error.message}`;
         }
         
         alert(errorMessage);

@@ -30,6 +30,20 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 // Get POST data
 $input = json_decode(file_get_contents('php://input'), true);
 
+// Check if JSON decode was successful
+if (json_last_error() !== JSON_ERROR_NONE) {
+    http_response_code(400);
+    echo json_encode(['error' => 'Invalid JSON data: ' . json_last_error_msg()]);
+    exit;
+}
+
+// Check if input is null or empty
+if ($input === null || empty($input)) {
+    http_response_code(400);
+    echo json_encode(['error' => 'No data received']);
+    exit;
+}
+
 // Validate required fields
 $required_fields = ['firstname', 'lastname', 'email', 'address', 'postal', 'city', 'amount'];
 foreach ($required_fields as $field) {
