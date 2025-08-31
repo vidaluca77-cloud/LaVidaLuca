@@ -83,23 +83,29 @@
 </head>
 <body>
     <!-- Header -->
-    <header>
-        <nav>
-            <div class="nav-container">
-                <a href="index.html" class="logo">🌱 La Vida Luca</a>
-                <ul class="nav-links">
-                    <li><a href="index.html">Accueil</a></li>
-                    <li><a href="projets.html">Nos Projets</a></li>
-                    <li><a href="formations.html">Formations</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="benevoles.html">Bénévoles</a></li>
-                    <li><a href="partenaires.html">Partenaires</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="dons.html" class="btn-donate">Faire un don</a></li>
-                </ul>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html">La Vida Luca</a>
             </div>
-        </nav>
-    </header>
+            <button class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="projets.html">Nos Projets</a></li>
+                <li><a href="formations.html">Formations</a></li>
+                <li><a href="blog.html" class="active">Blog</a></li>
+                <li><a href="benevoles.html">Bénévoles</a></li>
+                <li><a href="partenaires.html">Partenaires</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="dons.html" class="btn-donate">Faire un don</a></li>
+            </ul>
+        </div>
+    </nav>
 
     <!-- Hero Section -->
     <section class="sustainable-hero">
@@ -497,5 +503,6 @@
             </div>
         </div>
     </footer>
+    <script src="script.js"></script>
 </body>
 </html>
