@@ -300,31 +300,24 @@
     <section id="registration" style="background: var(--light-color); padding: 4rem 0;">
         <div class="container">
             <div style="max-width: 600px; margin: 0 auto;">
-                <h2 style="text-align: center;">Inscription aux Formations</h2>
+                <h2 style="text-align: center;">Demande d'Information sur nos Formations</h2>
                 <p style="text-align: center; margin-bottom: 3rem;">
-                    Remplissez ce formulaire pour vous inscrire à nos formations
+                    Remplissez ce formulaire pour recevoir plus d'informations sur nos formations et être recontacté par notre équipe
                 </p>
                 
-                <form id="training-form" name="training" class="form-section" style="background: white; padding: 2rem; border-radius: 8px;" data-netlify="true">
-                    <input type="hidden" name="form-name" value="training">
+                <form id="training-contact-form" name="training-contact" class="form-section" style="background: white; padding: 2rem; border-radius: 8px;" data-netlify="true">
+                    <input type="hidden" name="form-name" value="training-contact">
                     <div class="form-group">
-                        <label for="formation-choice">Formation souhaitée *</label>
-                        <select id="formation-choice" name="formation" required onchange="updateTrainingPrice()">
+                        <label for="formation-choice">Formation qui vous intéresse *</label>
+                        <select id="formation-choice" name="formation" required>
                             <option value="">-- Sélectionnez une formation --</option>
-                            <option value="initiation-bio" data-price="450">Initiation à l'Agriculture Bio - 450€</option>
-                            <option value="elevage" data-price="600">Élevage et Bien-être Animal - 600€</option>
-                            <option value="precision" data-price="850">Agriculture de Précision - 850€</option>
-                            <option value="permaculture" data-price="750">Permaculture Avancée - 750€</option>
-                            <option value="gestion" data-price="650">Gestion d'Exploitation - 650€</option>
-                            <option value="insertion" data-price="0">Formation Insertion - Prise en charge possible</option>
+                            <option value="initiation-bio">Initiation à l'Agriculture Bio</option>
+                            <option value="elevage">Élevage et Bien-être Animal</option>
+                            <option value="precision">Agriculture de Précision</option>
+                            <option value="permaculture">Permaculture Avancée</option>
+                            <option value="gestion">Gestion d'Exploitation</option>
+                            <option value="insertion">Formation Insertion</option>
                         </select>
-                    </div>
-                    
-                    <!-- Price Display -->
-                    <div id="price-display" style="display: none; background: #e8f5e9; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
-                        <h4 style="color: #2E7D32; margin-bottom: 0.5rem;">💰 Prix de la formation</h4>
-                        <p id="price-text" style="font-size: 1.2rem; font-weight: bold; color: #2E7D32; margin: 0;"></p>
-                        <p id="payment-info" style="font-size: 0.9rem; color: #666; margin: 0.5rem 0 0 0;"></p>
                     </div>
                     
                     <div class="form-row">
@@ -343,6 +336,10 @@
                         <input type="email" id="training-email" name="email" required>
                     </div>
                     
+                    <div class="form-group">
+                        <label for="training-phone">Téléphone</label>
+                        <input type="tel" id="training-phone" name="phone" placeholder="Optionnel">
+                    </div>
 
                     <div class="form-group">
                         <label for="training-experience">Niveau d'expérience</label>
@@ -356,26 +353,26 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="training-motivation">Motivation / Objectifs</label>
-                        <textarea id="training-motivation" name="motivation" rows="4" placeholder="Parlez-nous de vos objectifs et de ce qui vous motive à suivre cette formation..."></textarea>
+                        <label for="training-motivation">Questions / Objectifs</label>
+                        <textarea id="training-motivation" name="motivation" rows="4" placeholder="Parlez-nous de vos objectifs, questions sur la formation, ou besoins spécifiques..."></textarea>
                     </div>
                     
                     <div class="form-group">
                         <label>
                             <input type="checkbox" required> 
-                            J'accepte que mes données soient utilisées pour traiter ma demande d'inscription *
+                            J'accepte que mes données soient utilisées pour traiter ma demande d'information *
                         </label>
                     </div>
                     
-                    <div style="background: #fff3cd; padding: 1rem; border-radius: 8px; margin: 2rem 0;">
+                    <div style="background: #e8f5e9; padding: 1rem; border-radius: 8px; margin: 2rem 0;">
                         <p style="margin: 0;">
-                            <strong>🔒 Paiement sécurisé</strong><br>
-                            <span id="payment-method-info">Vous allez être redirigé vers notre plateforme de paiement sécurisée Mollie.</span>
+                            <strong>📞 Prise de contact</strong><br>
+                            Notre équipe vous recontactera dans les 48h pour répondre à vos questions et vous fournir toutes les informations sur la formation.
                         </p>
                     </div>
                     
                     <button type="submit" class="btn btn-primary" style="width: 100%;">
-                        <span id="submit-button-text">S'inscrire et payer</span>
+                        Envoyer ma demande d'information
                     </button>
                 </form>
             </div>
@@ -388,7 +385,7 @@
             <h2>Une question sur nos formations ?</h2>
             <p>Notre équipe pédagogique est là pour vous accompagner</p>
             <div class="cta-buttons">
-                <a href="#registration" class="btn btn-white">S'inscrire à une formation</a>
+                <a href="#registration" class="btn btn-white">Demander des informations</a>
                 <a href="contact.html" class="btn btn-outline">Nous contacter</a>
             </div>
         </div>
@@ -441,39 +438,5 @@
     </footer>
 
     <script src="script.js"></script>
-    <script>
-        // Training price management
-        function updateTrainingPrice() {
-            const formationSelect = document.getElementById('formation-choice');
-            const priceDisplay = document.getElementById('price-display');
-            const priceText = document.getElementById('price-text');
-            const paymentInfo = document.getElementById('payment-info');
-            const paymentMethodInfo = document.getElementById('payment-method-info');
-            const submitButtonText = document.getElementById('submit-button-text');
-            
-            const selectedOption = formationSelect.options[formationSelect.selectedIndex];
-            
-            if (selectedOption.value) {
-                const price = selectedOption.dataset.price;
-                priceDisplay.style.display = 'block';
-                
-                if (price === '0') {
-                    priceText.textContent = 'Formation gratuite';
-                    paymentInfo.textContent = 'Cette formation peut être prise en charge. Aucun paiement requis.';
-                    paymentMethodInfo.textContent = 'Votre inscription sera validée directement.';
-                    submitButtonText.textContent = 'S\'inscrire gratuitement';
-                } else {
-                    priceText.textContent = price + '€';
-                    paymentInfo.textContent = 'Paiement sécurisé requis pour valider votre inscription.';
-                    paymentMethodInfo.textContent = 'Vous allez être redirigé vers notre plateforme de paiement sécurisée Mollie.';
-                    submitButtonText.textContent = 'S\'inscrire et payer ' + price + '€';
-                }
-            } else {
-                priceDisplay.style.display = 'none';
-                paymentMethodInfo.textContent = 'Vous allez être redirigé vers notre plateforme de paiement sécurisée Mollie.';
-                submitButtonText.textContent = 'S\'inscrire et payer';
-            }
-        }
-    </script>
 </body>
 </html>
