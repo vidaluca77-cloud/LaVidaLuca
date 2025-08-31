@@ -53,13 +53,6 @@ function handleFormSubmit(formId, successMessage) {
     const form = document.getElementById(formId);
     if (form) {
         form.addEventListener('submit', function(e) {
-            // Special handling for donation form with Mollie integration
-            if (formId === 'donor-info-form') {
-                e.preventDefault();
-                handleDonorInfoSubmit(form);
-                return;
-            }
-            
             // Special handling for training contact form - treat as regular Netlify form
             if (formId === 'training-contact-form') {
                 // Just use regular Netlify form handling, no payment integration
@@ -295,6 +288,7 @@ handleFormSubmit('training-contact-form', 'Votre demande d\'information a été 
 handleFormSubmit('donor-info-form', 'Votre demande de reçu fiscal a été enregistrée !');
 handleFormSubmit('contact-form', 'Votre message a été envoyé. Nous vous répondrons dans les 48h.');
 handleFormSubmit('partner-form', 'Votre demande de partenariat a été reçue. Nous vous contacterons prochainement.');
+handleFormSubmit('newsletter-form', 'Merci pour votre inscription à la newsletter ! Vous recevrez nos actualités par email.');
 
 // Animation on Scroll
 const observerOptions = {
