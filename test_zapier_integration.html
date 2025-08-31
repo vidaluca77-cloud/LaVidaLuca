@@ -20,7 +20,8 @@
     <h1>Test de l'intégration Zapier/Mollie</h1>
     <p>Cette page permet de tester la nouvelle intégration qui supporte à la fois Zapier et Mollie.</p>
     
-    <form id="test-donation-form">
+    <form id="test-donation-form" name="test-donation" data-netlify="true">
+        <input type="hidden" name="form-name" value="test-donation">
         <div class="form-group">
             <label for="amount">Montant (€)</label>
             <input type="number" id="amount" name="amount" value="20" min="1" required>

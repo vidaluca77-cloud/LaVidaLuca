@@ -60,11 +60,9 @@ function handleFormSubmit(formId, successMessage) {
                 return;
             }
             
-            // Special handling for training form with payment integration
-            if (formId === 'training-form') {
-                e.preventDefault();
-                handleTrainingSubmit(form);
-                return;
+            // Special handling for training contact form - treat as regular Netlify form
+            if (formId === 'training-contact-form') {
+                // Just use regular Netlify form handling, no payment integration
             }
             
             // For Netlify forms, we do basic validation but allow natural submission
@@ -293,7 +291,7 @@ function handleTrainingSubmit(form) {
 
 // Initialisation des formulaires
 handleFormSubmit('volunteer-form', 'Merci pour votre inscription ! Nous vous contacterons bientôt.');
-handleFormSubmit('training-form', 'Votre inscription à la formation a été enregistrée !');
+handleFormSubmit('training-contact-form', 'Votre demande d\'information a été envoyée ! Nous vous contacterons bientôt.');
 handleFormSubmit('donor-info-form', 'Votre demande de reçu fiscal a été enregistrée !');
 handleFormSubmit('contact-form', 'Votre message a été envoyé. Nous vous répondrons dans les 48h.');
 handleFormSubmit('partner-form', 'Votre demande de partenariat a été reçue. Nous vous contacterons prochainement.');
