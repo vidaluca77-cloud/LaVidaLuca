@@ -85,6 +85,32 @@ a:hover {
     text-decoration: none;
 }
 
+/* Logo Image Styles */
+.logo-img {
+    height: 40px;
+    width: auto;
+    margin-right: 0.5rem;
+    transition: var(--transition);
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+}
+
+.nav-brand:hover .logo-img {
+    transform: scale(1.1);
+}
+
+.nav-brand .logo-text {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: white;
+    margin-left: 0.5rem;
+}
+
 .nav-menu {
     display: flex;
     list-style: none;
@@ -136,6 +162,40 @@ a:hover {
     background: white;
     margin: 3px 0;
     transition: 0.3s;
+}
+
+/* Alternative nav structure support */
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+}
+
+.nav-links a:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+.nav-links a.active {
+    background: rgba(255,255,255,0.2);
 }
 
 /* ===========================
@@ -574,7 +634,7 @@ input:focus, textarea:focus, select:focus {
    ============================= */
 
 @media (max-width: 768px) {
-    .nav-menu {
+    .nav-menu, .nav-links {
         display: none;
         position: absolute;
         top: 100%;
@@ -585,12 +645,25 @@ input:focus, textarea:focus, select:focus {
         padding: 1rem;
     }
 
-    .nav-menu.active {
+    .nav-menu.active, .nav-links.active {
         display: flex;
     }
 
     .nav-toggle {
         display: flex;
+    }
+
+    /* Mobile logo adjustments */
+    .logo-img {
+        height: 32px;
+    }
+
+    .nav-brand .logo-text, .logo {
+        font-size: 1.4rem;
+    }
+
+    .nav-container {
+        padding: 0 1rem;
     }
 
     .hero h1 {
