@@ -7,8 +7,9 @@
 ### Bootstrap and Serve the Site
 - Clone repository: `git clone <repository-url>`
 - Navigate to repository: `cd LaVidaLuca`
+- **Copy configuration**: `cp config.template.php config.php` (required for PHP testing)
 - **Start local development server**: `python3 -m http.server 8000` (takes <1 second to start)
-- **Alternative PHP server**: `php -S localhost:8000` (for PHP testing)
+- **Alternative PHP server**: `php -S localhost:8000` (for PHP testing and payment functionality)
 - **Access site**: http://localhost:8000
 - **ALWAYS test your changes by serving the site locally and taking screenshots**
 
@@ -59,8 +60,8 @@
 
 5. **Payment Form Testing** (when using PHP server):
    - Start PHP server: `php -S localhost:8000`
-   - Test donation API: `curl -X POST http://localhost:8000/donation_handler.php -H "Content-Type: application/json" -d '{"amount": 25, "firstname": "Test", "lastname": "User", "email": "test@example.com", "donation_type": "ponctuel", "fiscal_receipt": true}'`
-   - Expected: External API failure (normal in sandbox)
+   - Test donation API with valid data: `curl -X POST http://localhost:8000/donation_handler.php -H "Content-Type: application/json" -d '{"amount": 25, "firstname": "Test", "lastname": "User", "email": "test@example.com", "donation_type": "ponctuel", "fiscal_receipt": true}'`
+   - Expected response: `{"error":"Payment creation failed: cURL error: Could not resolve host: api.mollie.com"}` (external API failure is expected in sandboxed environment)
    - Test validation: `curl -X POST http://localhost:8000/donation_handler.php -H "Content-Type: application/json" -d '{"test": "connection"}'`
    - Expected: `{"error":"Missing required fields"}`
 
@@ -94,6 +95,7 @@ LaVidaLuca/
 │   └── site.yml          # Site metadata and contact info
 ├── assets/                # Images and media files
 ├── *.php                  # Payment processing scripts (6 files)
+├── config.template.php    # PHP configuration template
 ├── netlify.toml           # Netlify deployment configuration
 └── manifest.json          # PWA manifest
 ```
@@ -166,12 +168,7 @@ pkill -f "php -S"                          # Stop PHP server
 - **Form submission**: Works only with Netlify deployment, not local server
 
 #### Expected Timing (VALIDATED)
-- **Server start**: <1 second
-- **Page load**: <1 second  
-- **HTML validation**: <1 second for key files (index.html, contact.html)
-- **PHP validation**: <1 second for all 6 files
-- **JavaScript validation**: <1 second
-- **Full validation suite**: <10 seconds total
+- **Server start**: <1 second total
 - **HTMLHint installation**: ~13 seconds (NEVER CANCEL)
 
 #### When to Use External Tools
@@ -192,3 +189,7 @@ pkill -f "php -S"                          # Stop PHP server
 - **Publish directory**: `.` (repository root)
 - **Environment variables**: Required for payment integration (see `MOLLIE_README.md`, `ZAPIER_README.md`)
 - **Domain**: Custom domain configured in Netlify dashboard
+
+<tool_calling>
+You have the capability to call multiple tools in a single response. For maximum efficiency, whenever you need to perform multiple independent operations, ALWAYS invoke all relevant tools simultaneously rather than sequentially. Especially when exploring repository, reading files, viewing directories, validating changes or replying to comments.
+</tool_calling>
