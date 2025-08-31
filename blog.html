@@ -18,8 +18,8 @@
         
         .blog-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2.5rem;
             margin-top: 3rem;
         }
         
@@ -29,41 +29,71 @@
             overflow: hidden;
             box-shadow: var(--shadow-light);
             transition: var(--transition);
+            border: 1px solid var(--border-light);
         }
         
         .blog-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-3px);
             box-shadow: var(--shadow-medium);
+            border-color: var(--secondary-color);
         }
         
         .blog-image {
-            height: 200px;
+            height: 180px;
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3rem;
+            font-size: 2.5rem;
             color: white;
+            position: relative;
+        }
+        
+        .blog-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.1);
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
         }
         
         .blog-content {
-            padding: 1.5rem;
+            padding: 1.8rem;
+        }
+        
+        .blog-content h3 {
+            font-size: 1.3rem;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+        
+        .blog-content p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
         }
         
         .blog-meta {
             display: flex;
             gap: 1rem;
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
+            margin-bottom: 1.2rem;
+            font-size: 0.85rem;
             color: var(--text-light);
+            align-items: center;
         }
         
         .blog-category {
             background: var(--primary-color);
             color: white;
-            padding: 0.2rem 0.8rem;
-            border-radius: 15px;
-            font-size: 0.8rem;
+            padding: 0.3rem 0.9rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
         
         .featured-post {
@@ -75,14 +105,26 @@
         }
         
         .featured-image {
-            height: 300px;
-            background: linear-gradient(135deg, var(--accent-color), var(--warning-color));
+            height: 280px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             border-radius: var(--border-radius);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 4rem;
+            font-size: 3.5rem;
             color: white;
+            position: relative;
+        }
+        
+        .featured-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.1);
+            border-radius: var(--border-radius);
         }
         
         @media (max-width: 768px) {
@@ -130,7 +172,13 @@
             <!-- Featured Article -->
             <div class="blog-grid">
                 <article class="featured-post blog-card">
-                    <div class="featured-image">🌾</div>
+                    <div class="featured-image">
+                        <svg width="80" height="80" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2L13.09 8.26L19 9L13.09 9.74L12 16L10.91 9.74L5 9L10.91 8.26L12 2Z"/>
+                            <path d="M17 15L17.75 17.25L20 18L17.75 18.75L17 21L16.25 18.75L14 18L16.25 17.25L17 15Z"/>
+                            <path d="M7 4L7.5 5.5L9 6L7.5 6.5L7 8L6.5 6.5L5 6L6.5 5.5L7 4Z"/>
+                        </svg>
+                    </div>
                     <div style="display: flex; flex-direction: column; justify-content: center;">
                         <div class="blog-content">
                             <div class="blog-meta">
@@ -154,7 +202,11 @@
 
                 <!-- Blog Posts -->
                 <article class="blog-card">
-                    <div class="blog-image">🪱</div>
+                    <div class="blog-image">
+                        <svg width="50" height="50" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                        </svg>
+                    </div>
                     <div class="blog-content">
                         <div class="blog-meta">
                             <span class="blog-category">Sol & Compost</span>
@@ -172,7 +224,13 @@
                 </article>
 
                 <article class="blog-card">
-                    <div class="blog-image">🐛</div>
+                    <div class="blog-image">
+                        <svg width="50" height="50" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm9 7h-6v13h-2v-6h-2v6H9V9H3V7h18v2z"/>
+                            <circle cx="6" cy="18" r="2"/>
+                            <circle cx="18" cy="18" r="2"/>
+                        </svg>
+                    </div>
                     <div class="blog-content">
                         <div class="blog-meta">
                             <span class="blog-category">Protection</span>
@@ -190,7 +248,11 @@
                 </article>
 
                 <article class="blog-card">
-                    <div class="blog-image">📅</div>
+                    <div class="blog-image">
+                        <svg width="50" height="50" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+                        </svg>
+                    </div>
                     <div class="blog-content">
                         <div class="blog-meta">
                             <span class="blog-category">Planning</span>
@@ -208,7 +270,12 @@
                 </article>
 
                 <article class="blog-card">
-                    <div class="blog-image">🔄</div>
+                    <div class="blog-image">
+                        <svg width="50" height="50" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            <circle cx="12" cy="12" r="3"/>
+                        </svg>
+                    </div>
                     <div class="blog-content">
                         <div class="blog-meta">
                             <span class="blog-category">Permaculture</span>
@@ -226,7 +293,12 @@
                 </article>
 
                 <article class="blog-card">
-                    <div class="blog-image">🌱</div>
+                    <div class="blog-image">
+                        <svg width="50" height="50" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                            <path d="M7 13l3 3 7-7-1.41-1.41L9 14.17l-1.59-1.59L7 13z"/>
+                        </svg>
+                    </div>
                     <div class="blog-content">
                         <div class="blog-meta">
                             <span class="blog-category">Pratiques</span>
@@ -244,7 +316,11 @@
                 </article>
 
                 <article class="blog-card">
-                    <div class="blog-image">🎓</div>
+                    <div class="blog-image">
+                        <svg width="50" height="50" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/>
+                        </svg>
+                    </div>
                     <div class="blog-content">
                         <div class="blog-meta">
                             <span class="blog-category">Retour d'expérience</span>
