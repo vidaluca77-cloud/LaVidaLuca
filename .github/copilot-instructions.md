@@ -1,235 +1,195 @@
-# La Vida Luca - Agricultural Organization Website
+# La Vida Luca - Copilot Instructions
 
-Always reference these instructions first and fallback to search or bash commands only when you encounter unexpected information that does not match the info here.
-
-La Vida Luca is a French agricultural organization website featuring static HTML/CSS/JavaScript frontend with PHP backend for payment processing, integrated with Netlify CMS for content management.
+**Always reference these instructions first and fallback to search or bash commands only when you encounter unexpected information that does not match the info here.**
 
 ## Working Effectively
 
-### Initial Setup and Dependencies
-- **NEVER CANCEL any commands** - All operations complete in under 30 seconds
-- Copy configuration: `cp config.template.php config.php`
-- Start development server: `php -S localhost:8000` - NEVER CANCEL, runs immediately
-- Validate PHP syntax: `find . -name "*.php" -exec php -l {} \;` - completes in under 1 second
-- Test website accessibility: `curl -I http://localhost:8000/` - responds in under 1 second
+### Bootstrap and Serve the Site
+- Clone repository: `git clone <repository-url>`
+- Navigate to repository: `cd LaVidaLuca`
+- **Copy configuration**: `cp config.template.php config.php` (required for PHP testing)
+- **Start local development server**: `python3 -m http.server 8000` (takes <1 second to start)
+- **Alternative PHP server**: `php -S localhost:8000` (for PHP testing and payment functionality)
+- **Access site**: http://localhost:8000
+- **ALWAYS test your changes by serving the site locally and taking screenshots**
+
+### Code Validation (NEVER CANCEL - Critical for CI Success)
+- **HTML validation**: 
+  - Install: `pip install html5lib` (takes ~10 seconds)
+  - Run: `python3 -c "import html5lib; parser = html5lib.HTMLParser(strict=True); [parser.parse(open(f).read()) for f in ['index.html', 'contact.html']]"` (takes ~2 seconds)
+  - **OR** Install htmlhint: `npm install -g htmlhint` (takes ~13 seconds, NEVER CANCEL)
+  - Run: `htmlhint *.html` (takes <1 second)
+
+- **JavaScript validation**:
+  - **Syntax check**: `node -c script.js` (takes <1 second)
+  - **Linting with JSHint**: 
+    - Install: `npm install -g jshint` (included in htmlhint install above)
+    - Create config: `echo '{"esversion": 6}' > .jshintrc`
+    - Run: `jshint script.js` (takes <1 second)
+
+- **PHP validation**:
+  - Run: `find . -name "*.php" -exec php -l {} \;` (takes <1 second)
+  - **All 6 PHP files must pass syntax validation**
+
+### Manual Validation Scenarios (CRITICAL - Always Execute)
+**ALWAYS run through these complete scenarios after making changes:**
+
+1. **Homepage Navigation Test**:
+   - Start server: `python3 -m http.server 8000`
+   - Visit: http://localhost:8000
+   - Click through ALL navigation links: Nos Projets, Formations, Blog, Bénévoles, Partenaires, Contact, Faire un don
+   - **Take screenshot** of homepage to verify layout
+
+2. **Contact Form Test**:
+   - Navigate to: http://localhost:8000/contact.html
+   - Fill in form fields: Prénom, Nom, Email 
+   - Verify form validation works (required fields)
+   - **Take screenshot** of filled form
+   - **DO NOT submit** (no backend in local development)
+
+3. **Content Management System Test**:
+   - Navigate to: http://localhost:8000/admin/
+   - **NOTE**: CMS will show errors in local development (external CDN resources blocked)
+   - This is NORMAL and expected in local testing
+   - In production, requires GitHub OAuth authentication
+
+4. **Responsive Design Test**:
+   - Test site at different viewport sizes
+   - Verify mobile menu functionality works
+   - Check that images and layout adapt properly
+
+5. **Payment Form Testing** (when using PHP server):
+   - Start PHP server: `php -S localhost:8000`
+   - Test donation API with valid data: `curl -X POST http://localhost:8000/donation_handler.php -H "Content-Type: application/json" -d '{"amount": 25, "firstname": "Test", "lastname": "User", "email": "test@example.com", "donation_type": "ponctuel", "fiscal_receipt": true}'`
+   - Expected response: `{"error":"Payment creation failed: cURL error: Could not resolve host: api.mollie.com"}` (external API failure is expected in sandboxed environment)
+   - Test validation: `curl -X POST http://localhost:8000/donation_handler.php -H "Content-Type: application/json" -d '{"test": "connection"}'`
+   - Expected: `{"error":"Missing required fields"}`
 
 ### Build Process
-- **NO BUILD REQUIRED** - This is a static website with PHP backend
-- **NO PACKAGE MANAGERS** - No npm, yarn, or other package managers needed
-- **NO COMPILATION** - HTML/CSS/JS files are served directly
-- The website runs immediately with PHP development server
+**This is a static site with NO traditional build process**:
+- **No npm install required** - no package.json exists
+- **No compilation step** - pure HTML/CSS/JavaScript
+- **Netlify deployment**: Uses simple `echo 'Building static site...'` command
+- **Content managed via**: Netlify CMS with Jekyll-style markdown files
 
-### Testing and Validation
-- **PHP Validation**: `find . -name "*.php" -exec php -l {} \;` - NEVER CANCEL, completes in under 1 second
-- **Website Load Test**: `curl -s http://localhost:8000/ && curl -s http://localhost:8000/dons.html && curl -s http://localhost:8000/formations.html` - NEVER CANCEL, completes in under 1 second
-- **Payment API Test**: `curl -X POST http://localhost:8000/donation_handler.php -H "Content-Type: application/json" -d '{"amount": 25, "firstname": "Test", "lastname": "User", "email": "test@example.com", "donation_type": "ponctuel", "fiscal_receipt": true}'` - NEVER CANCEL, responds in under 2 seconds
-- **Admin Interface Test**: `curl -s http://localhost:8000/admin/ | grep -i netlify` - NEVER CANCEL, completes in under 1 second
-
-## Technology Stack
-- **Frontend**: Static HTML5, CSS3, JavaScript (ES6+)
-- **Backend**: PHP 8.3+ for payment processing
-- **CMS**: Netlify CMS for content management
-- **Hosting**: Netlify with Apache .htaccess configuration
-- **Payments**: Dual integration - Mollie API + Zapier webhooks
-
-## Repository Structure
+### File Structure and Navigation
 ```
-/
-├── index.html              # Main homepage
-├── styles.css              # Main stylesheet
-├── script.js               # Main JavaScript functionality
-├── *.html                  # Static pages (dons, formations, contact, etc.)
-├── *.php                   # Payment processing backend
-├── admin/                  # Netlify CMS administration
-│   ├── index.html          # CMS interface
-│   └── config.yml          # CMS configuration
-├── _data/                  # Site configuration data
-├── _posts/                 # Blog posts (markdown)
-├── _projets/               # Project pages (markdown)
-├── _formations/            # Training content (markdown)
-├── assets/                 # Images and static assets
-├── config.template.php     # PHP configuration template
-├── .htaccess              # Apache server configuration
-├── netlify.toml           # Netlify deployment config
+LaVidaLuca/
+├── index.html              # Homepage (main entry point)
+├── contact.html            # Contact page with forms
+├── formations.html         # Training courses page
+├── projets.html           # Projects page
+├── blog.html              # Blog listing page
+├── benevoles.html         # Volunteers page
+├── dons.html              # Donations page with payment integration
+├── script.js              # Main JavaScript file (17KB, ES6 syntax)
+├── styles.css             # Main stylesheet (13KB)
+├── admin/
+│   ├── index.html         # Netlify CMS admin interface
+│   └── config.yml         # CMS configuration
+├── _posts/                # Blog posts (Markdown)
+├── _projets/              # Project descriptions (Markdown)
+├── _formations/           # Training course data (Markdown)
+├── _pages/                # Static pages (Markdown)
+├── _data/                 # Site configuration
+│   └── site.yml          # Site metadata and contact info
+├── assets/                # Images and media files
+├── *.php                  # Payment processing scripts (6 files)
+├── config.template.php    # PHP configuration template
+├── netlify.toml           # Netlify deployment configuration
 └── manifest.json          # PWA manifest
 ```
 
-## Manual Validation Scenarios
+### Key Components
 
-**ALWAYS test these scenarios after making changes:**
+#### Static Site (Primary)
+- **Technology**: Pure HTML5, CSS3, ES6 JavaScript
+- **No dependencies**: No package.json, no npm modules
+- **Responsive**: Mobile-first design with CSS Grid/Flexbox
+- **PWA**: Progressive Web App with manifest.json
 
-### 1. Website Navigation and Loading
-- Start server: `php -S localhost:8000`
-- Test homepage: `curl -I http://localhost:8000/` (should return 200 OK)
-- Test key pages: donations (`/dons.html`), formations (`/formations.html`), contact (`/contact.html`)
-- Verify all pages load without errors
+#### Netlify CMS Integration
+- **Admin URL**: `/admin/` (requires GitHub OAuth in production)
+- **Configuration**: `admin/config.yml`
+- **Content**: Stored in `_posts/`, `_projets/`, `_formations/`, `_pages/`
+- **Images**: Uploaded to `assets/images/`
 
-### 2. Payment Form Functionality  
-- Test donation API with valid data: `curl -X POST http://localhost:8000/donation_handler.php -H "Content-Type: application/json" -d '{"amount": 25, "firstname": "Test", "lastname": "User", "email": "test@example.com", "donation_type": "ponctuel", "fiscal_receipt": true}'`
-- Expected response: `{"error":"Payment creation failed: cURL error: Could not resolve host: api.mollie.com"}` (external API failure is expected in sandboxed environment)
-- Test with missing data: `curl -X POST http://localhost:8000/donation_handler.php -H "Content-Type: application/json" -d '{"test": "connection"}'`
-- Expected response: `{"error":"Missing required fields"}`
+#### Payment Integration (PHP)
+- **Mollie API**: `process_payment.php`, `webhook.php`
+- **Zapier Integration**: `donation_handler.php`, `training_handler.php`
+- **Configuration**: `config.template.php` (copy to `config.php` for production)
 
-### 3. Content Management System
-- Access admin interface: `http://localhost:8000/admin/`
-- Verify Netlify CMS loads: `curl -s http://localhost:8000/admin/ | grep -i netlify`
-- Check configuration: `cat admin/config.yml` (should contain GitHub backend config)
+### Common Tasks
 
-### 4. Configuration Validation
-- Test PHP config loading: `php -r "var_dump(require 'config.php');"`
-- Verify environment template: `cat .env.example`
-- Check all PHP files syntax: `find . -name "*.php" -exec php -l {} \;`
+#### Adding New Content
+1. **Via CMS** (Production): Access `/admin/`, authenticate, use web interface
+2. **Direct File Edit** (Development): 
+   - Add files to `_posts/`, `_projets/`, `_formations/`, or `_pages/`
+   - Follow existing YAML frontmatter format
+   - Use `.md` extension for Markdown content
 
-## Development Workflow
+#### Modifying Site Configuration
+- **Edit**: `_data/site.yml` for contact info, social links
+- **Test**: Reload page and verify changes appear
 
-### Making Changes
-- **Frontend changes**: Edit HTML/CSS/JS files directly, no compilation needed
-- **PHP backend**: Always run syntax check after changes: `php -l filename.php`
-- **Content**: Edit markdown files in `_posts/`, `_projets/`, `_formations/` folders
-- **Configuration**: Update `admin/config.yml` for CMS settings
+#### Working with Forms
+- **Contact forms**: Use Netlify Forms (add `data-netlify="true"` attribute)
+- **Payment forms**: Integrate with existing PHP handlers
+- **Validation**: Client-side validation in `script.js`
 
-### Validation Requirements
-- **ALWAYS** run PHP syntax validation before committing: `find . -name "*.php" -exec php -l {} \;`
-- **ALWAYS** test website loading after changes: `curl -I http://localhost:8000/`
-- **ALWAYS** test payment form functionality with the curl commands above
-- **ALWAYS** verify admin interface still loads: `curl -s http://localhost:8000/admin/ | grep -i netlify`
+#### Testing Payment Integration
+- **Local testing**: Use `test_zapier_integration.html`
+- **PHP syntax**: Always run `php -l *.php` before committing
+- **Configuration**: Never commit real API keys
 
-### Deployment
-- **Netlify Auto-Deploy**: Changes to main branch trigger automatic deployment
-- **No build step**: Static files deployed directly from repository
-- **PHP files**: Handled by Netlify Functions or external hosting
-- **Environment variables**: Set in Netlify dashboard for production
-
-## Common Tasks
-
-### Testing Payment Integration
+### Validation Commands Reference
 ```bash
-# Test with valid donation data (should fail on external API call)
-curl -X POST http://localhost:8000/donation_handler.php \
-  -H "Content-Type: application/json" \
-  -d '{"amount": 50, "firstname": "John", "lastname": "Doe", "email": "john@example.com", "donation_type": "mensuel", "fiscal_receipt": true}'
+# Quick validation suite (run before every commit) - Total time: <10 seconds
+python3 -m http.server 8000 &          # Start server (<1 second)
+sleep 2 && curl -I http://localhost:8000/  # Test homepage loads (<1 second)
+find . -name "*.php" -exec php -l {} \;    # Validate PHP syntax (<1 second)
+node -c script.js                          # Validate JavaScript syntax (<1 second)
+htmlhint index.html contact.html          # Validate HTML (<1 second)
+pkill -f "python3 -m http.server"         # Stop server (<1 second)
 
-# Test form validation (should return missing fields error)
-curl -X POST http://localhost:8000/donation_handler.php \
-  -H "Content-Type: application/json" \
-  -d '{"amount": 50}'
+# Alternative PHP server validation
+php -S localhost:8000 &                    # Start PHP server
+curl -I http://localhost:8000/             # Test homepage
+curl -s http://localhost:8000/admin/ | grep -i netlify  # Test CMS
+pkill -f "php -S"                          # Stop PHP server
 ```
 
-### Content Management
-- **Add new post**: Create markdown file in `_posts/` with format: `YYYY-MM-DD-title.md`
-- **Add new project**: Create markdown file in `_projets/` with format: `YYYY-MM-DD-project-name.md`
-- **Update site config**: Edit `_data/site.yml`
-- **CMS access**: Navigate to `/admin/` on deployed site for GUI editing
+### Troubleshooting
 
-### Configuration Updates
-- **Payment settings**: Update `config.php` (copy from `config.template.php`)
-- **Environment variables**: Use `.env.example` as reference
-- **CMS settings**: Edit `admin/config.yml`
-- **Server settings**: Modify `.htaccess` for Apache configuration
+#### Common Issues
+- **Images not loading**: Check paths are relative to document root
+- **CMS admin errors**: Normal in local development (CDN blocked)
+- **PHP errors**: Ensure PHP 8.3+ installed, check syntax with `php -l`
+- **Form submission**: Works only with Netlify deployment, not local server
 
-## Repository Outputs Reference
+#### Expected Timing (VALIDATED)
+- **Server start**: <1 second total
+- **HTMLHint installation**: ~13 seconds (NEVER CANCEL)
 
-### Main Directory Listing
-```
-La Vida Luca - Ferme Pédagogique.png
-Logo La Vida Luca.png
-README.md
-admin/
-assets/
-agriculture-bio.html
-benevoles.html
-blog-sol-compost.html
-config.template.php
-contact.html
-donation-success.html
-donation_handler.php
-dons.html
-formations.html
-index.html
-manifest.json
-netlify.toml
-script.js
-styles.css
-webhook.php
-```
+#### When to Use External Tools
+- **HTMLHint installation**: Only for enhanced HTML validation
+- **JSHint setup**: Only when working extensively with JavaScript
+- **Python http.server**: Always for local development testing
 
-### PHP Syntax Check Output
-```
-No syntax errors detected in ./process_payment.php
-No syntax errors detected in ./webhook.php
-No syntax errors detected in ./donation_handler.php
-No syntax errors detected in ./config.template.php
-No syntax errors detected in ./donor_info_handler.php
-No syntax errors detected in ./training_handler.php
-```
+### CRITICAL Validation Requirements
+- **NEVER skip manual testing** - Always serve site and test scenarios
+- **ALWAYS take screenshots** when making visual changes
+- **ALWAYS validate ALL code types** before committing (HTML, CSS, JavaScript, PHP)
+- **NEVER commit without running validation suite**
+- **ALWAYS test forms and interactive elements**
 
-### Website Response Headers
-```
-HTTP/1.1 200 OK
-Host: localhost:8000
-Content-Type: text/html; charset=UTF-8
-Content-Length: 18226
-```
+### Production Deployment Notes
+- **Platform**: Netlify
+- **Build command**: `echo 'Building static site...'` (no actual build required)
+- **Publish directory**: `.` (repository root)
+- **Environment variables**: Required for payment integration (see `MOLLIE_README.md`, `ZAPIER_README.md`)
+- **Domain**: Custom domain configured in Netlify dashboard
 
-## Security and Best Practices
-
-### Configuration Security
-- **NEVER commit `config.php`** - Use `config.template.php` as template
-- **Environment variables**: Store sensitive data in `.env` files (excluded from git)
-- **API keys**: Use Netlify environment variables for production
-
-### Content Security
-- **Admin access**: Requires GitHub OAuth authentication
-- **File permissions**: Sensitive files blocked via `.htaccess`
-- **Input validation**: All forms have client and server-side validation
-
-### Performance
-- **Static assets**: Cached via `.htaccess` configuration
-- **Compression**: Gzip enabled for all text files
-- **CDN**: Netlify handles global content delivery
-
-## Troubleshooting
-
-### Common Issues
-- **Payment API failures**: Expected in sandboxed environments (external API blocking)
-- **PHP syntax errors**: Run `php -l filename.php` to check
-- **Server not starting**: Ensure port 8000 is available: `lsof -i :8000`
-- **Config errors**: Verify `config.php` exists and has valid syntax
-
-### Debug Commands
-```bash
-# Check PHP configuration
-php -r "var_dump(require 'config.php');"
-
-# Test server connectivity
-curl -v http://localhost:8000/
-
-# Check file permissions
-ls -la config.php
-
-# Validate JSON in API responses
-curl -s http://localhost:8000/donation_handler.php | python3 -m json.tool
-```
-
-## Important Files for Frequent Updates
-
-### Core Website Files
-- `index.html` - Homepage content and structure
-- `styles.css` - All visual styling
-- `script.js` - Interactive functionality
-- `dons.html` - Donation page (most frequently updated)
-
-### Backend Configuration
-- `config.template.php` - Payment integration settings
-- `donation_handler.php` - Payment processing logic
-- `webhook.php` - Payment confirmation handling
-
-### Content Management
-- `admin/config.yml` - CMS field definitions and collections
-- `_data/site.yml` - Organization contact information
-- Files in `_posts/`, `_projets/`, `_formations/` - Dynamic content
-
-### Deployment Configuration
-- `netlify.toml` - Netlify build and deployment settings
-- `.htaccess` - Apache server optimization and security
-- `manifest.json` - Progressive Web App configuration
+<tool_calling>
+You have the capability to call multiple tools in a single response. For maximum efficiency, whenever you need to perform multiple independent operations, ALWAYS invoke all relevant tools simultaneously rather than sequentially. Especially when exploring repository, reading files, viewing directories, validating changes or replying to comments.
+</tool_calling>
