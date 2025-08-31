@@ -499,6 +499,152 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
+// ===========================
+// Future Farm Video Player
+// ===========================
+
+function playFutureVideo() {
+    const videoContainer = document.getElementById('future-farm-video');
+    const videoElement = document.getElementById('future-video-element');
+    const placeholder = videoContainer.querySelector('div[style*="padding-bottom"]');
+    
+    if (!videoElement || !placeholder) return;
+    
+    // Check if video source exists
+    const videoSource = videoElement.querySelector('source[src*=".mp4"]');
+    if (videoSource && videoSource.src && !videoSource.src.includes('videos/ferme-futur-cultures-hors-sols.mp4')) {
+        // If we have a real video source, play it
+        placeholder.style.display = 'none';
+        videoElement.style.display = 'block';
+        videoElement.play().catch(e => {
+            console.log('Video autoplay blocked:', e);
+            showVideoMessage('Cliquez sur le bouton de lecture pour démarrer la vidéo');
+        });
+    } else {
+        // Show a placeholder message when no video is available
+        showVideoPlaceholder();
+    }
+}
+
+function showVideoPlaceholder() {
+    const videoContainer = document.getElementById('future-farm-video');
+    const placeholder = videoContainer.querySelector('div[style*="padding-bottom"]');
+    
+    // Create a more engaging placeholder
+    const placeholderContent = `
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #0D47A1 0%, #1976D2 50%, #42A5F5 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: white;">
+            <div style="background: rgba(255,255,255,0.1); border-radius: 50%; width: 120px; height: 120px; display: flex; align-items: center; justify-content: center; margin-bottom: 2rem; animation: pulse 2s infinite;">
+                <span style="font-size: 3rem;">🎬</span>
+            </div>
+            <h3 style="margin-bottom: 1rem; font-size: 1.5rem;">Vidéo : Cultures Hors Sols Futuristes</h3>
+            <p style="opacity: 0.9; font-size: 1rem; max-width: 400px; margin-bottom: 1.5rem;">
+                Découvrez notre vision révolutionnaire de l'agriculture hydroponique et aéroponique automatisée
+            </p>
+            <div style="background: rgba(255,255,255,0.2); padding: 0.8rem 1.5rem; border-radius: 25px; font-size: 0.9rem;">
+                📹 Vidéo en cours d'intégration - Prochainement disponible
+            </div>
+            <div style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
+                <a href="formations.html" style="background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.3); color: white; padding: 0.6rem 1.2rem; border-radius: 20px; text-decoration: none; font-size: 0.9rem; transition: all 0.3s ease;">
+                    🎓 Formations Disponibles
+                </a>
+                <a href="contact.html" style="background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.3); color: white; padding: 0.6rem 1.2rem; border-radius: 20px; text-decoration: none; font-size: 0.9rem; transition: all 0.3s ease;">
+                    📍 Visiter Dozulé
+                </a>
+            </div>
+        </div>
+        <style>
+            @keyframes pulse {
+                0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
+                50% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); }
+                100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+            }
+        </style>
+    `;
+    
+    placeholder.innerHTML = placeholderContent;
+}
+
+function showVideoMessage(message) {
+    const messageDiv = document.createElement('div');
+    messageDiv.style.cssText = `
+        position: fixed; top: 20px; right: 20px; z-index: 1000;
+        background: #2E7D32; color: white; padding: 1rem 1.5rem;
+        border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        font-size: 0.9rem; max-width: 300px;
+    `;
+    messageDiv.textContent = message;
+    document.body.appendChild(messageDiv);
+    
+    setTimeout(() => {
+        messageDiv.remove();
+    }, 3000);
+}
+
+// Video Analytics and Engagement
+function trackVideoEvent(event, videoId) {
+    // Track video engagement for analytics
+    if (typeof gtag !== 'undefined') {
+        gtag('event', event, {
+            'event_category': 'Video',
+            'event_label': videoId,
+            'value': 1
+        });
+    }
+    console.log(`Video event: ${event} for ${videoId}`);
+}
+
+// Enhanced video player with custom controls
+function setupVideoPlayer() {
+    const videoElement = document.getElementById('future-video-element');
+    if (!videoElement) return;
+    
+    videoElement.addEventListener('loadstart', () => trackVideoEvent('load_start', 'future_farm_video'));
+    videoElement.addEventListener('play', () => trackVideoEvent('play', 'future_farm_video'));
+    videoElement.addEventListener('pause', () => trackVideoEvent('pause', 'future_farm_video'));
+    videoElement.addEventListener('ended', () => {
+        trackVideoEvent('complete', 'future_farm_video');
+        showVideoCompletionMessage();
+    });
+}
+
+function showVideoCompletionMessage() {
+    const message = document.createElement('div');
+    message.style.cssText = `
+        position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+        background: linear-gradient(135deg, #2E7D32, #66BB6A); color: white;
+        padding: 2rem; border-radius: 15px; text-align: center; z-index: 1000;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3); max-width: 400px;
+    `;
+    
+    message.innerHTML = `
+        <h3 style="margin-bottom: 1rem;">🌱 Merci d'avoir découvert la ferme du futur !</h3>
+        <p style="margin-bottom: 1.5rem; opacity: 0.9;">Intéressé par nos formations en agriculture innovante ?</p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <a href="formations.html" style="background: rgba(255,255,255,0.2); color: white; padding: 0.8rem 1.5rem; border-radius: 25px; text-decoration: none; font-weight: bold;">
+                🎓 Nos Formations
+            </a>
+            <a href="contact.html" style="background: rgba(255,255,255,0.2); color: white; padding: 0.8rem 1.5rem; border-radius: 25px; text-decoration: none; font-weight: bold;">
+                📞 Nous Contacter
+            </a>
+        </div>
+        <button onclick="this.parentElement.remove()" style="position: absolute; top: 10px; right: 15px; background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer;">×</button>
+    `;
+    
+    document.body.appendChild(message);
+    
+    // Auto remove after 10 seconds
+    setTimeout(() => {
+        if (message.parentElement) {
+            message.remove();
+        }
+    }, 10000);
+}
+
+// Initialize video functionality when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    setupVideoPlayer();
+});
+
 // Service Worker Registration (for PWA)
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
