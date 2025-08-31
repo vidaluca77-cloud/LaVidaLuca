@@ -8,6 +8,7 @@
 - Clone repository: `git clone <repository-url>`
 - Navigate to repository: `cd LaVidaLuca`
 - **Start local development server**: `python3 -m http.server 8000` (takes <1 second to start)
+- **Alternative PHP server**: `php -S localhost:8000` (for PHP testing)
 - **Access site**: http://localhost:8000
 - **ALWAYS test your changes by serving the site locally and taking screenshots**
 
@@ -55,6 +56,13 @@
    - Test site at different viewport sizes
    - Verify mobile menu functionality works
    - Check that images and layout adapt properly
+
+5. **Payment Form Testing** (when using PHP server):
+   - Start PHP server: `php -S localhost:8000`
+   - Test donation API: `curl -X POST http://localhost:8000/donation_handler.php -H "Content-Type: application/json" -d '{"amount": 25, "firstname": "Test", "lastname": "User", "email": "test@example.com", "donation_type": "ponctuel", "fiscal_receipt": true}'`
+   - Expected: External API failure (normal in sandbox)
+   - Test validation: `curl -X POST http://localhost:8000/donation_handler.php -H "Content-Type: application/json" -d '{"test": "connection"}'`
+   - Expected: `{"error":"Missing required fields"}`
 
 ### Build Process
 **This is a static site with NO traditional build process**:
@@ -141,6 +149,12 @@ find . -name "*.php" -exec php -l {} \;    # Validate PHP syntax (<1 second)
 node -c script.js                          # Validate JavaScript syntax (<1 second)
 htmlhint index.html contact.html          # Validate HTML (<1 second)
 pkill -f "python3 -m http.server"         # Stop server (<1 second)
+
+# Alternative PHP server validation
+php -S localhost:8000 &                    # Start PHP server
+curl -I http://localhost:8000/             # Test homepage
+curl -s http://localhost:8000/admin/ | grep -i netlify  # Test CMS
+pkill -f "php -S"                          # Stop PHP server
 ```
 
 ### Troubleshooting
