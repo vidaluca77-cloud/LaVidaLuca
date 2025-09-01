@@ -26,28 +26,216 @@
     <meta name="twitter:description" content="📚 Formations pro agriculture bio, permaculture, IA agricole en Normandie" />
     <meta name="twitter:image" content="https://www.lavidaluca.fr/assets/formations-twitter.jpg" />
     
-    <!-- Structured Data -->
+    <!-- Enhanced Structured Data for Courses -->
     <script type="application/ld+json">
+    [
     {
       "@context": "https://schema.org",
       "@type": "EducationalOrganization",
-      "name": "La Vida Luca - Formations",
-      "description": "Centre de formation en agriculture biologique, permaculture et développement durable",
+      "name": "La Vida Luca - Centre de Formation Agriculture",
+      "description": "Centre de formation spécialisé en agriculture biologique, permaculture et technologies agricoles innovantes",
       "url": "https://www.lavidaluca.fr/formations.html",
-      "offers": [
+      "logo": "https://www.lavidaluca.fr/Logo La Vida Luca.png",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Souleuvre-en-Bocage",
+        "addressLocality": "Souleuvre-en-Bocage",
+        "postalCode": "14350",
+        "addressRegion": "Normandie",
+        "addressCountry": "FR"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "vidaluca77@gmail.com",
+        "contactType": "Admissions",
+        "availableLanguage": "French"
+      },
+      "areaServed": {
+        "@type": "Place",
+        "name": "France",
+        "containsPlace": [
+          {
+            "@type": "Place",
+            "name": "Normandie"
+          },
+          {
+            "@type": "Place", 
+            "name": "Calvados"
+          }
+        ]
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "name": "Formation Agriculture Biologique - Niveau 1",
+      "description": "Formation complète aux techniques d'agriculture biologique : certification, fertilisation naturelle, protection des cultures, rotations, commercialisation",
+      "provider": {
+        "@type": "EducationalOrganization",
+        "name": "La Vida Luca",
+        "url": "https://www.lavidaluca.fr"
+      },
+      "courseCode": "AB-001",
+      "educationalLevel": "Professionnel",
+      "teaches": [
+        "Réglementation agriculture biologique",
+        "Certification bio", 
+        "Fertilisation organique",
+        "Lutte biologique",
+        "Commercialisation circuits courts"
+      ],
+      "timeRequired": "P5D",
+      "coursePrerequisites": "Expérience agricole de base recommandée",
+      "availableLanguage": "French",
+      "inLanguage": "fr",
+      "courseMode": ["InPerson", "Blended"],
+      "locationCreated": {
+        "@type": "Place",
+        "name": "Ferme Pilote Souleuvre",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Souleuvre-en-Bocage",
+          "addressRegion": "Normandie",
+          "addressCountry": "FR"
+        }
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "850",
+        "priceCurrency": "EUR",
+        "availability": "InStock",
+        "validFrom": "2025-01-20",
+        "validThrough": "2025-12-31",
+        "category": "Formation professionnelle",
+        "eligibleRegion": {
+          "@type": "Place",
+          "name": "France"
+        }
+      },
+      "startDate": "2025-03-15",
+      "endDate": "2025-03-19",
+      "eventStatus": "EventScheduled",
+      "eventAttendanceMode": "OfflineEventAttendanceMode",
+      "organizer": {
+        "@type": "Organization",
+        "name": "La Vida Luca",
+        "url": "https://www.lavidaluca.fr"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "name": "Formation Permaculture Avancée",
+      "description": "Formation approfondie en design permaculturel : analyse de site, zonage, associations végétales, gestion de l'eau, systèmes résilients",
+      "provider": {
+        "@type": "EducationalOrganization",
+        "name": "La Vida Luca",
+        "url": "https://www.lavidaluca.fr"
+      },
+      "courseCode": "PERM-002",
+      "educationalLevel": "Avancé",
+      "teaches": [
+        "Design permaculturel",
+        "Analyse de site",
+        "Zonage et secteurs",
+        "Associations végétales",
+        "Gestion durable de l'eau"
+      ],
+      "timeRequired": "P3D",
+      "coursePrerequisites": "Notions de base en jardinage ou agriculture",
+      "availableLanguage": "French",
+      "inLanguage": "fr",
+      "courseMode": ["InPerson", "Outdoor"],
+      "offers": {
+        "@type": "Offer",
+        "price": "650",
+        "priceCurrency": "EUR",
+        "availability": "InStock",
+        "validFrom": "2025-01-20",
+        "validThrough": "2025-12-31"
+      },
+      "startDate": "2025-04-10",
+      "endDate": "2025-04-12"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "name": "IA et Agriculture 4.0",
+      "description": "Formation aux technologies d'intelligence artificielle appliquées à l'agriculture : capteurs IoT, analyse prédictive, optimisation des cultures",
+      "provider": {
+        "@type": "EducationalOrganization",
+        "name": "La Vida Luca",
+        "url": "https://www.lavidaluca.fr"
+      },
+      "courseCode": "IA-003",
+      "educationalLevel": "Innovation",
+      "teaches": [
+        "Capteurs IoT agricoles",
+        "Analyse de données agricoles",
+        "IA prédictive",
+        "Optimisation automatisée",
+        "Agriculture de précision"
+      ],
+      "timeRequired": "P2D",
+      "coursePrerequisites": "Connaissances informatiques de base",
+      "availableLanguage": "French",
+      "inLanguage": "fr",
+      "courseMode": ["InPerson", "Online"],
+      "offers": {
+        "@type": "Offer",
+        "price": "750",
+        "priceCurrency": "EUR",
+        "availability": "InStock",
+        "validFrom": "2025-01-20",
+        "validThrough": "2025-12-31"
+      },
+      "startDate": "2025-05-08",
+      "endDate": "2025-05-09"
+    }
+    ]
+    </script>
+    
+    <!-- FAQ Schema for Formations -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
         {
-          "@type": "Course",
-          "name": "Formation Agriculture Biologique",
-          "description": "Formation complète en techniques d'agriculture biologique et permaculture",
-          "provider": {
-            "@type": "Organization",
-            "name": "La Vida Luca"
+          "@type": "Question",
+          "name": "Combien coûte une formation agriculture biologique ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nos formations agriculture biologique coûtent entre 650€ et 850€ selon la durée (3 à 5 jours). Financement possible via OPCO, Pôle Emploi ou fonds personnels."
           }
         },
         {
-          "@type": "Course",
-          "name": "Formation IA Agricole",
-          "description": "Formation aux technologies d'intelligence artificielle appliquées à l'agriculture",
+          "@type": "Question",
+          "name": "Les formations sont-elles certifiantes ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui, toutes nos formations délivrent une attestation de formation professionnelle reconnue. Elles peuvent contribuer à votre parcours de certification agriculture biologique."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Où se déroulent les formations ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Les formations se déroulent principalement sur nos fermes pilotes en Normandie (Souleuvre-en-Bocage et Dozulé), avec des modules pratiques en conditions réelles."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il une expérience agricole préalable ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Une expérience de base est recommandée mais pas obligatoire. Nos formateurs s'adaptent au niveau de chaque participant."
+          }
+        }
+      ]
+    }
+    </script>
           "provider": {
             "@type": "Organization",
             "name": "La Vida Luca"

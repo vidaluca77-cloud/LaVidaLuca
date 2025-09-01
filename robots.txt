@@ -1,18 +1,34 @@
 User-agent: *
 Allow: /
 
-# Sitemap location
-Sitemap: https://www.lavidaluca.fr/sitemap.xml
-
-# Specific crawling instructions
+# Priority pages for agriculture SEO
 Allow: /index.html
+Allow: /agriculture-bio.html
+Allow: /blog-agriculture-bio-normandie.html
+Allow: /blog-protection-naturelle.html
+Allow: /blog-sol-compost.html
+Allow: /permaculture.html
+Allow: /pratiques-durables.html
+
+# Main pages
 Allow: /projets.html
 Allow: /formations.html
+Allow: /blog.html
 Allow: /benevoles.html
 Allow: /contact.html
 Allow: /dons.html
 Allow: /partenaires.html
+
+# Assets and resources
+Allow: /assets/
+Allow: /videos/
+Allow: /*.css
+Allow: /*.js
+Allow: /manifest.json
+
+# Legal pages
 Allow: /mentions.html
+Allow: /404.html
 
 # Disallow admin and processing files
 Disallow: /*.php
@@ -21,6 +37,29 @@ Disallow: /webhook*
 Disallow: /*_handler*
 Disallow: /test_*
 Disallow: /.env*
+Disallow: /admin/
+Disallow: /_data/
+Disallow: /_posts/
+Disallow: /_projets/
+Disallow: /_formations/
+Disallow: /_pages/
 
-# Crawl-delay (respectful to servers)
+# Specific bot instructions
+User-agent: Googlebot
+Allow: /
 Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 2
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 2
+
+# Sitemap location
+Sitemap: https://www.lavidaluca.fr/sitemap.xml
+
+# Additional sitemaps for specialized content
+Sitemap: https://www.lavidaluca.fr/sitemap-agriculture.xml
+Sitemap: https://www.lavidaluca.fr/sitemap-formations.xml
