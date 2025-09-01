@@ -31,20 +31,37 @@
 <meta name="theme-color" content="#2E7D32" />
 <link rel="manifest" href="/manifest.json" />
 
-<!-- Structured Data (JSON-LD) -->
+<!-- Enhanced Structured Data (JSON-LD) -->
 <script type="application/ld+json">
+[
 {
   "@context": "https://schema.org",
-  "@type": "Organization",
+  "@type": ["Organization", "LocalBusiness", "EducationalOrganization"],
   "name": "La Vida Luca",
-  "alternateName": "Association La Vida Luca",
+  "alternateName": ["Association La Vida Luca", "Fermes Pilotes Bio Normandie"],
   "url": "https://www.lavidaluca.fr",
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "email": "vidaluca77@gmail.com",
-    "contactType": "Customer Service",
-    "availableLanguage": "French"
-  },
+  "logo": "https://www.lavidaluca.fr/Logo La Vida Luca.png",
+  "image": "https://www.lavidaluca.fr/assets/og-image.jpg",
+  "sameAs": [
+    "https://www.facebook.com/lavidaluca77",
+    "https://www.instagram.com/lavidaluca77",
+    "https://www.linkedin.com/company/la-vida-luca"
+  ],
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "email": "vidaluca77@gmail.com",
+      "contactType": "Customer Service",
+      "availableLanguage": ["French", "fr"],
+      "areaServed": ["FR", "Normandie", "Calvados"]
+    },
+    {
+      "@type": "ContactPoint",
+      "email": "vidaluca77@gmail.com", 
+      "contactType": "Technical Support",
+      "availableLanguage": ["French", "fr"]
+    }
+  ],
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Souleuvre-en-Bocage",
@@ -53,9 +70,82 @@
     "addressRegion": "Normandie",
     "addressCountry": "FR"
   },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 48.8866,
+    "longitude": -0.8953
+  },
   "foundingDate": "2024",
-  "description": "Association loi 1901 spécialisée dans l'agriculture biologique, l'innovation agricole et l'insertion sociale"
+  "description": "Association loi 1901 spécialisée dans l'agriculture biologique, l'innovation agricole et l'insertion sociale. Réseau de 96 fermes pilotes innovantes en France.",
+  "keywords": "agriculture biologique, fermes pilotes, IA agricole, permaculture, formations agriculture, insertion sociale, développement durable, Normandie",
+  "slogan": "L'agriculture de demain, durable et innovante",
+  "areaServed": {
+    "@type": "GeoCircle",
+    "geoMidpoint": {
+      "@type": "GeoCoordinates",
+      "latitude": 48.8866,
+      "longitude": -0.8953
+    },
+    "geoRadius": "50000"
+  },
+  "serviceArea": [
+    {
+      "@type": "AdministrativeArea",
+      "name": "Normandie"
+    },
+    {
+      "@type": "AdministrativeArea", 
+      "name": "Calvados"
+    }
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Services La Vida Luca",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Formations Agriculture Biologique",
+          "description": "Formations pratiques en agriculture biologique et permaculture"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service", 
+          "name": "Conseil Agricole",
+          "description": "Accompagnement technique pour la transition vers l'agriculture biologique"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Insertion Sociale",
+          "description": "Programmes d'insertion sociale par l'agriculture"
+        }
+      }
+    ]
+  }
+},
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "La Vida Luca",
+  "url": "https://www.lavidaluca.fr",
+  "description": "Site officiel de La Vida Luca - Fermes pilotes biologiques innovantes en Normandie",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Association La Vida Luca"
+  },
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://www.lavidaluca.fr/blog.html?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
 }
+]
 </script>
 <style>
         * {
